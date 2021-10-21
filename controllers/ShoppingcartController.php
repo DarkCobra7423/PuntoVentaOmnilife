@@ -11,38 +11,30 @@ use yii\filters\VerbFilter;
 /**
  * ShoppingcartController implements the CRUD actions for Shoppingcart model.
  */
-class ShoppingcartController extends Controller
-{
+class ShoppingcartController extends Controller {
+
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+    public function behaviors() {
+        return [
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**
      * Lists all Shoppingcart models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $searchModel = new ShoppingcartSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -52,10 +44,9 @@ class ShoppingcartController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($idshoppingcart)
-    {
+    public function actionView($idshoppingcart) {
         return $this->render('view', [
-            'model' => $this->findModel($idshoppingcart),
+                    'model' => $this->findModel($idshoppingcart),
         ]);
     }
 
@@ -64,8 +55,7 @@ class ShoppingcartController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Shoppingcart();
 
         if ($this->request->isPost) {
@@ -77,7 +67,7 @@ class ShoppingcartController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -88,8 +78,7 @@ class ShoppingcartController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($idshoppingcart)
-    {
+    public function actionUpdate($idshoppingcart) {
         $model = $this->findModel($idshoppingcart);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
@@ -97,7 +86,7 @@ class ShoppingcartController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -108,8 +97,7 @@ class ShoppingcartController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($idshoppingcart)
-    {
+    public function actionDelete($idshoppingcart) {
         $this->findModel($idshoppingcart)->delete();
 
         return $this->redirect(['index']);
@@ -122,12 +110,12 @@ class ShoppingcartController extends Controller
      * @return Shoppingcart the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idshoppingcart)
-    {
+    protected function findModel($idshoppingcart) {
         if (($model = Shoppingcart::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }

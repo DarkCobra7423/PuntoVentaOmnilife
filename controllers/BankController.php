@@ -11,38 +11,30 @@ use yii\filters\VerbFilter;
 /**
  * BankController implements the CRUD actions for Bank model.
  */
-class BankController extends Controller
-{
+class BankController extends Controller {
+
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+    public function behaviors() {
+        return [
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**
      * Lists all Bank models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $searchModel = new BankSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -52,10 +44,9 @@ class BankController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($idbank)
-    {
+    public function actionView($idbank) {
         return $this->render('view', [
-            'model' => $this->findModel($idbank),
+                    'model' => $this->findModel($idbank),
         ]);
     }
 
@@ -64,8 +55,7 @@ class BankController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Bank();
 
         if ($this->request->isPost) {
@@ -77,7 +67,7 @@ class BankController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -88,8 +78,7 @@ class BankController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($idbank)
-    {
+    public function actionUpdate($idbank) {
         $model = $this->findModel($idbank);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
@@ -97,7 +86,7 @@ class BankController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -108,8 +97,7 @@ class BankController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($idbank)
-    {
+    public function actionDelete($idbank) {
         $this->findModel($idbank)->delete();
 
         return $this->redirect(['index']);
@@ -122,12 +110,12 @@ class BankController extends Controller
      * @return Bank the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idbank)
-    {
+    protected function findModel($idbank) {
         if (($model = Bank::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }

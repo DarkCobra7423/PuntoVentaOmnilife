@@ -11,38 +11,30 @@ use yii\filters\VerbFilter;
 /**
  * ShoppingController implements the CRUD actions for Shopping model.
  */
-class ShoppingController extends Controller
-{
+class ShoppingController extends Controller {
+
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+    public function behaviors() {
+        return [
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**
      * Lists all Shopping models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $searchModel = new ShoppingSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -52,10 +44,9 @@ class ShoppingController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($idshopping)
-    {
+    public function actionView($idshopping) {
         return $this->render('view', [
-            'model' => $this->findModel($idshopping),
+                    'model' => $this->findModel($idshopping),
         ]);
     }
 
@@ -64,8 +55,7 @@ class ShoppingController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Shopping();
 
         if ($this->request->isPost) {
@@ -77,7 +67,7 @@ class ShoppingController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -88,8 +78,7 @@ class ShoppingController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($idshopping)
-    {
+    public function actionUpdate($idshopping) {
         $model = $this->findModel($idshopping);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
@@ -97,7 +86,7 @@ class ShoppingController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -108,8 +97,7 @@ class ShoppingController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($idshopping)
-    {
+    public function actionDelete($idshopping) {
         $this->findModel($idshopping)->delete();
 
         return $this->redirect(['index']);
@@ -122,12 +110,12 @@ class ShoppingController extends Controller
      * @return Shopping the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idshopping)
-    {
+    protected function findModel($idshopping) {
         if (($model = Shopping::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }

@@ -11,38 +11,30 @@ use yii\filters\VerbFilter;
 /**
  * FlavorController implements the CRUD actions for Flavor model.
  */
-class FlavorController extends Controller
-{
+class FlavorController extends Controller {
+
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+    public function behaviors() {
+        return [
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**
      * Lists all Flavor models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $searchModel = new FlavorSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -52,10 +44,9 @@ class FlavorController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($idflavor)
-    {
+    public function actionView($idflavor) {
         return $this->render('view', [
-            'model' => $this->findModel($idflavor),
+                    'model' => $this->findModel($idflavor),
         ]);
     }
 
@@ -64,8 +55,7 @@ class FlavorController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Flavor();
 
         if ($this->request->isPost) {
@@ -77,7 +67,7 @@ class FlavorController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -88,8 +78,7 @@ class FlavorController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($idflavor)
-    {
+    public function actionUpdate($idflavor) {
         $model = $this->findModel($idflavor);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
@@ -97,7 +86,7 @@ class FlavorController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -108,8 +97,7 @@ class FlavorController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($idflavor)
-    {
+    public function actionDelete($idflavor) {
         $this->findModel($idflavor)->delete();
 
         return $this->redirect(['index']);
@@ -122,12 +110,12 @@ class FlavorController extends Controller
      * @return Flavor the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idflavor)
-    {
+    protected function findModel($idflavor) {
         if (($model = Flavor::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }

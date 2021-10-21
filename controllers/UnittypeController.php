@@ -11,38 +11,30 @@ use yii\filters\VerbFilter;
 /**
  * UnittypeController implements the CRUD actions for Unittype model.
  */
-class UnittypeController extends Controller
-{
+class UnittypeController extends Controller {
+
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+    public function behaviors() {
+        return [
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**
      * Lists all Unittype models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $searchModel = new UnittypeSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -52,10 +44,9 @@ class UnittypeController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($idunittype)
-    {
+    public function actionView($idunittype) {
         return $this->render('view', [
-            'model' => $this->findModel($idunittype),
+                    'model' => $this->findModel($idunittype),
         ]);
     }
 
@@ -64,8 +55,7 @@ class UnittypeController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Unittype();
 
         if ($this->request->isPost) {
@@ -77,7 +67,7 @@ class UnittypeController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -88,8 +78,7 @@ class UnittypeController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($idunittype)
-    {
+    public function actionUpdate($idunittype) {
         $model = $this->findModel($idunittype);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
@@ -97,7 +86,7 @@ class UnittypeController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -108,8 +97,7 @@ class UnittypeController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($idunittype)
-    {
+    public function actionDelete($idunittype) {
         $this->findModel($idunittype)->delete();
 
         return $this->redirect(['index']);
@@ -122,12 +110,12 @@ class UnittypeController extends Controller
      * @return Unittype the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idunittype)
-    {
+    protected function findModel($idunittype) {
         if (($model = Unittype::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }

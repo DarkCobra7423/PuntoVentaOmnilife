@@ -6,13 +6,13 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'Omnilife',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],    
+    'bootstrap' => ['log'],
     'language' => 'es-ES',
     'timezone' => 'America/Mexico_City',
-    'name' => 'Omnilife',     
+    'name' => 'Omnilife',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -39,14 +39,13 @@ $config = [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
-                [
+                    [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
             ],
         ],
         'db' => $db,
-
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -57,15 +56,32 @@ $config = [
             ],
         ],
         /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
+          'urlManager' => [
+          'enablePrettyUrl' => true,
+          'showScriptName' => false,
+          'rules' => [
+          ],
+          ],
+         */
+        'user' => [
+            'class' => 'webvimark\modules\UserManagement\components\UserConfig',
+            // Comment this if you don't want to record user logins
+            'on afterLogin' => function($event) {
+                \webvimark\modules\UserManagement\models\UserVisitLog::newVisitor($event->identity->id);
+            }
         ],
-        */
     ],
     'params' => $params,
+    'modules' => [
+        'user-management' => [
+            'class' => 'webvimark\modules\UserManagement\UserManagementModule',
+            'on beforeAction' => function(yii\base\ActionEvent $event) {
+                if ($event->action->uniqueId == 'user-management/auth/login') {
+                    $event->action->controller->layout = 'loginLayout.php';
+                };
+            },
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {
@@ -73,17 +89,17 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+            // uncomment the following to add your IP if you are not connecting from localhost.
+            //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
-/*
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
-    */
+    /*
+      $config['bootstrap'][] = 'gii';
+      $config['modules']['gii'] = [
+      'class' => 'yii\gii\Module',
+      // uncomment the following to add your IP if you are not connecting from localhost.
+      //'allowedIPs' => ['127.0.0.1', '::1'],
+      ];
+     */
 }
 
 return $config;

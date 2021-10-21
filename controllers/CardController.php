@@ -11,38 +11,30 @@ use yii\filters\VerbFilter;
 /**
  * CardController implements the CRUD actions for Card model.
  */
-class CardController extends Controller
-{
+class CardController extends Controller {
+
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+    public function behaviors() {
+        return [
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**
      * Lists all Card models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $searchModel = new CardSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -52,10 +44,9 @@ class CardController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($idcard)
-    {
+    public function actionView($idcard) {
         return $this->render('view', [
-            'model' => $this->findModel($idcard),
+                    'model' => $this->findModel($idcard),
         ]);
     }
 
@@ -64,8 +55,7 @@ class CardController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Card();
 
         if ($this->request->isPost) {
@@ -77,7 +67,7 @@ class CardController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -88,8 +78,7 @@ class CardController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($idcard)
-    {
+    public function actionUpdate($idcard) {
         $model = $this->findModel($idcard);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
@@ -97,7 +86,7 @@ class CardController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
@@ -108,8 +97,7 @@ class CardController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($idcard)
-    {
+    public function actionDelete($idcard) {
         $this->findModel($idcard)->delete();
 
         return $this->redirect(['index']);
@@ -122,12 +110,12 @@ class CardController extends Controller
      * @return Card the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idcard)
-    {
+    protected function findModel($idcard) {
         if (($model = Card::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }
