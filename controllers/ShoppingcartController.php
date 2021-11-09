@@ -37,6 +37,13 @@ class ShoppingcartController extends Controller {
                     'dataProvider' => $dataProvider,
         ]);
     }
+    
+    public function actionMyshopping() {
+        return $this->render('myshopping', [
+        //            'searchModel' => $searchModel,
+        //            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Shoppingcart model.

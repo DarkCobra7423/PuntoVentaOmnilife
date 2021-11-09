@@ -48,4 +48,13 @@ return array (
       '@yii/swiftmailer' => $vendorDir . '/yiisoft/yii2-swiftmailer/src',
     ),
   ),
+  'kv4nt/yii2-owl-carousel2' => 
+  array (
+    'name' => 'kv4nt/yii2-owl-carousel2',
+    'version' => '1.0.3.0',
+    'alias' => 
+    array (
+      '@kv4nt/owlcarousel' => $vendorDir . '/kv4nt/yii2-owl-carousel2',
+    ),
+  ),
 );

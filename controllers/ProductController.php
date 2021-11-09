@@ -37,6 +37,12 @@ class ProductController extends Controller {
                     'dataProvider' => $dataProvider,
         ]);
     }
+    
+    public function actionDashboard() {
+        return $this->render('dashboard', [
+                    //'model' => $this->findModel($idproduct),
+        ]);
+    }
 
     /**
      * Displays a single Product model.

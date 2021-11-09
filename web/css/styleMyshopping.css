@@ -1,0 +1,595 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 9/11/2021, 03:28:00 PM
+    Author     : DarkCobra
+*/
+
+.totalshopping{
+    font-size: 12px;
+    color: rgba(0,0,0,.55);
+}
+
+
+
+/*! CSS Used from: Embedded ; media=(max-width: 1023px) */
+@media (max-width: 1023px) {
+  :focus:not(:focus-visible) {
+    outline: 0;
+  }
+}
+/*! CSS Used from: https://http2.mlstatic.com/frontend-assets/bf-purchases-frontend-web/list.62d71920.css */
+.bf-ui-rich-text {
+  white-space: pre-wrap;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.bf-ui-rich-text.bf-ui-rich-text--bold {
+  font-weight: 600;
+}
+.bf-ui-rich-text.bf-ui-rich-text--success {
+  color: #00a650;
+}
+.bf-ui-rich-icon {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  max-height: 24px;
+  vertical-align: middle;
+}
+.bf-ui-rich-icon .bf-ui-icon-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  width: auto;
+}
+.bf-ui-icon {
+  max-height: 16px;
+  max-width: 16px;
+  width: 16px;
+}
+.bf-ui-icon.bf-ui-icon--full {
+  max-height: 24px;
+  width: 71px;
+  max-width: 71px;
+}
+.bf-ui-icon-container--regular {
+  display: -webkit-flex;
+  display: flex;
+  height: 100%;
+}
+.andes-button {
+  font-family: Proxima Nova, -apple-system, Helvetica Neue, Helvetica, Roboto,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 48px;
+  padding: 0 24px;
+  height: 48px;
+  text-align: center;
+  border-radius: 6px;
+  -webkit-transition: 0.18s ease-out;
+  transition: 0.18s ease-out;
+  -webkit-transition-property: background, color;
+  transition-property: background, color;
+  display: inline-block;
+  width: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.andes-button:link {
+  text-decoration: none;
+}
+.andes-button,
+.andes-button * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.andes-button__content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.andes-button__content {
+  height: 100%;
+}
+.andes-button__content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.andes-button__content * {
+  display: block;
+  float: left;
+}
+.andes-button__text {
+  -webkit-flex: 1;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.andes-button--medium {
+  font-size: 14px;
+  line-height: 32px;
+  padding: 0 12px;
+  height: 32px;
+  border-radius: 5px;
+}
+.andes-button--medium .andes-button__text {
+  margin: 0;
+}
+.andes-button--loud {
+  cursor: pointer;
+  -webkit-transition: box-shadow 0.25s ease-out, background-color 0.2s ease-out;
+  transition: box-shadow 0.25s ease-out, background-color 0.2s ease-out;
+  box-shadow: 0 0 0 0 #fff;
+}
+.andes-button--loud,
+.andes-button--loud:focus,
+.andes-button--loud:link,
+.andes-button--loud:visited {
+  border-color: transparent;
+  background-color: #3483fa;
+  color: #fff;
+}
+.andes-button--loud:hover {
+  border-color: transparent;
+  background-color: #2968c8;
+  color: #fff;
+  -webkit-transition: background-color 0.2s ease-in;
+  transition: background-color 0.2s ease-in;
+}
+.andes-button--loud:active {
+  border-color: transparent;
+  background-color: #1f4e96;
+  color: #fff;
+}
+.andes-button--loud:disabled {
+  border-color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.25);
+  cursor: default;
+  background-clip: padding-box;
+}
+.andes-button--loud:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.1875em rgba(30, 109, 255, 0.3);
+  -webkit-transition: box-shadow 0.25s ease-in;
+  transition: box-shadow 0.25s ease-in;
+}
+.andes-button--quiet {
+  cursor: pointer;
+  -webkit-transition: box-shadow 0.25s ease-out, background-color 0.2s ease-out;
+  transition: box-shadow 0.25s ease-out, background-color 0.2s ease-out;
+  box-shadow: 0 0 0 0 #fff;
+}
+.andes-button--quiet,
+.andes-button--quiet:focus,
+.andes-button--quiet:link,
+.andes-button--quiet:visited {
+  border-color: transparent;
+  background-color: rgba(65, 137, 230, 0.15);
+  color: #3483fa;
+}
+.andes-button--quiet:hover {
+  border-color: transparent;
+  background-color: rgba(65, 137, 230, 0.2);
+  color: #3483fa;
+  -webkit-transition: background-color 0.2s ease-in;
+  transition: background-color 0.2s ease-in;
+}
+.andes-button--quiet:active {
+  border-color: transparent;
+  background-color: rgba(65, 137, 230, 0.3);
+  color: #3483fa;
+}
+.andes-button--quiet:disabled {
+  border-color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.25);
+  cursor: default;
+  background-clip: padding-box;
+}
+.andes-button--quiet:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.1875em rgba(30, 109, 255, 0.3);
+  -webkit-transition: box-shadow 0.25s ease-in;
+  transition: box-shadow 0.25s ease-in;
+}
+.andes-button--quiet:after,
+.andes-button--quiet:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0.0555555556em;
+  margin: -0.0555555556em;
+  border-radius: 0.2222222222em;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  border-color: transparent;
+  background-color: rgba(65, 137, 230, 0.2);
+  color: #3483fa;
+}
+.andes-button--loud:after,
+.andes-button--loud:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0.0555555556em;
+  margin: -0.0555555556em;
+  border-radius: 0.2222222222em;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  border-color: transparent;
+  background-color: #2968c8;
+  color: #fff;
+}
+.bf-ui-button {
+  box-shadow: none;
+  -webkit-transition: none;
+  transition: none;
+}
+.bf-ui-button.andes-button--loud .andes-button__content {
+  display: inline;
+  text-align: center;
+}
+.bf-ui-button.andes-button--loud .andes-button__text {
+  display: inline;
+  float: none;
+}
+.bf-ui-button.andes-button {
+  stroke-width: 0;
+}
+@media (max-width: 1200px) {
+  .bf-ui-button {
+    display: block;
+    margin: 0 auto;
+  }
+}
+.bf-ui-button.andes-button--loud:before {
+  -webkit-transform: none;
+  transform: none;
+  background-color: transparent;
+  pointer-events: none;
+}
+.list-item {
+  padding: 16px;
+  border-bottom: 1px solid #ededed;
+  text-align: left;
+  width: auto;
+  line-height: 18px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.list-item:last-child {
+  border-bottom: none;
+}
+.list-item:active {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+.list-item__product {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-order: 1;
+  order: 1;
+  -webkit-flex: 1 1 50%;
+  flex: 1 1 50%;
+}
+.list-item .text-with-link {
+  margin-left: 88px;
+  margin-top: 16px;
+  -webkit-order: 2;
+  order: 2;
+}
+.list-item .bf-ui-button-container {
+  justify-self: flex-end;
+  margin-left: 88px;
+  margin-top: 16px;
+  -webkit-order: 3;
+  order: 3;
+}
+.list-item .bf-ui-button-container .bf-ui-button + .bf-ui-button {
+  margin-top: 8px;
+}
+.list-item__data {
+  margin-left: 16px;
+  display: block;
+}
+.list-item__info,
+.list-item__link {
+  font-size: 14px;
+  font-weight: 400;
+}
+.list-item__info,
+.list-item__link {
+  color: rgba(0, 0, 0, 0.55);
+  margin: 16px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list-item__info .bf-ui-rich-text,
+.list-item__link .bf-ui-rich-text {
+  white-space: pre-wrap;
+}
+.list-item__link + .list-item__info {
+  margin: 0;
+}
+.list-item__title {
+  margin: 0 0 6px;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 14px;
+  font-weight: 400;
+}
+.list-item__title .bf-ui-icon--full {
+  width: 40px;
+  margin-bottom: -2px;
+}
+.list-item__intro {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 6px;
+  color: rgba(0, 0, 0, 0.55);
+}
+.list-item__image {
+  width: 72px;
+  min-width: 72px;
+  height: 72px;
+  position: relative;
+}
+.list-item__image .bf-ui-image--default {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 480px) {
+  .list-item__info .bf-ui-rich-text,
+  .list-item__link .bf-ui-rich-text {
+    white-space: nowrap;
+  }
+  .list-item__info,
+  .list-item__link {
+    margin: 16px 0 0;
+  }
+  .list-item__link + .list-item__info,
+  .list-item__title {
+    margin: 0;
+  }
+  .list-item .bf-ui-button-container,
+  .list-item .text-with-link {
+    margin-left: 96px;
+  }
+}
+@media (min-width: 768px) {
+  .list-item {
+    cursor: auto;
+    padding: 24px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+  .list-item:active {
+    background-color: transparent;
+  }
+  .list-item__product {
+    padding-right: 24px;
+  }
+  .list-item__image {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .list-item__data {
+    margin-left: 24px;
+    max-width: none;
+    display: grid;
+  }
+  .list-item__title {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .list-item__link:hover {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .list-item .text-with-link {
+    -webkit-order: 3;
+    order: 3;
+  }
+  .list-item .bf-ui-link {
+    font-weight: 600;
+  }
+  .list-item .bf-ui-button-container {
+    text-align: right;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    max-width: none;
+    margin: 0;
+    -webkit-order: 2;
+    order: 2;
+  }
+  .list-item .bf-ui-button-container .bf-ui-button {
+    display: block;
+    margin: 0;
+    width: 160px;
+  }
+}
+@media (min-width: 1024px) {
+  .list-item {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  .list-item__product {
+    width: 50%;
+  }
+  .list-item .text-with-link {
+    width: 25%;
+    margin-left: 0;
+    margin-top: 0;
+    -webkit-order: 2;
+    order: 2;
+  }
+  .list-item .bf-ui-button-container {
+    width: 25%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+    -webkit-flex-flow: wrap-reverse;
+    flex-flow: wrap-reverse;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-order: 3;
+    order: 3;
+  }
+  .list-item__info .bf-ui-rich-text,
+  .list-item__link .bf-ui-rich-text {
+    max-width: 100%;
+  }
+}
+.list-item-grouper {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  -webkit-filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.12));
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.12));
+  margin-bottom: 16px;
+}
+.list-item-grouper--header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.list-item-grouper--text {
+  font-size: 14px;
+  float: left;
+  line-height: 1.25;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  padding: 12px 0 12px 16px;
+}
+@media (min-width: 768px) {
+  .list-item-grouper {
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+  .list-item-grouper--text {
+    line-height: 1;
+  }
+  .list-item-grouper--text {
+    padding: 16px 0 16px 24px;
+  }
+}
+.text-with-link__text {
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 14px;
+  font-weight: 400;
+}
+.text-with-link .bf-ui-link {
+  font-size: 14px;
+}
+.bf-ui-link {
+  cursor: pointer;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-align-items: center;
+  align-items: center;
+  font-family: Proxima Nova, -apple-system, Helvetica Neue, Helvetica, Roboto,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3483fa;
+  fill: #3483fa;
+  -webkit-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
+  position: relative;
+}
+.bf-ui-link--xsmall {
+  font-size: 12px;
+}
+.bf-ui-link:focus {
+  outline: 0;
+}
+.bf-ui-link:hover {
+  color: #1f4e96;
+}
+/*! CSS Used fontfaces */
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+  src: url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff2)
+      format("woff2"),
+    url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.woff)
+      format("woff"),
+    url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-light.ttf)
+      format("truetype");
+}
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+  src: url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2)
+      format("woff2"),
+    url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff)
+      format("woff"),
+    url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.ttf)
+      format("truetype");
+}
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+  src: url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2)
+      format("woff2"),
+    url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff)
+      format("woff"),
+    url(https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.ttf)
+      format("truetype");
+}

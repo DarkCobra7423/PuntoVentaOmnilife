@@ -26,45 +26,39 @@ echo GhostMenu::widget([
 
 ?>
 
+<!-------------------------------------------------------------------------------------------------->
 
-<?php
-use yii\bootstrap4\Carousel;
-/*
-echo Carousel::widget([
-    'items' => [
-        // el artículo contiene solo la imagen
-        '<img src="https://static-cse.canva.com/blob/646804/posters.jpg"/>',
-        // equivalente a lo anterior
-        ['content' => '<img src="https://binaries.templates.cdn.office.net/support/templates/es-es/lt23311183_quantized.png"/>'],
-        // el artículo contiene tanto la imagen como el título
-        [
-            'content' => '<img src="https://cdn-1.motorsport.com/images/amp/Y99ALkPY/s1000/locandina-misano-1.jpg"/>',
-            'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
-            //'options' => [...],
-        ],
-    ]
-]);
-*/
-echo Carousel::widget([
-    'items' => [
-        
-        [
-            'content' => '<img src="https://cdn-1.motorsport.com/images/amp/Y99ALkPY/s1000/locandina-misano-1.jpg"/>',
-            'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
-            //'options' => [...],
-        ],
-        [
-            'content' => '<img src="https://static-cse.canva.com/blob/646804/posters.jpg"/>',
-            'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
-            //'options' => [...],
-        ],
-        [
-            'content' => '<img src="https://binaries.templates.cdn.office.net/support/templates/es-es/lt23311183_quantized.png"/>',
-            'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
-            //'options' => [...],
-        ],
-    ]
+<?php 
+use webvimark\modules\UserManagement\models\User;
+//use webvimark\modules\UserManagement\models\User;
+
+if(User::hasRole(['vendedor'])){
+    echo 'este es el admin';
+}
+
+echo 'apartir de aqui es<br>';
+
+echo GhostMenu::widget([
+    
+    'encodeLabels'=>false,
+	'activateParents'=>true,
+	'items' => [
+		
+			['label' => 'Bank', 'url' => ['/bank/index']],
+            ['label' => 'crea tu cuenta', 'url' => ['/user-management/auth/registration']],
+            ['label' => 'sobre mi', 'url' => ['/site/about']],
+                    
+            ]
+    
 ]);
 
 
+if (User::hasRole('cliente')) {
+    echo 'este es el cliente';
+}
+
+//SELECT * FROM `auth_assignment` WHERE `user_id` IN (4, 3, 1);  Obtener los roles
+//SELECT * FROM `auth_assignment` WHERE `user_id` IN (6, 5, 4, 3, 1)
+//Yii::$app->user->id
 ?>
+
