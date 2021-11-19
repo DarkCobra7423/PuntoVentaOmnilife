@@ -43,6 +43,12 @@ class ProductController extends Controller {
                     //'model' => $this->findModel($idproduct),
         ]);
     }
+    
+    public function actionSeeproduct() {
+        return $this->render('seeproduct', [
+                    //'model' => $this->findModel($idproduct),
+        ]);
+    }
 
     /**
      * Displays a single Product model.

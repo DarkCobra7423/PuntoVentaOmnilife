@@ -38,6 +38,14 @@ class ShoppingcartController extends Controller {
         ]);
     }
     
+    public function actionShoppingcart(){
+        
+        $carts = Shoppingcart::find()->all();
+        
+        return $this->render('shoppingcart', ['carts' => $carts]);
+    }
+
+
     public function actionMyshopping() {
         return $this->render('myshopping', [
         //            'searchModel' => $searchModel,

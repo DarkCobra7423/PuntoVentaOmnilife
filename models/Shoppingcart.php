@@ -87,4 +87,8 @@ class Shoppingcart extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Shopping::className(), ['idshopping' => 'fkshopping']);
     }
+    
+    public function getImage() {
+        return Yii::$app->homeUrl . "resources/images/" . $this->fkproduct0->image;
+    }
 }

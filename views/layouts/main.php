@@ -76,7 +76,7 @@ AppAsset::register($this);
                                 ['label' => 'Panel de control', 'url' => ['/product/dashboard']]
                             ) : (''),                                            
                     $rol == 'Cliente' ? (
-                                ['label' => '<i class="fas fa-shopping-cart"></i>', 'url' => ['/shoppingcart/index']]
+                                ['label' => '<i class="fas fa-shopping-cart"></i>', 'url' => ['/shoppingcart/shoppingcart']]
                             ) : (''),                        
                     Yii::$app->user->isGuest ? ('') : (
                                 ['label' => 'Salir (' . Yii::$app->user->identity->username . ')', 'url' => ['/user-management/auth/logout']]
