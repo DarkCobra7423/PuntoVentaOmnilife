@@ -123,6 +123,20 @@ $this->title = 'Omnilife Castellanos';
 
         }
     </style>
+    
+    <style>
+    #container-id1 .owl-item{
+         margin-left:  5px;
+         margin-right: 5px;
+         /*width: 400px*/
+    }
+    
+    .owl-stage{
+        width: 3000px;
+    }
+</style>
+
+<h4>Productos <a href="#" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
 
     <?php
     OwlCarouselWidget::begin([
@@ -142,20 +156,107 @@ $this->title = 'Omnilife Castellanos';
         ]
     ]);
     ?>
-
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/5177432_V2.png" alt="Image 1" style="/*max-height: 500px;*/"></div>
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/6379929.png" alt="Image 2" style="/*max-height: 500px;*/"></div>
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/2603201.png" alt="Image 3" style="/*max-height: 500px;*/"></div>
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/2350430.png" alt="Image 3" style="/*max-height: 500px;*/"></div>
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/2075722.png" alt="Image 3" style="/*max-height: 500px;*/"></div>
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/2923227.png" alt="Image 3" style="/*max-height: 500px;*/"></div>
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/2505711.png" alt="Image 3" style="/*max-height: 500px;*/"></div>
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/3000730.png" alt="Image 3" style="/*max-height: 500px;*/"></div>
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/3575605_.png" alt="Image 3" style="/*max-height: 500px;*/"></div>
-    <div class="item-class"><img src="https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/1578400.png" alt="Image 3" style="/*max-height: 500px;*/"></div>
+<!-- ------------ Cards ------------------>
 
 
-    <?php OwlCarouselWidget::end(); ?>
+<?php foreach ($products as $product): ?>
+<div class="item-class">  
+
+        <div data-index="0" class="slick-slide slick-active" tabindex="-1" style="outline: none; width: 240px;">
+            <div class="ui-item__wrapper price-digits-4__wrapper with-discount__wrapper with-installments__wrapper">
+                <a href="/Omnilife/web/producto/verproducto/12" class="ui-item price-digits-4 with-discount with-installments" aria-label="">
+                    <!--<a href="#" class="ui-item price-digits-4 with-discount with-installments" aria-label="">-->
+                    <div class="ui-item__image-container">
+                      <!--  <img src="images/products/slider12.webp" class="ui-item__image" width="224" height="224" alt="" srcset=""> -->
+                       <img src="<?=$product->image ?>" class="ui-item__image" width="224" height="224" alt="" srcset="">
+                    </div>
+                    <div class="ui-item__content">
+                        <div class="ui-item__price-block">
+                            <span class="price-tag ui-item__price">
+                              <!--<span class="price-tag-text-sr-only">8499 pesos</span>-->
+                                <span class="price-tag-amount" aria-hidden="true">
+                                    <span class="price-tag-symbol">$</span>
+                                    <span class="price-tag-fraction"><?= $product->price; ?></span>
+                                </span>
+                            </span>
+                            <span class="ui-item__discount-text"><?= $product->unittype; ?></span>
+                            <span class="ui-item__installments"><?= $product->product; ?></span>
+                            <!--<p class="ui-item__shipping-free">Envío gratis</p>-->
+                        </div>
+                        <p class="ui-item__title" aria-hidden="true"><?= $product->product; ?></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+<?php endforeach; ?>
+<!-- -------- fin del card ----------------- -->
+<?php OwlCarouselWidget::end(); ?>
+
+
+
+<h4>Productos Por Caja <a href="#" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
+
+    <?php
+    OwlCarouselWidget::begin([
+        'container' => 'div',
+        'containerOptions' => [
+            'id' => 'container-id2',
+            'class' => 'container-class'
+        ],
+        'pluginOptions' => [
+            'autoplay' => false,
+            'autoplayTimeout' => 3000,
+            'items' => 5,
+            'loop' => true,
+            'itemsDesktop' => [1199, 3], //[1199, 3]
+            'itemsDesktopSmall' => [979, 3], //[979, 3]
+            'nav' => true
+        ]
+    ]);
+    ?>
+<!-- ------------ Cards ------------------>
+
+
+<?php foreach ($products as $product): ?>
+<div class="item-class">  
+
+        <div data-index="0" class="slick-slide slick-active" tabindex="-1" style="outline: none; width: 240px;">
+            <div class="ui-item__wrapper price-digits-4__wrapper with-discount__wrapper with-installments__wrapper">
+                <a href="/Omnilife/web/producto/verproducto/12" class="ui-item price-digits-4 with-discount with-installments" aria-label="">
+                    <!--<a href="#" class="ui-item price-digits-4 with-discount with-installments" aria-label="">-->
+                    <div class="ui-item__image-container">
+                      <!--  <img src="images/products/slider12.webp" class="ui-item__image" width="224" height="224" alt="" srcset=""> -->
+                       <img src="<?=$product->image ?>" class="ui-item__image" width="224" height="224" alt="" srcset="">
+                    </div>
+                    <div class="ui-item__content">
+                        <div class="ui-item__price-block">
+                            <span class="price-tag ui-item__price">
+                              <!--<span class="price-tag-text-sr-only">8499 pesos</span>-->
+                                <span class="price-tag-amount" aria-hidden="true">
+                                    <span class="price-tag-symbol">$</span>
+                                    <span class="price-tag-fraction"><?= $product->price; ?></span>
+                                </span>
+                            </span>
+                            <span class="ui-item__discount-text"><?= $product->unittype; ?></span>
+                            <span class="ui-item__installments"><?= $product->product; ?></span>
+                            <!--<p class="ui-item__shipping-free">Envío gratis</p>-->
+                        </div>
+                        <p class="ui-item__title" aria-hidden="true"><?= $product->product; ?></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+<?php endforeach; ?>
+<!-- -------- fin del card ----------------- -->
+ <?php OwlCarouselWidget::end(); ?>
+
+
 
 
 </div>
@@ -163,6 +264,8 @@ $this->title = 'Omnilife Castellanos';
 <script>
     document.getElementById("idContainer").className = "";
     document.getElementById("idMain").className = "";
+    
+    document.querySelector('#container-id1 div .owl-stage').removeAttribute('style');
 
     //document.getElementById('#container-id1 .owl-next span').innerHTML = "";
     //document.querySelector('#container-id1 .owl-next span').innerHTML = '1 elemento';

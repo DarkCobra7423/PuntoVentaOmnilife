@@ -147,4 +147,5 @@ AppAsset::register($this);
 <script src="<?= Yii::$app->homeUrl ?>js/scriptMain.js" type="text/javascript"></script>
 <script>
     $("#container-id1 .owl-next span").text("Escribe lo que quieras");
+    document.querySelector('#container-id1 div .owl-stage').removeAttribute('style');
 </script>

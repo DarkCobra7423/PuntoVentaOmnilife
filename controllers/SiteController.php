@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Product;
 
 class SiteController extends Controller {
 
@@ -45,9 +46,18 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
-        return $this->render('index');
+        
+          // SELECT * FROM `product` where `fkunittype`=1
+        $products = Product::find()->where(["fkunittype" => 1])->all();
+     
+        //print_r($products);
+        //die();
+        return $this->render('index', [
+                    'products' => $products,
+        ]); 
+        
     }
-
+    
     public function actionTest() {
         return $this->render('test');
     }

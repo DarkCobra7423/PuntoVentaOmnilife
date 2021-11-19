@@ -95,4 +95,12 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Shoppingcart::className(), ['fkproduct' => 'idproduct']);
     }
+    
+    public function getUnittype(){
+        return $this->fkunittype0->unittype;
+    }
+    /*
+    public function getImage(){
+        return Yii::$app->homeUrl."resources/images/products/".$this->image; 
+    }*/
 }

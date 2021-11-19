@@ -37,6 +37,11 @@ class ProfileController extends Controller {
                     'dataProvider' => $dataProvider,
         ]);
     }
+    
+      public function actionBinnacle(){
+        return $this->render('binnacle');
+    }
+
 
     /**
      * Displays a single Profile model.
