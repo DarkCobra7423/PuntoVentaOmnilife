@@ -9,10 +9,11 @@ use Yii;
  *
  * @property int $idshopping
  * @property string $datetime
- * @property int $fkprofileseller
+ * @property int $fkshoppingaddress
  * @property string $ticket
+ * @property string $shipping
  *
- * @property Profile $fkprofileseller0
+ * @property Shippingaddress $fkshoppingaddress0
  * @property Shoppingcart[] $shoppingcarts
  */
 class Shopping extends \yii\db\ActiveRecord
@@ -31,11 +32,12 @@ class Shopping extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['datetime', 'fkprofileseller', 'ticket'], 'required'],
+            [['datetime', 'fkshoppingaddress', 'ticket', 'shipping'], 'required'],
             [['datetime'], 'safe'],
-            [['fkprofileseller'], 'integer'],
+            [['fkshoppingaddress'], 'integer'],
+            [['shipping'], 'string'],
             [['ticket'], 'string', 'max' => 200],
-            [['fkprofileseller'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['fkprofileseller' => 'idprofile']],
+            [['fkshoppingaddress'], 'exist', 'skipOnError' => true, 'targetClass' => Shippingaddress::className(), 'targetAttribute' => ['fkshoppingaddress' => 'idshippingaddress']],
         ];
     }
 
@@ -47,19 +49,20 @@ class Shopping extends \yii\db\ActiveRecord
         return [
             'idshopping' => 'Idshopping',
             'datetime' => 'Datetime',
-            'fkprofileseller' => 'Fkprofileseller',
+            'fkshoppingaddress' => 'Fkshoppingaddress',
             'ticket' => 'Ticket',
+            'shipping' => 'Shipping',
         ];
     }
 
     /**
-     * Gets query for [[Fkprofileseller0]].
+     * Gets query for [[Fkshoppingaddress0]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getFkprofileseller0()
+    public function getFkshoppingaddress0()
     {
-        return $this->hasOne(Profile::className(), ['idprofile' => 'fkprofileseller']);
+        return $this->hasOne(Shippingaddress::className(), ['idshippingaddress' => 'fkshoppingaddress']);
     }
 
     /**

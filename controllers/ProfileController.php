@@ -39,19 +39,24 @@ class ProfileController extends Controller {
     }
     
       public function actionBinnacle(){
-        return $this->render('binnacle');
+          
+          $binnacles = \app\models\Shopping::find()->all();
+          
+          
+          
+        return $this->render('binnacle', ['binnacles' => $binnacles]);
     }
 
 
     /**
      * Displays a single Profile model.
-     * @param int $idprofile Idprofile
+     * @param int $id Idprofile
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($idprofile) {
+    public function actionView($id) {
         return $this->render('view', [
-                    'model' => $this->findModel($idprofile),
+                    'model' => $this->findModel($id),
         ]);
     }
 
@@ -65,7 +70,7 @@ class ProfileController extends Controller {
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'idprofile' => $model->idprofile]);
+                return $this->redirect(['view', 'id' => $model->idprofile]);
             }
         } else {
             $model->loadDefaultValues();
@@ -79,15 +84,15 @@ class ProfileController extends Controller {
     /**
      * Updates an existing Profile model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $idprofile Idprofile
+     * @param int $id Idprofile
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($idprofile) {
-        $model = $this->findModel($idprofile);
+    public function actionUpdate($id) {
+        $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'idprofile' => $model->idprofile]);
+            return $this->redirect(['view', 'id' => $model->idprofile]);
         }
 
         return $this->render('update', [
@@ -98,12 +103,12 @@ class ProfileController extends Controller {
     /**
      * Deletes an existing Profile model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $idprofile Idprofile
+     * @param int $id Idprofile
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($idprofile) {
-        $this->findModel($idprofile)->delete();
+    public function actionDelete($id) {
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
@@ -111,11 +116,11 @@ class ProfileController extends Controller {
     /**
      * Finds the Profile model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $idprofile Idprofile
+     * @param int $id Idprofile
      * @return Profile the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idprofile) {
+    protected function findModel($id) {
         if (($model = Profile::findOne($id)) !== null) {
             return $model;
         }

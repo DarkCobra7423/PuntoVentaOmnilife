@@ -4,6 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/site/index.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/models/Product.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/controllers/SiteController.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/profile/binnacle.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/config/web.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/controllers/ProfileController.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/models/Profile.php</file>
         </group>
     </open-files>
 </project-private>
