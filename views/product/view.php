@@ -17,21 +17,32 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'idproduct' => $model->idproduct], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'idproduct' => $model->idproduct], [
+        <?=
+        Html::a('Delete', ['delete', 'idproduct' => $model->idproduct], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
-        ]) ?>
+        ])
+        ?>
     </p>
 
-    <?= DetailView::widget([
+    <?=
+    DetailView::widget([
         'model' => $model,
         'attributes' => [
             'idproduct',
             'product',
-            'image',
+            //'image'
+            /* ['attribute' => 'imagen',
+              'format' => 'raw'], */
+                ['attribute' => 'imagen',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return Html::img($model->imagen);
+                }
+            ],
             'description:ntext',
             'fkflavor',
             'content',
@@ -39,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'stock',
             'price',
         ],
-    ]) ?>
+    ])
+    ?>
 
 </div>
