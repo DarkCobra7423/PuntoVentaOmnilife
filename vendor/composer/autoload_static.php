@@ -16,8 +16,8 @@ class ComposerStaticInit5341e83fba2ed73b09cab5ad40c47654
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
@@ -34,6 +34,7 @@ class ComposerStaticInit5341e83fba2ed73b09cab5ad40c47654
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
             'yii\\composer\\' => 13,
+            'yii\\bootstrap\\' => 14,
             'yii\\bootstrap4\\' => 15,
             'yii\\' => 4,
         ),
@@ -55,6 +56,9 @@ class ComposerStaticInit5341e83fba2ed73b09cab5ad40c47654
         'k' => 
         array (
             'kv4nt\\owlcarousel\\' => 18,
+            'kartik\\plugins\\fileinput\\' => 25,
+            'kartik\\file\\' => 12,
+            'kartik\\base\\' => 12,
         ),
         'c' => 
         array (
@@ -144,6 +148,10 @@ class ComposerStaticInit5341e83fba2ed73b09cab5ad40c47654
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-composer',
         ),
+        'yii\\bootstrap\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap/src',
+        ),
         'yii\\bootstrap4\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap4/src',
@@ -193,6 +201,18 @@ class ComposerStaticInit5341e83fba2ed73b09cab5ad40c47654
         'kv4nt\\owlcarousel\\' => 
         array (
             0 => __DIR__ . '/..' . '/kv4nt/yii2-owl-carousel2',
+        ),
+        'kartik\\plugins\\fileinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
+        ),
+        'kartik\\file\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-fileinput/src',
+        ),
+        'kartik\\base\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base/src',
         ),
         'cebe\\markdown\\' => 
         array (

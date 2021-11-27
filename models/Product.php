@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "product".
@@ -21,38 +22,40 @@ use Yii;
  * @property Unittype $fkunittype0
  * @property Shoppingcart[] $shoppingcarts
  */
-class Product extends \yii\db\ActiveRecord
-{
+class Product extends \yii\db\ActiveRecord {
+
+    public $images;
+
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'product';
     }
 
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['product', 'image', 'description', 'fkflavor', 'fkunittype', 'stock', 'price'], 'required'],
-            [['description'], 'string'],
-            [['fkflavor', 'content', 'fkunittype', 'stock'], 'integer'],
-            [['price'], 'number'],
-            [['product'], 'string', 'max' => 50],
-            [['image'], 'string', 'max' => 200],
-            [['fkflavor'], 'exist', 'skipOnError' => true, 'targetClass' => Flavor::className(), 'targetAttribute' => ['fkflavor' => 'idflavor']],
-            [['fkunittype'], 'exist', 'skipOnError' => true, 'targetClass' => Unittype::className(), 'targetAttribute' => ['fkunittype' => 'idunittype']],
+                [['product', 'image', 'description', 'fkflavor', 'fkunittype', 'stock', 'price'], 'required'],
+                [['description'], 'string'],
+                [['fkflavor', 'content', 'fkunittype', 'stock'], 'integer'],
+                [['price'], 'number'],
+                [['product'], 'string', 'max' => 50],
+                [['image'], 'string', 'max' => 200],
+                [['images'], 'safe'],
+                [['images'], 'file', 'extensions' => 'jpg, gif, png, webp'],
+                [['images'], 'file', 'maxSize' => '100000'],
+                [['fkflavor'], 'exist', 'skipOnError' => true, 'targetClass' => Flavor::className(), 'targetAttribute' => ['fkflavor' => 'idflavor']],
+                [['fkunittype'], 'exist', 'skipOnError' => true, 'targetClass' => Unittype::className(), 'targetAttribute' => ['fkunittype' => 'idunittype']],
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'idproduct' => 'Idproduct',
             'product' => 'Product',
@@ -63,6 +66,7 @@ class Product extends \yii\db\ActiveRecord
             'fkunittype' => 'Fkunittype',
             'stock' => 'Stock',
             'price' => 'Price',
+            'images' => 'Imagen',
         ];
     }
 
@@ -71,8 +75,7 @@ class Product extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getFkflavor0()
-    {
+    public function getFkflavor0() {
         return $this->hasOne(Flavor::className(), ['idflavor' => 'fkflavor']);
     }
 
@@ -81,8 +84,7 @@ class Product extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getFkunittype0()
-    {
+    public function getFkunittype0() {
         return $this->hasOne(Unittype::className(), ['idunittype' => 'fkunittype']);
     }
 
@@ -91,16 +93,18 @@ class Product extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getShoppingcarts()
-    {
+    public function getShoppingcarts() {
         return $this->hasMany(Shoppingcart::className(), ['fkproduct' => 'idproduct']);
     }
-    
-    public function getUnittype(){
+
+    public function getUnittype() {
         return $this->fkunittype0->unittype;
     }
-    /*
-    public function getImage(){
-        return Yii::$app->homeUrl."resources/images/products/".$this->image; 
-    }*/
+
+    public function getImagen() {
+   //   return Html::img('../resources/images/products/'. $this->image);
+         return Yii::$app->homeUrl."resources/images/products/".$this->image;
+          
+    }
+
 }

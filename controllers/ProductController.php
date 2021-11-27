@@ -2,11 +2,14 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\Product;
 use app\models\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -38,15 +41,14 @@ class ProductController extends Controller {
         ]);
     }
     
-    public function actionDashboard() {
+    public function actionProducts(){
+        $products = Product::find()->all();
+        return $this->render('products', ['products' => $products]);
+    }
+
+        public function actionDashboard() {
         return $this->render('dashboard', [
                     //'model' => $this->findModel($id),
-        ]);
-    }
-    
-    public function actionSeeproduct($id) {
-        return $this->render('seeproduct', [
-                    'model' => $this->findModel($id),
         ]);
     }
 
@@ -69,14 +71,22 @@ class ProductController extends Controller {
      */
     public function actionCreate() {
         $model = new Product();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->idproduct]);
+        if ($model->load(Yii::$app->request->post())) {
+            $images = \yii\web\UploadedFile::getInstance($model, 'images');
+            if (!is_null($images)) {
+                $name = explode(".", $images->name);
+                $ext = end($name);
+                $model->image = Yii::$app->security->generateRandomString() . ".{$ext}";
+                $carpetaProducts = Yii::$app->basePath . Yii::$app->params['urlImagen'];
+                $path = $carpetaProducts . $model->image;
+                if ($images->saveAs($path)) {
+                    if ($model->save()) {
+                        return $this->redirect(['view', 'id' => $model->idproduct]);
+                    }
+                }
             }
-        } else {
-            $model->loadDefaultValues();
         }
+        
 
         return $this->render('create', [
                     'model' => $model,
