@@ -46,7 +46,7 @@ class Product extends \yii\db\ActiveRecord {
                 [['image'], 'string', 'max' => 200],
                 [['images'], 'safe'],
                 [['images'], 'file', 'extensions' => 'jpg, gif, png, webp'],
-                [['images'], 'file', 'maxSize' => '100000'],
+                [['images'], 'file', 'maxSize' => '900000'],
                 [['fkflavor'], 'exist', 'skipOnError' => true, 'targetClass' => Flavor::className(), 'targetAttribute' => ['fkflavor' => 'idflavor']],
                 [['fkunittype'], 'exist', 'skipOnError' => true, 'targetClass' => Unittype::className(), 'targetAttribute' => ['fkunittype' => 'idunittype']],
         ];

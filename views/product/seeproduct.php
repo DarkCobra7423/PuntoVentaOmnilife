@@ -27,7 +27,7 @@ use yii\grid\GridView;
 
         <div class="col-md-8">
 
-            <div id="centrador"><img id="imagen" src="<?= $model->image ?>" alt="<?= $model->product ?>"></div>
+            <div id="centrador"><img id="imagen" src="<?= $model->imagen ?>" alt="<?= $model->product ?>"></div>
 
             <br><br><br>
             <h5>Caracteristicas</h5>
