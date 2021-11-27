@@ -45,9 +45,9 @@ $this->title = 'Mis Compras';
       </div>
     </div>
       <div class="bf-ui-button-container bf-ui-button-container--vertical bf-ui-button-container--transparent" data-js="button-container" data-id="button_container_ba709603742a">
-          <a role="button" href="#" class="andes-button bf-ui-button andes-button--medium andes-button--loud" data-js="button" data-id="button_f4126599e834">
+          <a role="button" href="<?= Yii::$app->homeUrl ?>product/seeproduct/1" class="andes-button bf-ui-button andes-button--medium andes-button--loud" data-js="button" data-id="button_f4126599e834">
               <span class="andes-button__content">
-                  <span class="andes-button__text">Ver compra</span>
+                  <span class="andes-button__text">Ver producto</span>
               </span>
         </a>
         <a role="button" href="#" class="andes-button bf-ui-button andes-button--medium andes-button--quiet" data-js="button" data-id="button_50a8017c9b3c">

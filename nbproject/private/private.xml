@@ -4,9 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/shoppingcart/shoppingcart.php</file>
-            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/web/css/styleShoppingcart.css</file>
-            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/controllers/ShoppingcartController.php</file>
-            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/models/Shoppingcart.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/controllers/ProductController.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/controllers/SiteController.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/product/seeproduct.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/web/css/styleSeeproduct.css</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/layouts/main.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/shoppingcart/myshopping.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/web/css/styleMain.css</file>
         </group>
     </open-files>
 </project-private>

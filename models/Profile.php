@@ -88,4 +88,9 @@ class Profile extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Shopping::className(), ['fkprofileseller' => 'idprofile']);
     }
+    
+     public function getName() {
+        return $this->carFkprofile->name;
+    }
+    
 }

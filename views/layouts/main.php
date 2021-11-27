@@ -11,16 +11,17 @@ use yii\bootstrap4\NavBar;
 use webvimark\modules\UserManagement\components\GhostMenu;
 use webvimark\modules\UserManagement\UserManagementModule;
 use webvimark\modules\UserManagement\components\GhostNav;
-use app\models\AuthAssignment;
 
-$rols = AuthAssignment::find()->select('item_name')->where(['user_id' => Yii::$app->user->id])->one();
+/* use app\models\AuthAssignment;
 
-if ($rols == "") {
-    $rol = "false";
-} else {
-    $rol = $rols->item_name;
-}
+  $rols = AuthAssignment::find()->select('item_name')->where(['user_id' => Yii::$app->user->id])->one();
 
+  if ($rols == "") {
+  $rol = "false";
+  } else {
+  $rol = $rols->item_name;
+  }
+ */
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -28,62 +29,104 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>" class="h-100">
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
         <?php $this->registerCsrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>          
-        <?= Html::jsFile('@web/js/all.js') ?>
+<?= Html::jsFile('@web/js/all.js') ?>
     </head>
+
+    <style>
+        body{
+            font-family: 'Roboto', sans-serif;
+            background-color: #EBEBEB;
+        }
+    </style>
+
     <body class="d-flex flex-column h-100">
-        <?php $this->beginBody() ?>        
-        <link href="<?= Yii::$app->homeUrl ?>css/styleMain.css" rel="stylesheet" type="text/css"/>
+<?php $this->beginBody() ?>        
+        <link href="<?= Yii::$app->homeUrl ?>css/styleMain1.css" rel="stylesheet" type="text/css"/>
 
         <header>
 
+
             <?php
             NavBar::begin([
-                'brandLabel' => '<img src="' . Yii::$app->homeUrl . 'resources/images/logoES.svg" alt="Logo" class="navbar-brand navbar-logo" style="margin-top: -7px; margin-right: 3px;">',
+                //'brandLabel' => Yii::$app->name,
+                'brandLabel' => '<img src="' . Yii::$app->homeUrl . 'resources/images/logoES.svg" alt="Logo" class="" style="width: 135px;">',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar navbar-expand-custom navbar-mainbg',
+                    'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
                 ],
             ]);
-            ?>
-
-            <?=
-            GhostNav::widget([
-                //    Nav::widget([
-                'options' => ['class' => 'navbar-nav ml-auto'],
-                'encodeLabels' => false,
-                'activateParents' => true,
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav'],
                 'items' => [
-                    '<div class="hori-selector"><div class="left"></div><div class="right"></div></div>',
-                        ['label' => 'Productos', 'url' => ['/site/index']],
-                    Yii::$app->user->isGuest ? ('') : (
-                        ['label' => 'Crea tu cuenta', 'url' => ['/user-management/auth/registration']]
-                            ),
+                        ['label' => 'Inicio', 'url' => ['/site/index']],
+                        ['label' => 'About', 'url' => ['/site/about']],
+                        ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ? (
-                        ['label' => 'Ingresa', 'url' => ['/user-management/auth/login']]
-                            ) : (''),
-                    Yii::$app->user->isGuest ? (
-                            ['label' => 'Sobre Nosotros', 'url' => ['/site/about']]
-                            ) : (''),
-                    $rol == 'Cliente' ? (
-                                ['label' => 'Mis compras', 'url' => ['/shoppingcart/myshopping']]
-                            ) : (''),
-                    $rol == 'Vendedor' ? (
-                                ['label' => 'Panel de control', 'url' => ['/product/dashboard']]
-                            ) : (''),                                            
-                    $rol == 'Cliente' ? (
-                                ['label' => '<i class="fas fa-shopping-cart"></i>', 'url' => ['/shoppingcart/shoppingcart']]
-                            ) : (''),                        
-                    Yii::$app->user->isGuest ? ('') : (
-                                ['label' => 'Salir (' . Yii::$app->user->identity->username . ')', 'url' => ['/user-management/auth/logout']]
+                                ['label' => 'Login', 'url' => ['/site/login']]
+                            ) : (
+                            '<li>'
+                            . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
+                            . Html::submitButton(
+                                    'Logout (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-link logout']
+                            )
+                            . Html::endForm()
+                            . '</li>'
                             )
                 ],
             ]);
+            NavBar::end();
+            ?>
 
+
+            <?php
+            /*
+              NavBar::begin([
+              'brandLabel' => '<img src="' . Yii::$app->homeUrl . 'resources/images/logoES.svg" alt="Logo" class="navbar-brand navbar-logo" style="margin-top: -7px; margin-right: 3px;">',
+              'brandUrl' => Yii::$app->homeUrl,
+              'options' => [
+              'class' => 'navbar navbar-expand-custom navbar-mainbg',
+              ],
+              ]);
+
+              //aqui va el <?=
+
+              GhostNav::widget([
+              //    Nav::widget([
+              'options' => ['class' => 'navbar-nav ml-auto'],
+              'encodeLabels' => false,
+              'activateParents' => true,
+              'items' => [
+              '<div class="hori-selector"><div class="left"></div><div class="right"></div></div>',
+              ['label' => 'Productos', 'url' => ['/site/index']],
+              Yii::$app->user->isGuest ? ('') : (
+              ['label' => 'Crea tu cuenta', 'url' => ['/user-management/auth/registration']]
+              ),
+              Yii::$app->user->isGuest ? (
+              ['label' => 'Ingresa', 'url' => ['/user-management/auth/login']]
+              ) : (''),
+              Yii::$app->user->isGuest ? (
+              ['label' => 'Sobre Nosotros', 'url' => ['/site/about']]
+              ) : (''),
+              $rol == 'Cliente' ? (
+              ['label' => 'Mis compras', 'url' => ['/shoppingcart/myshopping']]
+              ) : (''),
+              $rol == 'Vendedor' ? (
+              ['label' => 'Panel de control', 'url' => ['/product/dashboard']]
+              ) : (''),
+              $rol == 'Cliente' ? (
+              ['label' => '<i class="fas fa-shopping-cart"></i>', 'url' => ['/shoppingcart/shoppingcart']]
+              ) : (''),
+              Yii::$app->user->isGuest ? ('') : (
+              ['label' => 'Salir (' . Yii::$app->user->identity->username . ')', 'url' => ['/user-management/auth/logout']]
+              )
+              ],
+              ]);
+             */
             /*
               GhostNav::widget([
               //    Nav::widget([
@@ -112,9 +155,9 @@ AppAsset::register($this);
 
 
               ],
-              ]); */
+              ]);
 
-            NavBar::end();
+              NavBar::end(); */
             ?>
         </header>
 
@@ -126,7 +169,7 @@ AppAsset::register($this);
                 ])
                 ?>
                 <?= Alert::widget() ?>
-                <?= $content ?>
+<?= $content ?>
             </div>
         </main>
 
@@ -137,7 +180,7 @@ AppAsset::register($this);
             </div>
         </footer>
 
-        <?php $this->endBody() ?>
+<?php $this->endBody() ?>
     </body>
 </html>
 <?php $this->endPage() ?>

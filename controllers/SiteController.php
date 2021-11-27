@@ -54,9 +54,11 @@ class SiteController extends Controller {
         //die();
         return $this->render('index', [
                     'products' => $products,
-        ]); 
-        
+        ]);
+         
     }
+    
+    
     
     public function actionTest() {
         return $this->render('test');
