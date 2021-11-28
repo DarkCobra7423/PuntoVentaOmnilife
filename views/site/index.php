@@ -27,6 +27,20 @@ $this->title = 'Omnilife Castellanos';
         display: inline-block;
         margin-left: 10px;
     }
+
+    #calloutmd{
+        padding: 16px 24px;
+        color: #fff;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        background: -webkit-linear-gradient(left, #a90f90 55%, #0c1a51);
+        background: linear-gradient(90deg, #a90f90 55%, #0c1a51);
+        -webkit-align-items: center;
+        align-items: center;
+        border-radius: 0.6rem;
+    }
 </style>
 
 <div class="site-index">
@@ -61,89 +75,22 @@ $this->title = 'Omnilife Castellanos';
 
 <div class="container">
 
-    <div class="row">
-        <div class=""></div>
-        <div class="loyalty-buylevel6__header">
-            <!-- <div class="loyalty-buylevel6__header__title"> -->
-
-            <div class="col-ch-3 bd-callout bd-callout-blue " > 
-                <h6> ¡No te quedes sin tus productos!</h6>
-            </div>
-            <div class="col-ch-3 bd-callout ">
-                <h6> Paga cómodo y de Manera Segura</h6>  
-            </div>
-            <div class="col-ch-3 bd-callout ">
-                <h6> ¡Paga con tu Tarjeta de: Credito o Debito!</h6>
-            </div>
-            <div class="col-ch-3 bd-callout ">
-                <h6><a href="#"><FONT COLOR="white"> Estamos ubicados en ...   </FONT></a></h6>
-            </div>        
+    <div id="calloutmd" class="row">
+        <div class="col-md-3"> 
+            <h6> ¡No te quedes sin tus productos!</h6>
         </div>
-
-
-        <!----------------------     Prueba de color ------------ -->
-        <style>
-            /*! CSS Used from: https://http2.mlstatic.com/frontend-assets/ui-navigation/5.17.0/mercadolibre/navigation-desktop.css ; media=(min-width: 1024px) */
-            @media (min-width: 1024px) {
-                :focus:not(:focus-visible) {
-                    outline: 0;
-                }
-            }
-            /*! CSS Used from: https://http2.mlstatic.com/frontend-assets/ui-navigation/5.17.0/mercadolibre/navigation-mobile.css ; media=(max-width: 1023px) */
-            @media (max-width: 1023px) {
-                :focus:not(:focus-visible) {
-                    outline: 0;
-                }
-            }
-            /*! CSS Used from: https://http2.mlstatic.com/frontend-assets/homes-palpatine/home.desktop.e5a1b5f2.css */
-            .loyalty-buylevel6__header {
-                padding: 16px 24px;
-                color: #fff;
-                display: -webkit-flex;
-                display: flex;
-                -webkit-justify-content: space-between;
-                justify-content: space-between;
-                background: -webkit-linear-gradient(left, #a90f90 55%, #0c1a51);
-                background: linear-gradient(90deg, #a90f90 55%, #0c1a51);
-                -webkit-align-items: center;
-                align-items: center;
-                border-radius: 0.6rem;
-            }
-            .loyalty-buylevel6__header__title {
-                font-size: 26px;
-                line-height: 30px;
-                font-weight: 600;
-            }
-            .loyalty-buylevel6__header-pricing {
-                position: relative;
-                display: -webkit-flex;
-                display: flex;
-                -webkit-flex-direction: column;
-                flex-direction: column;
-                text-align: right;
-                font-weight: 600;
-                line-height: 1;
-            }
-            .loyalty-buylevel6__header-price {
-                font-size: 24px;
-            }
-            .loyalty-buylevel6__header-period {
-                font-size: 14px;
-            }
-            .loyalty-buylevel6__header-cents {
-                font-size: 16px;
-                vertical-align: top;
-            }
-            .loyalty-buylevel6__header-description {
-                display: block;
-                font-size: 16px;
-                line-height: 16px;
-            }
-
-
-        </style>
-        <!---------------------- fin de prueba de color ------------ -->
-
+        <div class="col-md-3">
+            <h6> Paga cómodo y de Manera Segura</h6>  
+        </div>
+        <div class="col-md-3">
+            <h6> ¡Paga con tu Tarjeta de: Credito o Debito!</h6>
+        </div>
+        <div class="col-md-3">
+            <h6><a href="#"> Estamos ubicados en ...</a></h6>
+        </div> 
+    </div>
+    <br>
+    <div class="row">
         <h4>Productos <a href="<?= Yii::$app->homeUrl ?>product/products" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
 
         <?php
@@ -170,13 +117,15 @@ $this->title = 'Omnilife Castellanos';
         <?php foreach ($products as $product): ?>
 
             <div class="item-class">
-                <div class="card" style="width: 14rem;">
-                    <img class="card-img-top" src="<?= $product->imagen ?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">$ <?= $product->price; ?>.00 <span class="unittype"><?= $product->unittype; ?></span></h5>
-                        <p class="card-text"><?= $product->product; ?></p>    
+                <a href="product/seeproduct/<?= $product->idproduct ?>" style="text-decoration: none; color: #212529;">
+                    <div class="card" style="width: 14rem;">
+                        <img class="card-img-top" src="<?= $product->imagen ?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">$ <?= $product->price; ?>.00 <span class="unittype"><?= $product->unittype; ?></span></h5>
+                            <p class="card-text"><?= $product->product; ?></p>    
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!--<div class="item-class">  
@@ -242,13 +191,15 @@ $this->title = 'Omnilife Castellanos';
         <?php foreach ($products as $product): ?>
 
             <div class="item-class">
-                <div class="card" style="width: 14rem;">
-                    <img class="card-img-top" src="<?= $product->imagen ?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">$ <?= $product->price; ?>.00 <span class="unittype"><?= $product->unittype; ?></span></h5>
-                        <p class="card-text"><?= $product->product; ?></p>    
+                <a href="product/seeproduct/<?= $product->idproduct ?>" style="text-decoration: none; color: #212529;">
+                    <div class="card" style="width: 14rem;">
+                        <img class="card-img-top" src="<?= $product->imagen ?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">$ <?= $product->price; ?>.00 <span class="unittype"><?= $product->unittype; ?></span></h5>
+                            <p class="card-text"><?= $product->product; ?></p>    
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <!--
                         <div class="item-class">  
