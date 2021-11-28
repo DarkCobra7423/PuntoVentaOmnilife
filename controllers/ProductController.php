@@ -82,7 +82,6 @@ class ProductController extends Controller {
      * @return mixed
      */
 
-    
        public function actionCreate() {
         $model = new Product();
         if ($model->load(Yii::$app->request->post())) {
