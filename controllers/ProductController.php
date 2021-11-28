@@ -77,6 +77,31 @@ class ProductController extends Controller {
      */
     public function actionCreate() {
         $model = new Product();
+        
+        if ($model->load(Yii::$app->request->post())) {
+             $images = UploadedFile::getInstances($model, 'images');
+            if (!is_null($images)) {
+                $name = explode(".", $images->name);
+                $ext = end($name);
+                $model->image = Yii::$app->security->generateRandomString() . ".{$ext}";
+                $carpetaProducts = Yii::$app->basePath . '/web/resources/images/products/';
+                $path = $carpetaProducts . $model->image;   
+                
+                if ($images->saveAs($path)) {
+                    if ($model->save()) {
+                        return $this->redirect(['view', 'id' => $model->idproduct]);
+                    }
+                }
+            }
+        }
+    
+        return $this->render('create', [
+                    'model' => $model,
+        ]);
+    }
+    
+    /*   public function actionCreate() {
+        $model = new Product();
         if ($model->load(Yii::$app->request->post())) {
             $images = \yii\web\UploadedFile::getInstance($model, 'images');
             if (!is_null($images)) {
@@ -97,7 +122,7 @@ class ProductController extends Controller {
         return $this->render('create', [
                     'model' => $model,
         ]);
-    }
+    } */
 
     /**
      * Updates an existing Product model.

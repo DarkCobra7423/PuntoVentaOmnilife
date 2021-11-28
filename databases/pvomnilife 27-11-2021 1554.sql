@@ -374,9 +374,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`idproduct`, `product`, `image`, `description`, `fkflavor`, `content`, `fkunittype`, `stock`, `price`) VALUES
-(7, 'Cafezzino Plus', 'saxT2De3d-mjTz7S3X2c6Z66Piv-Ru7b.png', 'Suplemento alimenticio que contiene café colombiano, extracto de café verde (Coffea canephora robusta Pierre), cromo e inulina. Con endulzante de origen natural, estevia.', 3, 30, 1, 30, '475'),
-(8, 'One C Mix Plus', 'NAOBVGdCU_vrzkiL854y7DCDk6ipsZ3M.png', 'Suplemento alimenticio, sabor a mango verde, que contiene L-Glutatión, L-Cisteína, vitamina A, complejo B: tiamina B1, riboflavina B2, niacina B3, ácido pantoténico B5, piridoxina B6, biotina, ácido fólico B9, cianocobalamina B12, vitaminas C, D, E y K, además de minerales: calcio, fósforo, yodo, zinc, cobre, manganeso, cromo, molibdeno y selenio. Con endulzante de origen natural, estevia.', 1, 30, 1, 30, '380'),
-(9, 'Magnus Supreme', '2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png', 'Suplemento alimenticio, que contiene vitaminas del complejo B: tiamina B1, riboflavina B2, niacina B3, ácido pantoténico B5, piridoxina B6, ácido fólico B9, cobalamina B12, vitaminas C y E, glicina, además de minerales: zinc, cobre y cromo. Con endulzante de origen natural, estevia.', 1, 30, 1, 30, '440');
+(1, 'Cafezzino Plus', 'saxT2De3d-mjTz7S3X2c6Z66Piv-Ru7b.png', 'Suplemento alimenticio que contiene café colombiano, extracto de café verde (Coffea canephora robusta Pierre), cromo e inulina. Con endulzante de origen natural, estevia.', 3, 30, 1, 30, '475'),
+(2, 'One C Mix Plus', 'NAOBVGdCU_vrzkiL854y7DCDk6ipsZ3M.png', 'Suplemento alimenticio, sabor a mango verde, que contiene L-Glutatión, L-Cisteína, vitamina A, complejo B: tiamina B1, riboflavina B2, niacina B3, ácido pantoténico B5, piridoxina B6, biotina, ácido fólico B9, cianocobalamina B12, vitaminas C, D, E y K, además de minerales: calcio, fósforo, yodo, zinc, cobre, manganeso, cromo, molibdeno y selenio. Con endulzante de origen natural, estevia.', 1, 30, 1, 30, '380'),
+(3, 'Magnus Supreme', '2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png', 'Suplemento alimenticio, que contiene vitaminas del complejo B: tiamina B1, riboflavina B2, niacina B3, ácido pantoténico B5, piridoxina B6, ácido fólico B9, cobalamina B12, vitaminas C y E, glicina, además de minerales: zinc, cobre y cromo. Con endulzante de origen natural, estevia.', 1, 30, 1, 30, '440');
 
 -- --------------------------------------------------------
 

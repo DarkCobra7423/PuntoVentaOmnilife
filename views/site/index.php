@@ -52,7 +52,7 @@ $this->title = 'Omnilife Castellanos';
                 <h6> Paga cómodo y de Manera Segura</h6>  
             </div>
             <div class="col-ch-3 bd-callout ">
-                <h6> ¡Paga con tu Tarjeta de: Credito o Debito!</h6>
+                <h6> ¡Paga con tu Tarjeta: Credito o Debito!</h6>
             </div>
             <div class="col-ch-3 bd-callout ">
                 <h6><a href="#"><FONT COLOR="white"> Estamos ubicados en ...   </FONT></a></h6>
