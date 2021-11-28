@@ -11,7 +11,6 @@ $this->title = 'Omnilife Castellanos';
 <style>
     .card:hover{
         transform: translateY(-15px);
-        /*box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);*/
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
 
@@ -86,7 +85,7 @@ $this->title = 'Omnilife Castellanos';
             <h6> ¡Paga con tu Tarjeta de: Credito o Debito!</h6>
         </div>
         <div class="col-md-3">
-            <h6><a href="#"> Estamos ubicados en ...</a></h6>
+            <h6><a href="#" style="color: white;"> Estamos ubicados en ...</a></h6>
         </div> 
     </div>
     <br>
@@ -117,7 +116,7 @@ $this->title = 'Omnilife Castellanos';
         <?php foreach ($products as $product): ?>
 
             <div class="item-class">
-                <a href="product/seeproduct/<?= $product->idproduct ?>" style="text-decoration: none; color: #212529;">
+                <a href="<?= Yii::$app->homeUrl ?>product/seeproduct/<?= $product->idproduct ?>" style="text-decoration: none; color: #212529;">
                     <div class="card" style="width: 14rem;">
                         <img class="card-img-top" src="<?= $product->imagen ?>" alt="Card image cap">
                         <div class="card-body">
@@ -127,37 +126,6 @@ $this->title = 'Omnilife Castellanos';
                     </div>
                 </a>
             </div>
-
-            <!--<div class="item-class">  
-
-                    <div data-index="0" class="slick-slide slick-active" tabindex="-1" style="outline: none; width: 240px;">
-                        <div class="ui-item__wrapper price-digits-4__wrapper with-discount__wrapper with-installments__wrapper">
-                            <a href="<?= $product->image ?>" class="ui-item price-digits-4 with-discount with-installments" aria-label="">
-            <!--<a href="#" class="ui-item price-digits-4 with-discount with-installments" aria-label="">--
-            <div class="ui-item__image-container">
-              <!--  <img src="images/products/slider12.webp" class="ui-item__image" width="224" height="224" alt="" srcset=""> --
-                <img src="<?= $product->image ?>" class="ui-item__image" width="224" height="224" alt="" srcset="">
-            </div>
-            <div class="ui-item__content">
-                <div class="ui-item__price-block">
-                    <span class="price-tag ui-item__price">
-                      <!--<span class="price-tag-text-sr-only">8499 pesos</span>--
-                        <span class="price-tag-amount" aria-hidden="true">
-                            <span class="price-tag-symbol">$</span>
-                            <span class="price-tag-fraction"><?= $product->price; ?></span>
-                        </span>
-                    </span>
-                    <span class="ui-item__discount-text"><?= $product->unittype; ?></span>
-                    <span class="ui-item__installments"><?= $product->product; ?></span>
-                    <!--<p class="ui-item__shipping-free">Envío gratis</p>--
-                </div>
-                <p class="ui-item__title" aria-hidden="true"><?= $product->product; ?></p>
-            </div>
-        </a>
-    </div>
-    </div>
-
-    </div>-->
 
         <?php endforeach; ?>
         <!-- -------- fin del card ----------------- -->
@@ -191,7 +159,7 @@ $this->title = 'Omnilife Castellanos';
         <?php foreach ($products as $product): ?>
 
             <div class="item-class">
-                <a href="product/seeproduct/<?= $product->idproduct ?>" style="text-decoration: none; color: #212529;">
+                <a href="<?= Yii::$app->homeUrl ?>product/seeproduct/<?= $product->idproduct ?>" style="text-decoration: none; color: #212529;">
                     <div class="card" style="width: 14rem;">
                         <img class="card-img-top" src="<?= $product->imagen ?>" alt="Card image cap">
                         <div class="card-body">
@@ -200,38 +168,7 @@ $this->title = 'Omnilife Castellanos';
                         </div>
                     </div>
                 </a>
-            </div>
-            <!--
-                        <div class="item-class">  
-            
-                            <div data-index="0" class="slick-slide slick-active" tabindex="-1" style="outline: none; width: 240px;">
-                                <div class="ui-item__wrapper price-digits-4__wrapper with-discount__wrapper with-installments__wrapper">
-                                    <a href="/Omnilife/web/producto/verproducto/12" class="ui-item price-digits-4 with-discount with-installments" aria-label="">
-            <!--<a href="#" class="ui-item price-digits-4 with-discount with-installments" aria-label="">--
-            <div class="ui-item__image-container">
-              <!--  <img src="images/products/slider12.webp" class="ui-item__image" width="224" height="224" alt="" srcset=""> --
-                <img src="<?= $product->image ?>" class="ui-item__image" width="224" height="224" alt="" srcset="">
-            </div>
-            <div class="ui-item__content">
-                <div class="ui-item__price-block">
-                    <span class="price-tag ui-item__price">
-                      <!--<span class="price-tag-text-sr-only">8499 pesos</span>--
-                        <span class="price-tag-amount" aria-hidden="true">
-                            <span class="price-tag-symbol">$</span>
-                            <span class="price-tag-fraction"><?= $product->price; ?></span>
-                        </span>
-                    </span>
-                    <span class="ui-item__discount-text"><?= $product->unittype; ?></span>
-                    <span class="ui-item__installments"><?= $product->product; ?></span>
-                    <!--<p class="ui-item__shipping-free">Envío gratis</p>--
-                </div>
-                <p class="ui-item__title" aria-hidden="true"><?= $product->product; ?></p>
-            </div>
-        </a>
-    </div>
-    </div>
-
-    </div>-->
+            </div>            
 
         <?php endforeach; ?>
         <!-- -------- fin del card ----------------- -->
