@@ -53,8 +53,12 @@ class ProductController extends Controller {
     }
     
     public function actionSeeproduct($id) {
+        
+        $addresss = \app\models\Shippingaddress::find()->all();
+        
         return $this->render('seeproduct', [
                     'model' => $this->findModel($id),
+                    'addresss' => $addresss,
         ]);
     }
 

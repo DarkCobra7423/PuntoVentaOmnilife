@@ -34,7 +34,7 @@ AppAsset::register($this);
         <?php $this->registerCsrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>          
-<?= Html::jsFile('@web/js/all.js') ?>
+        <?= Html::jsFile('@web/js/all.js') ?>
     </head>
 
     <style>
@@ -45,8 +45,8 @@ AppAsset::register($this);
     </style>
 
     <body class="d-flex flex-column h-100">
-<?php $this->beginBody() ?>        
-        <link href="<?= Yii::$app->homeUrl ?>css/styleMain1.css" rel="stylesheet" type="text/css"/>
+        <?php $this->beginBody() ?>        
+        <!--<link href="<?= Yii::$app->homeUrl ?>css/styleMain1.css" rel="stylesheet" type="text/css"/>-->
 
         <header>
 
@@ -61,22 +61,50 @@ AppAsset::register($this);
                 ],
             ]);
             echo Nav::widget([
-                'options' => ['class' => 'navbar-nav'],
+                'options' => ['class' => 'navbar-nav ml-auto'],
+                'encodeLabels' => false,
                 'items' => [
+                    
                         ['label' => 'Inicio', 'url' => ['/site/index']],
+                        ['label' => 'Mis compras', 'url' => ['/shoppingcart/myshopping']],
+                        ['label' => '<i class="fas fa-shopping-cart"></i>', 'url' => ['/shoppingcart/shoppingcart']],
                         ['label' => 'About', 'url' => ['/site/about']],
                         ['label' => 'Contact', 'url' => ['/site/contact']],
-                    Yii::$app->user->isGuest ? (
-                                ['label' => 'Login', 'url' => ['/user-management/auth/login']]
-                            ) : (
-                            '<li>'
-                            . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
-                            . Html::submitButton(
-                                    'Logout (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-link logout']
-                            )
-                            . Html::endForm()
-                            . '</li>'
-                            )
+                        /*[
+                        'label' => 'Backend routes',
+                        'items' => UserManagementModule::menuItems()
+                    ],*/
+                        [
+                        'label' => 'Frontend routes',
+                        'items' => [
+                                ['label' => 'Login', 'url' => ['/user-management/auth/login']],
+                                ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
+                                ['label' => 'Registration', 'url' => ['/user-management/auth/registration']],
+                                ['label' => 'Change own password', 'url' => ['/user-management/auth/change-own-password']],
+                                ['label' => 'Password recovery', 'url' => ['/user-management/auth/password-recovery']],
+                                ['label' => 'E-mail confirmation', 'url' => ['/user-management/auth/confirm-email']],
+                        ],
+                    ],
+                        [
+                        'label' => '<i class="far fa-user-circle"></i> ' . Yii::$app->user->identity->username,
+                        'items' => [
+                                ['label' => 'Mi perfil', 'url' => ['#']],
+                                ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
+                        ],
+                    ],
+                /*
+                  Yii::$app->user->isGuest ? (
+
+                  ['label' => 'Login', 'url' => ['/user-management/auth/login']]
+                  ) : (
+                  '<li>'
+                  . Html::beginForm(['/user-management/auth/logout'], 'post')
+                  . Html::submitButton(
+                  'Logout (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-link logout']
+                  )
+                  . Html::endForm()
+                  . '</li>'
+                  ) */
                 ],
             ]);
             NavBar::end();
@@ -169,7 +197,7 @@ AppAsset::register($this);
                 ])
                 ?>
                 <?= Alert::widget() ?>
-<?= $content ?>
+                <?= $content ?>
             </div>
         </main>
 
@@ -180,7 +208,7 @@ AppAsset::register($this);
             </div>
         </footer>
 
-<?php $this->endBody() ?>
+        <?php $this->endBody() ?>
     </body>
 </html>
 <?php $this->endPage() ?>

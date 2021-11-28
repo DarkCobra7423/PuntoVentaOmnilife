@@ -39,8 +39,8 @@ class Product extends \yii\db\ActiveRecord {
     public function rules() {
         return [
                 [['product', 'image', 'description', 'fkflavor', 'fkunittype', 'stock', 'price'], 'required'],
-                [['description'], 'string'],
-                [['fkflavor', 'content', 'fkunittype', 'stock'], 'integer'],
+                [['description', 'content'], 'string'],
+                [['fkflavor', 'fkunittype', 'stock'], 'integer'],
                 [['price'], 'number'],
                 [['product'], 'string', 'max' => 50],
                 [['image'], 'string', 'max' => 200],
@@ -96,7 +96,7 @@ class Product extends \yii\db\ActiveRecord {
     public function getShoppingcarts() {
         return $this->hasMany(Shoppingcart::className(), ['fkproduct' => 'idproduct']);
     }
-
+     //unidad de medida
     public function getUnittype() {
         return $this->fkunittype0->unittype;
     }
@@ -106,5 +106,10 @@ class Product extends \yii\db\ActiveRecord {
          return Yii::$app->homeUrl."resources/images/products/".$this->image;
           
     }
-
+    
+   public function getFlavor() {
+       //echo $this->getFkflavor0()->flavor; die();
+        return $this->fkflavor0->flavor;
+    }
+   
 }

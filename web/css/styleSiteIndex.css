@@ -50,15 +50,7 @@ img {
     border: 0;
 }
 @media print {
-    *,
-    *:before,
-    *:after {
-        color: #000 !important;
-        text-shadow: none !important;
-        background: transparent !important;
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important;
-    }
+   
     a,
     a:visited {
         text-decoration: underline;
@@ -149,15 +141,7 @@ img {
     border: 0;
 }
 @media print {
-    *,
-    *:before,
-    *:after {
-        color: #000 !important;
-        text-shadow: none !important;
-        background: transparent !important;
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important;
-    }
+
     a,
     a:visited {
         text-decoration: underline;

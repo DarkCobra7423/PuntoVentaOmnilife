@@ -1,66 +1,144 @@
 <br><br><br><br>
 
 <?php
-use webvimark\modules\UserManagement\components\GhostMenu;
-use webvimark\modules\UserManagement\UserManagementModule;
-echo GhostMenu::widget([
-    'encodeLabels' => false,
-    'activateParents' => true,
-    'items' => [
-            [
-            'label' => 'Backend routes',
-            'items' => UserManagementModule::menuItems()
-        ],
-        
-            [
-            'label' => 'Frontend routes',
-            'items' => [
-                    ['label' => 'Login', 'url' => ['/user-management/auth/login']],
-                    ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
-                    ['label' => 'Registration', 'url' => ['/user-management/auth/registration']],
-                    ['label' => 'Change own password', 'url' => ['/user-management/auth/change-own-password']],
-                    ['label' => 'Password recovery', 'url' => ['/user-management/auth/password-recovery']],
-                    ['label' => 'E-mail confirmation', 'url' => ['/user-management/auth/confirm-email']],
-            ],
-        ],
-    ],
-]);
-
-?>
-
-<!-------------------------------------------------------------------------------------------------->
-
-<?php 
-use webvimark\modules\UserManagement\models\User;
-//use webvimark\modules\UserManagement\models\User;
-
-if(User::hasRole(['vendedor'])){
-    echo 'este es el admin';
-}
-
-echo 'apartir de aqui es<br>';
-
-echo GhostMenu::widget([
-    
-    'encodeLabels'=>false,
-	'activateParents'=>true,
-	'items' => [
-		
-			['label' => 'Bank', 'url' => ['/bank/index']],
-            ['label' => 'crea tu cuenta', 'url' => ['/user-management/auth/registration']],
-            ['label' => 'sobre mi', 'url' => ['/site/about']],
-                    
-            ]
-    
-]);
-
-
-if (User::hasRole('cliente')) {
-    echo 'este es el cliente';
-}
-
+use kv4nt\owlcarousel\OwlCarouselWidget;
 //SELECT * FROM `auth_assignment` WHERE `user_id` IN (4, 3, 1);  Obtener los roles
 //SELECT * FROM `auth_assignment` WHERE `user_id` IN (6, 5, 4, 3, 1)
 //Yii::$app->user->id
 ?>
+<style>
+    .card:hover{
+        transform: translateY(-15px);
+        /*box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);*/
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    
+    .owl-item{
+        padding-top: 17px;
+        padding-bottom: 3px;
+    }
+</style>
 
+    <?php
+    OwlCarouselWidget::begin([
+        'container' => 'div',
+        'containerOptions' => [
+            'id' => 'container-id',
+            'class' => 'container-class owl-theme owl-loaded'
+        ],
+        'pluginOptions' => [
+            'autoplay' => false,
+            'autoplayTimeout' => 3000,
+            'items' => 5,
+            'loop' => true,
+            'itemsDesktop' => [1199, 3], //[1199, 3]
+            'itemsDesktopSmall' => [979, 3], //[979, 3]
+        //'nav' => true            
+        ]
+    ]);
+    ?>
+<!---------------------------------------------------->
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+<!--------------------------------------------------->
+
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+<div class="item-class">
+<div class="card" style="width: 12rem;">
+  <img class="card-img-top" src="<?= Yii::$app->homeUrl ?>resources/images/products/2t7yvruCZnm-ZfmiJUvzWwRl26qNr6iB.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">$360.00</h5>
+    <p class="card-text">On C Mix</p>    
+  </div>
+</div>
+</div>
+
+
+    <?php OwlCarouselWidget::end(); ?>
