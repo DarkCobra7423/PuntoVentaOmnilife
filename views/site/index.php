@@ -79,10 +79,10 @@ $this->title = 'Omnilife Castellanos';
             <h6> ¡No te quedes sin tus productos!</h6>
         </div>
         <div class="col-md-3">
-            <h6> Paga cómodo y de Manera Segura</h6>  
+            <h6> Paga de la Manera mas Segura </h6>  
         </div>
         <div class="col-md-3">
-            <h6> ¡Paga con tu Tarjeta de: Credito o Debito!</h6>
+            <h6> Tarjeta de Crédito o Débito</h6>
         </div>
         <div class="col-md-3">
             <h6><a href="#" style="color: white;"> Estamos ubicados en ...</a></h6>
@@ -156,15 +156,15 @@ $this->title = 'Omnilife Castellanos';
         <!-- ------------ Cards ------------------>
 
 
-        <?php foreach ($products as $product): ?>
+        <?php foreach ($boxs as $box): ?>
 
             <div class="item-class">
-                <a href="<?= Yii::$app->homeUrl ?>product/seeproduct/<?= $product->idproduct ?>" style="text-decoration: none; color: #212529;">
+                <a href="<?= Yii::$app->homeUrl ?>product/seeproduct/<?= $box->idproduct ?>" style="text-decoration: none; color: #212529;">
                     <div class="card" style="width: 14rem;">
-                        <img class="card-img-top" src="<?= $product->imagen ?>" alt="Card image cap">
+                        <img class="card-img-top" src="<?= $box->imagen ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">$ <?= $product->price; ?>.00 <span class="unittype"><?= $product->unittype; ?></span></h5>
-                            <p class="card-text"><?= $product->product; ?></p>    
+                            <h5 class="card-title">$ <?= $box->price; ?>.00 <span class="unittype"><?= $box->unittype; ?></span></h5>
+                            <p class="card-text"><?= $box->product; ?></p>    
                         </div>
                     </div>
                 </a>
@@ -173,6 +173,94 @@ $this->title = 'Omnilife Castellanos';
         <?php endforeach; ?>
         <!-- -------- fin del card ----------------- -->
         <?php OwlCarouselWidget::end(); ?>
+
+          <br>
+
+        <h4 style="margin-top: 15px;">Productos Por Sobre <a href="<?= Yii::$app->homeUrl ?>product/products" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
+
+        <?php
+        OwlCarouselWidget::begin([
+            'container' => 'div',
+            'containerOptions' => [
+                'id' => 'container-id3',
+                'class' => 'container-class'
+            ],
+            'pluginOptions' => [
+                'autoplay' => false,
+                'autoplayTimeout' => 3000,
+                'items' => 5,
+                'loop' => true,
+                'itemsDesktop' => [1199, 3], //[1199, 3]
+                'itemsDesktopSmall' => [979, 3], //[979, 3]
+                'nav' => true
+            ]
+        ]);
+        ?>
+        <!-- ------------ Cards ------------------>
+
+
+        <?php foreach ($envelopess as $envelopes): ?>
+
+            <div class="item-class">
+                <a href="<?= Yii::$app->homeUrl ?>product/seeproduct/<?= $envelopes->idproduct ?>" style="text-decoration: none; color: #212529;">
+                    <div class="card" style="width: 14rem;">
+                        <img class="card-img-top" src="<?= $envelopes->imagen ?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">$ <?= $envelopes->price; ?>.00 <span class="unittype"><?= $envelopes->unittype; ?></span></h5>
+                            <p class="card-text"><?= $envelopes->product; ?></p>    
+                        </div>
+                    </div>
+                </a>
+            </div>            
+
+        <?php endforeach; ?>
+        <!-- -------- fin del card ----------------- -->
+        <?php OwlCarouselWidget::end(); ?>
+        
+          <br>
+
+        <h4 style="margin-top: 15px;">Productos Por Botella <a href="<?= Yii::$app->homeUrl ?>product/products" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
+
+        <?php
+        OwlCarouselWidget::begin([
+            'container' => 'div',
+            'containerOptions' => [
+                'id' => 'container-id4',
+                'class' => 'container-class'
+            ],
+            'pluginOptions' => [
+                'autoplay' => false,
+                'autoplayTimeout' => 3000,
+                'items' => 5,
+                'loop' => true,
+                'itemsDesktop' => [1199, 3], //[1199, 3]
+                'itemsDesktopSmall' => [979, 3], //[979, 3]
+                'nav' => true
+            ]
+        ]);
+        ?>
+        <!-- ------------ Cards ------------------>
+
+
+        <?php foreach ($bottles as $bottle): ?>
+
+            <div class="item-class">
+                <a href="<?= Yii::$app->homeUrl ?>product/seeproduct/<?= $bottle->idproduct ?>" style="text-decoration: none; color: #212529;">
+                    <div class="card" style="width: 14rem;">
+                        <img class="card-img-top" src="<?= $bottle->imagen ?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">$ <?= $bottle->price; ?>.00 <span class="unittype"><?= $bottle->unittype; ?></span></h5>
+                            <p class="card-text"><?= $bottle->product; ?></p>    
+                        </div>
+                    </div>
+                </a>
+            </div>            
+
+        <?php endforeach; ?>
+        <!-- -------- fin del card ----------------- -->
+        <?php OwlCarouselWidget::end(); ?>
+
+
 
 
 

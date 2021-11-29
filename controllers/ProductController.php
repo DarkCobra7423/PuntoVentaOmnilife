@@ -63,6 +63,27 @@ class ProductController extends Controller {
                     'addresss' => $addresss,
         ]);
     }
+    
+    public function actionSearch($value) {
+      //SELECT * FROM `product` WHERE `product` LIKE '%Cafezzino%'
+        $searchs = Product::find()->andWhere(['LIKE', 'product', $value])->all();
+        
+        foreach ($searchs as $search):
+        echo '<div id="card1">
+                <a href="'. Yii::$app->homeUrl .'product/seeproduct/'. $search->idproduct .'" style="text-decoration: none; color: #212529;">
+                    <div class="card" style="width: 14rem;">
+                        <img class="card-img-top" src="'. $search->imagen .'" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">$ '. $search->price .'.00 <span class="unittype">'. $search->unittype .'</span></h5>
+                            <p class="card-text">'. $search->product .'</p>    
+                        </div>
+                    </div>
+                </a>
+            </div>';
+        endforeach;
+       
+        //return print_r($searchs);
+    }
 
     /**
      * Displays a single Product model.

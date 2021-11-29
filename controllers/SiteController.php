@@ -14,6 +14,7 @@ use app\models\Product;
 class SiteController extends Controller {
 
     public $freeAccess = true;
+
     /**
      * {@inheritdoc}
      */
@@ -46,20 +47,23 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
-        
-          // SELECT * FROM `product` where `fkunittype`=1
-        $products = Product::find()->where(["fkunittype" => 1])->all();
-     
+
+        // SELECT * FROM `product` where `fkunittype`=1
+        $products = Product::find()->orderBy('RAND()')->all();
+        //SELECT * FROM `product` WHERE `fkunittype` = 2 ORDER BY rand() LIMIT 15
+        $boxs = Product::find()->where(["fkunittype" => 1])->orderBy('RAND()')->limit("15")->all();
+        $envelopess = Product::find()->where(["fkunittype" => 2])->orderBy('RAND()')->limit("15")->all();
+        $bottles = Product::find()->where(["fkunittype" => 3])->orderBy('RAND()')->limit("15")->all();
         //print_r($products);
         //die();
         return $this->render('index', [
                     'products' => $products,
+                    'boxs' => $boxs,
+                    'envelopess' => $envelopess,
+                    'bottles' => $bottles,
         ]);
-         
     }
-    
-    
-    
+
     public function actionTest() {
         return $this->render('test');
     }
