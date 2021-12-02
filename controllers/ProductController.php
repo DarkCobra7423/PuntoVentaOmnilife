@@ -43,8 +43,14 @@ class ProductController extends Controller {
         ]);
     }
     
-    public function actionProducts(){
-        $products = Product::find()->all();
+    public function actionProducts($id){
+        
+        if($id == 'generaly'){    
+        $products = Product::find()->all();    
+        }else{
+        $products = Product::find()->where(['fkunittype' => $id])->all();   
+        }
+        
         return $this->render('products', ['products' => $products]);
     }
 
@@ -137,8 +143,23 @@ class ProductController extends Controller {
     public function actionUpdate($id) {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        /*if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idproduct]);
+        }*/
+           if ($model->load(Yii::$app->request->post())) {
+            $images = \yii\web\UploadedFile::getInstance($model, 'images');
+            if (!is_null($images)) {
+                $name = explode(".", $images->name);
+                $ext = end($name);
+                $model->image = Yii::$app->security->generateRandomString() . ".{$ext}";
+                $carpetaProducts = Yii::$app->basePath . '/web/resources/images/products/';
+                $path = $carpetaProducts . $model->image;
+                if ($images->saveAs($path)) {
+                    if ($model->save()) {
+                        return $this->redirect(['view', 'id' => $model->idproduct]);
+                    }
+                }
+            }
         }
 
         return $this->render('update', [

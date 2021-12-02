@@ -102,15 +102,6 @@ use yii\helpers\Html;
 
 </body>
 
-<?php // $form->field($model, 'username')->textInput(['placeholder' => $model->getAttributeLabel('username'), 'autocomplete' => 'off']) ?>
-
-<?php // $form->field($model, 'password')->passwordInput(['placeholder' => $model->getAttributeLabel('password'), 'autocomplete' => 'off']) ?>
-
-<?php // (isset(Yii::$app->user->enableAutoLogin) && Yii::$app->user->enableAutoLogin) ? $form->field($model, 'rememberMe')->checkbox(['value' => true]) : '' ?>
-
-<?php // GhostHtml::a(UserManagementModule::t('front', "Forgot password ?"), ['/user-management/auth/password-recovery'])?>
-
-
 
 <?php
 $logo = Yii::$app->homeUrl . 'resources/images/logoES.svg';
