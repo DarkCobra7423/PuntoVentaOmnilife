@@ -57,16 +57,16 @@ class Product extends \yii\db\ActiveRecord {
      */
     public function attributeLabels() {
         return [
-            'idproduct' => 'Idproduct',
-            'product' => 'Product',
-            'image' => 'Image',
-            'description' => 'Description',
-            'fkflavor' => 'Fkflavor',
-            'content' => 'Content',
-            'fkunittype' => 'Fkunittype',
-            'stock' => 'Stock',
-            'price' => 'Price',
-            'images' => 'Imagen',
+            'idproduct'   => 'Idproducto',
+            'product'     => 'Producto',
+            'image'       => 'Imagen',
+            'description' => 'Descripción',
+            'fkflavor'    => 'Sabor',
+            'content'     => 'Contenido',
+            'fkunittype'  => 'Tipo de Producto',
+            'stock'       => 'Cantidad',
+            'price'       => 'Precio',
+            'images'      => 'Imagen',
         ];
     }
 

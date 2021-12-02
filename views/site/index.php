@@ -90,7 +90,7 @@ $this->title = 'Omnilife Castellanos';
     </div>
     <br>
     <div class="row">
-        <h4>Productos <a href="<?= Yii::$app->homeUrl ?>product/products" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
+        <h4>Productos <a href="<?= Yii::$app->homeUrl ?>product/products?id=generaly" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
 
         <?php
         OwlCarouselWidget::begin([
@@ -133,7 +133,7 @@ $this->title = 'Omnilife Castellanos';
 
         <br>
 
-        <h4 style="margin-top: 15px;">Productos Por Caja <a href="<?= Yii::$app->homeUrl ?>product/products" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
+        <h4 style="margin-top: 15px;">Productos Por Caja <a href="<?= Yii::$app->homeUrl ?>product/products/1" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
 
         <?php
         OwlCarouselWidget::begin([
@@ -176,7 +176,7 @@ $this->title = 'Omnilife Castellanos';
 
           <br>
 
-        <h4 style="margin-top: 15px;">Productos Por Sobre <a href="<?= Yii::$app->homeUrl ?>product/products" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
+        <h4 style="margin-top: 15px;">Productos Por Sobre <a href="<?= Yii::$app->homeUrl ?>product/products/2" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
 
         <?php
         OwlCarouselWidget::begin([
@@ -219,7 +219,7 @@ $this->title = 'Omnilife Castellanos';
         
           <br>
 
-        <h4 style="margin-top: 15px;">Productos Por Botella <a href="<?= Yii::$app->homeUrl ?>product/products" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
+        <h4 style="margin-top: 15px;">Productos Por Botella <a href="<?= Yii::$app->homeUrl ?>product/products/3" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
 
         <?php
         OwlCarouselWidget::begin([

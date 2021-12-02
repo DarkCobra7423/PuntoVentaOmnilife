@@ -37,23 +37,34 @@ class ProfileController extends Controller {
                     'dataProvider' => $dataProvider,
         ]);
     }
-    
-      public function actionBinnacle(){
-          
-          $binnacles = \app\models\Shopping::find()->all();
-          
-          
-          
-        return $this->render('binnacle', ['binnacles' => $binnacles]);
+
+    public function actionBinnacle() {
+
+        $binnacles = \app\models\Shopping::find()->all();
+        $profiles = \app\models\Profile::find()->all();
+        return $this->render('binnacle', [
+                    'binnacles' => $binnacles,
+                    'profiles' => $profiles
+        ]);
     }
 
+    public function actionRegistre() {
 
-    /**
+        $registres = \app\models\Profile::find()->all();
+        $profiles = \app\models\Profile::find()->all();
+        return $this->render('registre', [
+                    'registres' => $registres,
+                    'profiles'  => $profiles
+        ]);
+    }
+
+    /*
      * Displays a single Profile model.
      * @param int $id Idprofile
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+
     public function actionView($id) {
         return $this->render('view', [
                     'model' => $this->findModel($id),

@@ -2,8 +2,13 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Flavor;
+use app\models\Unittype;
 use yii\helpers\ArrayHelper;
 use kartik\file\FileInput;
+
+$flavor = ArrayHelper::map(Flavor::find()->all(), 'idflavor', 'flavor');
+$unittype = ArrayHelper::map(Unittype::find()->all(), 'idunittype', 'unittype');
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -25,18 +30,18 @@ use kartik\file\FileInput;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'fkflavor')->textInput() ?>
+    <?= $form->field($model, 'fkflavor')->dropDownList($flavor, ['prompt' => 'Selecione uno...']) ?>
 
     <?= $form->field($model, 'content')->textInput() ?>
 
-    <?= $form->field($model, 'fkunittype')->textInput() ?>
+    <?= $form->field($model, 'fkunittype')->dropDownList($unittype, ['prompt' => 'Selecione uno...'])?>
 
     <?= $form->field($model, 'stock')->textInput() ?>
 
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Guardar Registro', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

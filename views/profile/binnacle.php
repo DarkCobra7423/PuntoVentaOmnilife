@@ -1,7 +1,9 @@
 <?php
 $this->title = 'Omnilife Castellanos';
 ?>
-
+<br>
+<br>
+<br>  
 <table class="table table-hover">
     <thead>
         <tr>
@@ -9,49 +11,58 @@ $this->title = 'Omnilife Castellanos';
             <th scope="col">Nombre</th>
             <th scope="col">Envio</th>
             <th scope="col">Dirreción</th>
+            <th scope="col">Estatus</th>
             <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($binnacles as $binnacle): 
-            $shoppingcards = app\models\Shoppingcart::find()->where(['fkshopping' => $binnacle->idshopping])->all();
-                foreach ($shoppingcards  as $shoppingcard):  
-                    $products = app\models\Product::find()->where(['idproduct' => $shoppingcard->fkproduct])->all();
-                    
-            ?>
+        <?php
+        foreach ($binnacles as $binnacle):
+        $shoppingcards = app\models\Shoppingcart::find()->where(['fkshopping' => $binnacle->idshopping])->all();
+        foreach ($shoppingcards as $shoppingcard):
+        $products = app\models\Product::find()->where(['idproduct' => $shoppingcard->fkproduct])->all();
         
-            <tr>
-                <th scope="row">1</th>
-                <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter">Yesenia Diaz Hernandez</a></td>
-                <td>
-                    <?php foreach ($products  as $product):  
-                    
-     echo $product->product;
-                        
-                    endforeach;     
-                        ?>
-                    
-                </td>
-                <td>La casa azul con rojo frente a la cancha a lado del arbol color verde con tronco color cafe</td>
-                <td>
-                   <?= $binnacle->shipping ?>
-                    
-                    <!--<select class="form-control form-control-sm">
-                        <option>Enviado</option>
-                        <option>No Enviado</option>
-                    </select>-->
-                </td>
-            </tr>
-        <?php endforeach; 
-            endforeach;
-           
+        foreach ($products as $product):
+        //$shoping = app\models\Profile::find()->where(['idprofile' => $binnacle->idshoping])->all();
+         
         ?>
+
+        <tr>
+            <th scope="row">1</th>
+            <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"></a></td>
+            <td>
+                <?php
+                foreach ($products as $product):
+
+                echo $product->product;
+
+                endforeach;
+                ?>
+
+            </td>
+            <td>La casa azul con rojo frente a la cancha a lado del arbol color verde con tronco color cafe</td>
+            <td>
+                <?= $binnacle->shipping ?>
+
+        <!--<select class="form-control form-control-sm">
+            <option>Enviado</option>
+            <option>No Enviado</option>
+        </select>-->
+            </td>
+        </tr>
+        <?php
+        endforeach;
+        endforeach;
+        endforeach;
+       
+        ?>
+
 
     </tbody>
 </table>
 
 
-<?php// $form->field($model, 'ven_pago')->dropDownList([ 'DEPOSITO' => 'DEPOSITO', 'EFECTIVO' => 'EFECTIVO', ], ['prompt' => '']) ?>
+<?php // $form->field($model, 'ven_pago')->dropDownList([ 'DEPOSITO' => 'DEPOSITO', 'EFECTIVO' => 'EFECTIVO', ], ['prompt' => ''])   ?>
 
 
 
