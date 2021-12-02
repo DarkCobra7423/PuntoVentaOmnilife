@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\web\Controller;
 use yii\grid\GridView;
-
+use yii\widgets\ActiveForm;
 $this->title = $model->product;
 ?>
 
@@ -61,6 +61,12 @@ $this->title = $model->product;
 
             <div class="container" style="border: 1px solid rgba(0, 0, 0, 0.1);border-radius: 8px;right: 15px;">
                 <br>
+                <?php
+                $form = ActiveForm::begin([
+                            'method' => 'post',
+                            'action' => ['controller/Addtocart'],
+                ]);
+                ?>
                 <h4><?= $model->product ?></h4>
 
                 <h2>$ <?= $model->price ?>.00</h2>
@@ -76,7 +82,7 @@ $this->title = $model->product;
                 <br>
                 <label>Cantidad: </label>
 
-                <select style="background: transparent; border: none; font-size: 14px;  height: 30px padding 5px; font-weight: 600;">
+                <select name="quantity" style="background: transparent; border: none; font-size: 14px;  height: 30px padding 5px; font-weight: 600;">
                     <option value="1">1 <?= $model->getUnittype() ?></option>
                     <option value="2">2 <?= $model->getUnittype() ?>s</option>
                     <option value="3">3 <?= $model->getUnittype() ?>s</option>
@@ -87,10 +93,11 @@ $this->title = $model->product;
                 <label style="color: #A3A3A3">(<?= $model->stock ?> Disponibles)</label>
                 <br>
                 <br>
-
-                <a href="#" class="btn btn-primary btn-lg btn-block" style="bottom: 5px;">Comprar ahora</a>
-
-                <a href="#" class="btn btn-link btn-lg btn-block" style="background-color: rgba(65,137,230,.15); border-color: transparent; color: #3483fa;">Agregar al carrito</a>
+                
+                <!--<a href="#" class="btn btn-primary btn-lg btn-block" style="bottom: 5px;">Comprar ahora</a>-->
+                <?= Html::submitButton('Comprar ahora', ['class' => 'btn btn-primary btn-lg btn-block', 'style' => 'margin-bottom: 5px;']) ?>
+                <?php ActiveForm::end(); ?>
+                <a href="<?= Yii::$app->homeUrl ?>shoppingcart/addtocart/<?= $model->idproduct ?>" class="btn btn-link btn-lg btn-block" style="background-color: rgba(65,137,230,.15); border-color: transparent; color: #3483fa;">Agregar al carrito</a>
                 <br>
                 <br>
                 <i class="fas fa-shield-alt"></i> <label style="color: #438CFA">Compra Protegida</label><span style="color: #A3A3A3">, recibe el producto que esperabas o te devolvemos tu dinero.</span>

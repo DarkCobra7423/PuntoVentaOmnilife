@@ -37,6 +37,16 @@ class CardController extends Controller {
                     'dataProvider' => $dataProvider,
         ]);
     }
+    
+    public function actionPayment(){
+        
+        return $this->render('payment');
+    }
+    
+    public function actionShippingoptions(){
+        
+        return $this->render('shippingoptions');
+    }
 
     /**
      * Displays a single Card model.

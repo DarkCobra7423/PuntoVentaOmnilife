@@ -63,6 +63,9 @@ $config = [
           ],
           ],
          */
+        'globalprofileid' => function () {
+            return app\models\Profile::find()->where(['fkuser' => Yii::$app->user->id])->one();
+        },
         'user' => [
             'class' => 'webvimark\modules\UserManagement\components\UserConfig',
             // Comment this if you don't want to record user logins
@@ -71,7 +74,7 @@ $config = [
             }
         ],
     ],
-    'params' => $params,    
+    'params' => $params,
     'modules' => [
         'user-management' => [
             'class' => 'webvimark\modules\UserManagement\UserManagementModule',

@@ -91,4 +91,8 @@ class Shoppingcart extends \yii\db\ActiveRecord
     public function getImage() {
         return Yii::$app->homeUrl . "resources/images/" . $this->fkproduct0->image;
     }
+    
+    public function getProduct(){
+        return $this->getFkproduct0();
+    }
 }

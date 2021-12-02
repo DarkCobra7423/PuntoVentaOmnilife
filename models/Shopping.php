@@ -74,4 +74,34 @@ class Shopping extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Shoppingcart::className(), ['fkshopping' => 'idshopping']);
     }
+    
+    public function formatDatetime() {
+        //$date = '2021-11-19 11:09:38';
+        $value = strtotime($this->datetime);
+        
+       //print_r($value); die();
+        $difference = time() - $value;
+        
+        if ($difference < 1) {
+            return 'Justo ahora';
+        }
+        
+        $condition = array(
+            12 * 30 * 24 * 60 * 60 => 'año',
+            30 * 24 * 60 * 60 => 'mes',
+            24 * 60 * 60 => 'dia',
+            60 * 60 => 'hora',
+            60 => 'minuto',
+            1 => 'segundo'
+        );
+        
+        foreach ($condition as $secs => $str) {
+            $d = $difference / $secs;
+            if($d >= 1){
+                $t = round($d);
+                return 'Hace '.$t.' '.$str.($t > 1 ? 's' : '');
+            }
+        }
+    }
+   
 }

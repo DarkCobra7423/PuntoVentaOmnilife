@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\Shoppingcart;
 use app\models\ShoppingcartSearch;
 use yii\web\Controller;
@@ -38,18 +39,49 @@ class ShoppingcartController extends Controller {
         ]);
     }
     
-    public function actionShoppingcart(){
+    public function actionAddtocart($id) {
+        //INSERT INTO `shoppingcart` (`idshoppingcart`, `fkshopping`, `fkprofile`, `fkproduct`, `quantity`, `price`) VALUES (NULL, NULL, '2', '1', '1', '30');
         
-        $carts = Shoppingcart::find()->all();
+        $product = \app\models\Product::findOne($id);
         
+        $add = new Shoppingcart();
+        $add->fkshopping = NULL;
+        $add->fkprofile = Yii::$app->globalprofileid->idprofile;
+        $add->fkproduct = $product->idproduct;
+        $add->quantity = "1";
+        $add->price = $product->price;
+        $add->save();
+        
+        return $this->redirect(['shoppingcart/shoppingcart']);
+    }
+
+    public function actionShoppingcart() {
+        //$carritos = Carrito::find()->where(['AND', 'car_fkperfil = '.Yii::$app->profile->per_id, 'car_fkventa IS NULL'])->all();
+        $carts = Shoppingcart::find()->where(['AND', 'fkprofile = ' . Yii::$app->globalprofileid->idprofile, 'fkshopping IS NULL'])->all();
+
         return $this->render('shoppingcart', ['carts' => $carts]);
     }
 
+    public function actionUpdatequantity($id, $cantidad, $precio) {
+
+        if ($cantidad <= 0) {
+            Yii::$app->db->createCommand("DELETE FROM shoppingcart WHERE `fkproduct` = '" . $id . "' AND `fkprofile` = '" . Yii::$app->globalprofileid->idprofile . "'")->execute();
+            return $this->redirect(['/shoppingcart/shoppingcart/']);
+        } else {
+
+            Yii::$app->db->createCommand("UPDATE shoppingcart SET `quantity`='" . $cantidad . "', `price`='" . $precio . "' WHERE `fkproduct`='" . $id . "' AND `fkprofile`='" . Yii::$app->globalprofileid->idprofile . "'")->execute();
+        }
+    }
 
     public function actionMyshopping() {
+
+        $myshoppings = \app\models\Shopping::find()->orderBy(['datetime' => SORT_DESC])->all();
+        
+        $count = \app\models\Shopping::find()->select('COUNT(*) AS shipping')->one();
+
         return $this->render('myshopping', [
-        //            'searchModel' => $searchModel,
-        //            'dataProvider' => $dataProvider,
+                    'myshoppings' => $myshoppings,  
+                    'count' => $count->shipping,
         ]);
     }
 

@@ -1,72 +1,83 @@
-<?php $this->title = 'Omnilife Castellanos'; ?>
+<?php
+use yii\widgets\ActiveForm;
 
+$this->title = 'Omnilife Castellanos'; 
+?>
+<br><br><br>
 <link rel="stylesheet" type="text/css" href="<?= Yii::$app->homeUrl; ?>css/styleShoppingcart.css">
 
 <div>    
-    <?php  foreach ($carts as $cart): ?>
-        <div data-region="items" class="cart__items-container" role="tabpanel" itemscope="" itemtype="#">
-            <div>
-                <div data-component="item-cart" class="ui-panel" itemprop="itemListElement" style="padding-left: 15px;padding-right: 15px; border-radius: 10px;">
-                    <article class="item">
-                        <div data-region="item-loading"></div>
-                        <figure class="item__image item__image--dimmer">
-                            <a itemprop="url" href="#">
-                                <img itemprop="image" src="<?php // $carrito->producto_imagen ?>https://portal.omnilife.com/uploads/images/products/detail/mex/es_new/5177432_V2.png" style="width: 150px">
-                            </a>
-                        </figure>
-                        <div class="item__information">
+    <?php
+    foreach ($carts as $cart):
 
-                            <div class="u-float-left item__description" style="margin-top: 20px;">
-                                <a class="" href="#" itemprop="url"><b>Nombre del producto<?php // $carrito->producto->pro_nombre ?></b></a><br>
-                                <label class="item__subtitle" itemprop="description" style="margin-bottom: 0px;"><?php // $carrito->producto->pro_descripcion ?>este hace algo que no se que sea</label><br>
-                                <label class="item__subtitle" itemprop="description">Sabor: <?php // $carrito->producto->prosabor ?>Mango</label>
-                            </div>
+        $products = app\models\Product::find()->where(['idproduct' => $cart->fkproduct])->all();
 
-                            <div data-quantity="container" class="ui-quantity-selector u-float-left" style="padding-top: 38px;">
-                                <div class="ui-quantity-selector__container">
-                                    <form class="u-float-left" action="#" method="POST">
-                                        <input id="decrement<?= $cart->fkproduct ?>" onClick='decreaseCount(<?= $cart->fkproduct ?>)' data-quantity="pop" value="-" type="button" class="u-button-reset ui-quantity-selector__button min" name="pop">
-                                    </form>
-                                    <input id="quantity<?= $cart->fkproduct ?>" autocomplete="off" data-quantity="input" onblur="calcular(<?= $cart->fkproduct ?>);" type="tel" value="<?= $cart->quantity ?>" class="u-button-reset ui-quantity-selector__input quantity" name="quantity">
-                                    <form class="u-float-left" action="#" method="POST">
-                                        <input id="increment<?= $cart->fkproduct ?>" onClick='increaseCount(<?= $cart->fkproduct ?>)' data-quantity="push" value="+" type="button" class="u-button-reset ui-quantity-selector__button mas" name="push">
-                                    </form>
-                                    <div class="cart-inline-loading__quantity-selector" data-region="quantity-loading"></div>
+        foreach ($products as $product):
+            ?>
+            <div data-region="items" class="cart__items-container" role="tabpanel" itemscope="" itemtype="#">
+                <div>
+                    <div data-component="item-cart" class="ui-panel" itemprop="itemListElement" style="padding-left: 15px;padding-right: 15px; border-radius: 10px;">
+                        <article class="item">
+                            <div data-region="item-loading"></div>
+                            <figure class="item__image item__image--dimmer">
+                                <a itemprop="url" href="#">
+                                    <img itemprop="image" src="<?= $product->imagen ?>" style="width: 150px">
+                                </a>
+                            </figure>
+                            <div class="item__information">
+
+                                <div class="u-float-left item__description" style="margin-top: 20px;">
+                                    <a class="" href="#" itemprop="url"><b><?= $product->product ?></b></a><br>
+                                    <label class="item__subtitle" itemprop="description" style="margin-bottom: 0px;"><?= $product->description ?></label><br>
+                                    <label class="item__subtitle" itemprop="description">Sabor: <?= $product->flavor ?></label>
                                 </div>
-                                <div data-quantity="error" class="ui-quantity-selector__stock"><?php // $carrito->producto->pro_existencias ?>0 disponibles</div>
-                            </div>
 
-                            <div class="item__price" style="margin-right: 38px;">
-                                <span class="item__notification-open" data-notification="open">
-                                    <svg viewBox="0 0 100 100" role="presentation" class="ui-icon ui-icon--info ">
-                                    <use xmlns:xlink="" xlink:href="#ui-icon--info"></use>
-                                    </svg>
-                                </span>
-                                <span class="price-tag item__price-tag" itemprop="offers" itemscope="" itemtype="" style="padding-top: 60px;">
-                                    <meta itemprop="price" content="120">
-                                    <span class="price-tag-symbol" itemprop="priceCurrency">$</span>                                    
-                                    <span id="precio<?= $cart->fkproduct ?>" class="price-tag-fraction" data-unitario="<?= $cart->price ?>" data-value="<?= $cart->price ?>"><?= $cart->price ?></span>
-                                    <span class="price-tag-decimal-separator">.</span>
-                                    <span class="price-tag-cents">00</span>
-                                </span>
-                            </div>
+                                <div data-quantity="container" class="ui-quantity-selector u-float-left" style="padding-top: 38px;">
+                                    <div class="ui-quantity-selector__container">
+                                        <form class="u-float-left" action="#" method="POST">
+                                            <input id="decrement<?= $cart->fkproduct ?>" onClick='decreaseCount(<?= $cart->fkproduct ?>)' data-quantity="pop" value="-" type="button" class="u-button-reset ui-quantity-selector__button min" name="pop">
+                                        </form>
+                                        <input id="quantity<?= $cart->fkproduct ?>" autocomplete="off" data-quantity="input" onblur="calcular(<?= $cart->fkproduct ?>);" type="tel" value="<?= $cart->quantity ?>" class="u-button-reset ui-quantity-selector__input quantity" name="quantity">
+                                        <form class="u-float-left" action="#" method="POST">
+                                            <input id="increment<?= $cart->fkproduct ?>" onClick='increaseCount(<?= $cart->fkproduct ?>)' data-quantity="push" value="+" type="button" class="u-button-reset ui-quantity-selector__button mas" name="push">
+                                        </form>
+                                        <div class="cart-inline-loading__quantity-selector" data-region="quantity-loading"></div>
+                                    </div>
+                                    <div data-quantity="error" class="ui-quantity-selector__stock"><?= $product->stock ?> disponibles</div>
+                                </div>
 
-                        </div>
-                        <div class="item__actions">
-                            <ul class="item__action-menu">
-                                <li>
-                                    <form data-action="remove-from-cart" action="#" method="POST">
-                                        <input type="hidden" name="id" value="">
-                                        <input class="u-button-reset u-link  item__action-menu-link " type="submit" value="Eliminar">
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>  
-        </div>
-        <br>
+                                <div class="item__price" style="margin-right: 38px;">
+                                    <span class="item__notification-open" data-notification="open">
+                                        <svg viewBox="0 0 100 100" role="presentation" class="ui-icon ui-icon--info ">
+                                        <use xmlns:xlink="" xlink:href="#ui-icon--info"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="price-tag item__price-tag" itemprop="offers" itemscope="" itemtype="" style="padding-top: 60px;">
+                                        <meta itemprop="price" content="120">
+                                        <span class="price-tag-symbol" itemprop="priceCurrency">$</span>                                    
+                                        <span id="precio<?= $cart->fkproduct ?>" class="price-tag-fraction" data-unitario="<?= $cart->product->price ?>" data-value="<?= $cart->price ?>"><?= $cart->price ?></span>
+                                        <span class="price-tag-decimal-separator">.</span>
+                                        <span class="price-tag-cents">00</span>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="item__actions">
+                                <ul class="item__action-menu">
+                                    <li>
+                                        <form data-action="remove-from-cart" action="#" method="POST">
+                                            <input type="hidden" name="id" value="">
+                                            <input class="u-button-reset u-link  item__action-menu-link " type="submit" value="Eliminar">
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>  
+            </div>
+            <br>
+        <?php endforeach; ?>
     <?php endforeach; ?>
     <div data-region="summary" class="cart__summary">
         <div>
@@ -89,15 +100,15 @@
                 </div>
 
                 <div class="summary__actions">
-                    <?php /*
+                    <?php
                     $form = ActiveForm::begin([
                                 'method' => 'post',
                                 'action' => ['pago/pago'],
-                    ]);*/
+                    ]);
                     ?>
                     <input id="totalpost" name="totalpost" value="0" hidden=""/>
                     <button class="ui-button ui-button--primary" type="submit">Continuar compra</button>
-                    <?php // ActiveForm::end(); ?>
+                    <?php ActiveForm::end(); ?>
                 </div>
 
 
@@ -106,107 +117,105 @@
     </div>
 </div>
 
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 
 <script>
-                        total = 0;
-                        <?php // foreach ($carritos as $carrito): ?>
+    total = 0;
+<?php foreach ($carts as $cart): ?>
 
-                            totalElem<?php // $carrito->car_fkproducto ?> = document.getElementById('precio<?php // $carrito->car_fkproducto ?>');
-                            totalpro<?php // $carrito->car_fkproducto ?> = parseFloat(totalElem<?php // $carrito->car_fkproducto ?>.dataset.value);
+        totalElem<?= $cart->fkproduct ?> = document.getElementById('precio<?= $cart->fkproduct ?>');
+        totalpro<?= $cart->fkproduct ?> = parseFloat(totalElem<?= $cart->fkproduct ?>.dataset.value);
 
-                            total = total + parseFloat(totalpro<?php // $carrito->car_fkproducto ?>)
-                        <?php // endforeach; ?>
-                        //alert(total);
-                        totalCar = document.getElementById('totalCar');
-                        totalCar.innerHTML = parseInt(total);
-                        document.getElementById("totalpost").value = parseInt(total);
+        total = total + parseFloat(totalpro<?= $cart->fkproduct ?>);
+<?php endforeach; ?>
+    //alert(total);
+    totalCar = document.getElementById('totalCar');
+    totalCar.innerHTML = parseInt(total);
+    document.getElementById("totalpost").value = parseInt(total);
 
-                        function calcular(id) {
-                            quantity = document.getElementById('quantity' + id).value;
+    function calcular(id) {
+        quantity = document.getElementById('quantity' + id).value;
 
-                            totalElem = document.getElementById('precio' + id);
-                            preunitario = parseFloat(totalElem.dataset.unitario);
-                            //totalpro = parseFloat(totalElem.dataset.value);
-                            
-                            precio = parseFloat(quantity) * parseFloat(preunitario);
-                            
-                            totalElem.dataset.value = parseFloat(quantity) * parseFloat(preunitario);
-                            totalElem.innerHTML = parseFloat(quantity) * parseFloat(preunitario);
+        totalElem = document.getElementById('precio' + id);
+        preunitario = parseFloat(totalElem.dataset.unitario);
+        //totalpro = parseFloat(totalElem.dataset.value);
 
-                            calculartotal();
-                            
-                            $.post("<?php // Yii::$app->homeUrl ?>carrito/actualizarcantidad?id=" + id + "&cantidad=" + parseFloat(quantity) + "&precio=" + parseFloat(precio), function (data) {});
+        precio = parseFloat(quantity) * parseFloat(preunitario);
 
-                        }
+        totalElem.dataset.value = parseFloat(quantity) * parseFloat(preunitario);
+        totalElem.innerHTML = parseFloat(quantity) * parseFloat(preunitario);
 
-                        function increaseCount(id) {
+        calculartotal();
 
-                            increment = document.getElementById("increment" + id).value;
-                            if (increment == "+") {
-                                increment = 1;
-                            }
-                            quantity = document.getElementById('quantity' + id).value;
+        $.post("<?= Yii::$app->homeUrl ?>shoppingcart/updatequantity?id=" + id + "&cantidad=" + parseFloat(quantity) + "&precio=" + parseFloat(precio), function (data) {});
 
-                            sum = parseFloat(quantity) + parseFloat(increment);
+    }
 
-                            document.getElementById('quantity' + id).value = sum;
-                            /////////////////////////
-                            totalElem = document.getElementById('precio' + id);
-                            preunitario = parseFloat(totalElem.dataset.unitario);
-                            //totalpro = parseFloat(totalElem.dataset.value);
+    function increaseCount(id) {
 
-                            totalElem.dataset.value = parseFloat(sum) * parseFloat(preunitario);
-                            totalElem.innerHTML = parseFloat(sum) * parseFloat(preunitario);
+        increment = document.getElementById("increment" + id).value;
+        if (increment == "+") {
+            increment = 1;
+        }
+        quantity = document.getElementById('quantity' + id).value;
 
-                            calculartotal();
-                            
-                            precio = parseFloat(sum) * parseFloat(preunitario);
+        sum = parseFloat(quantity) + parseFloat(increment);
 
-                            //$.post("<?php // Yii::$app->homeUrl ?>carrito/actualizarcantidad?id=" + id + "&cantidad=" + sum, function (data) {});
-                            $.post("<?php // Yii::$app->homeUrl ?>carrito/actualizarcantidad?id=" + id + "&cantidad=" + parseFloat(sum) + "&precio=" + parseFloat(precio), function (data) {});
-                        }
+        document.getElementById('quantity' + id).value = sum;
+        /////////////////////////
+        totalElem = document.getElementById('precio' + id);
+        preunitario = parseFloat(totalElem.dataset.unitario);
+        //totalpro = parseFloat(totalElem.dataset.value);
 
-                        function decreaseCount(id) {
+        totalElem.dataset.value = parseFloat(sum) * parseFloat(preunitario);
+        totalElem.innerHTML = parseFloat(sum) * parseFloat(preunitario);
 
-                            increment = document.getElementById("increment" + id).value;
-                            if (increment == "+") {
-                                increment = 1;
-                            }
-                            quantity = document.getElementById('quantity' + id).value;
+        calculartotal();
 
-                            sum = parseInt(quantity) - parseInt(increment);
+        precio = parseFloat(sum) * parseFloat(preunitario);
 
-                            document.getElementById('quantity' + id).value = sum;
-                            ////////////////////////////
-                            totalElem = document.getElementById('precio' + id);
-                            preunitario = parseFloat(totalElem.dataset.unitario);
-                            //totalpro = parseFloat(totalElem.dataset.value);
+        $.post("<?= Yii::$app->homeUrl ?>shoppingcart/updatequantity?id=" + id + "&cantidad=" + parseFloat(sum) + "&precio=" + parseFloat(precio), function (data) {});
+    }
 
-                            totalElem.dataset.value = parseFloat(sum) * parseFloat(preunitario);
-                            totalElem.innerHTML = parseFloat(sum) * parseFloat(preunitario);
+    function decreaseCount(id) {
 
-                            calculartotal();
-                            
-                            precio = parseFloat(sum) * parseFloat(preunitario);
-                            
-                            //$.post("<?php // Yii::$app->homeUrl ?>carrito/actualizarcantidad?id=" + id + "&cantidad=" + sum, function (data) {});
-                            $.post("<?php // Yii::$app->homeUrl ?>carrito/actualizarcantidad?id=" + id + "&cantidad=" + parseFloat(sum) + "&precio=" + parseFloat(precio), function (data) {});
+        increment = document.getElementById("increment" + id).value;
+        if (increment == "+") {
+            increment = 1;
+        }
+        quantity = document.getElementById('quantity' + id).value;
 
-                        }
+        sum = parseInt(quantity) - parseInt(increment);
 
-                        function calculartotal() {
-                            total = 0;
-                        <?php // foreach ($carritos as $carrito): ?>
+        document.getElementById('quantity' + id).value = sum;
+        ////////////////////////////
+        totalElem = document.getElementById('precio' + id);
+        preunitario = parseFloat(totalElem.dataset.unitario);
+        //totalpro = parseFloat(totalElem.dataset.value);
 
-                                totalElem<?php // $carrito->car_fkproducto ?> = document.getElementById('precio<?php // $carrito->car_fkproducto ?>');
-                                totalpro<?php // $carrito->car_fkproducto ?> = parseFloat(totalElem<?php // $carrito->car_fkproducto ?>.dataset.value);
+        totalElem.dataset.value = parseFloat(sum) * parseFloat(preunitario);
+        totalElem.innerHTML = parseFloat(sum) * parseFloat(preunitario);
 
-                                total = total + parseFloat(totalpro<?php // $carrito->car_fkproducto ?>)
-                        <?php // endforeach; ?>
-                            //alert(total);
-                            totalCar = document.getElementById('totalCar');
-                            totalCar.innerHTML = parseInt(total);
-                            document.getElementById("totalpost").value = parseInt(total);
-                        }
+        calculartotal();
+
+        precio = parseFloat(sum) * parseFloat(preunitario);
+
+        $.post("<?= Yii::$app->homeUrl ?>shoppingcart/updatequantity?id=" + id + "&cantidad=" + parseFloat(sum) + "&precio=" + parseFloat(precio), function (data) {});
+
+    }
+
+    function calculartotal() {
+        total = 0;
+<?php foreach ($carts as $cart): ?>
+
+            totalElem<?= $cart->fkproduct ?> = document.getElementById('precio<?= $cart->fkproduct ?>');
+            totalpro<?= $cart->fkproduct ?> = parseFloat(totalElem<?= $cart->fkproduct ?>.dataset.value);
+
+            total = total + parseFloat(totalpro<?= $cart->fkproduct ?>)
+<?php endforeach; ?>
+        //alert(total);
+        totalCar = document.getElementById('totalCar');
+        totalCar.innerHTML = parseInt(total);
+        document.getElementById("totalpost").value = parseInt(total);
+    }
 </script>

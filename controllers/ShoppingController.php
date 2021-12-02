@@ -8,5 +8,5 @@ class ShoppingController extends \yii\web\Controller
     {
         return $this->render('index');
     }
-
+    
 }
