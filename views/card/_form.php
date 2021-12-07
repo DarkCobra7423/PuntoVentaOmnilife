@@ -12,6 +12,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'fkprofile')->textInput() ?>
+    
     <?= $form->field($model, 'fkbank')->textInput() ?>
 
     <?= $form->field($model, 'cardnumber')->textInput(['maxlength' => true]) ?>

@@ -1,0 +1,1524 @@
+
+/*! CSS Used from: https://www.mercadopago.com/mlm/offlinepayments/dist/styles/pay-tickets-general.afe969dbfcdd.css */
+.ticket-box {
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    text-align: center;
+    max-width: 360px;
+    margin: auto;
+    padding: 10px;
+}
+.ticket-box-c2 {
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    text-align: center;
+    margin: auto;
+    max-width: initial;
+}
+.ticket-header {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+.ch-icon-time:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.item-time-accreditation {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: grey;
+}
+.div-btn_geolocation {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.ticket-box h1.payment-info {
+    color: #383838;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    padding: 0 6px;
+}
+.ticket-box .payment-info-container-c2 {
+    background-color: #fff;
+    min-height: 50%;
+    padding: 0 12px 12px;
+    max-width: 336px;
+    margin: 20px auto 20px;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+.ticket-box .payment-price-c2,
+.ticket-box .payment-reason-c2 {
+    text-align: left;
+    font-size: 14px;
+    color: #666;
+    padding: 0 20px;
+    margin-left: 20px;
+}
+.ticket-box .payment-price-c2 {
+    font-size: 14px;
+    padding-right: 30px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.ticket-box .payment-tax {
+    font-size: 12px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    color: #999;
+    text-align: center;
+    padding-left: 20px;
+}
+.ticket-box .payment-price-c2 strong {
+    color: #333;
+    font-size: 14px;
+}
+.ticket-box .payment-reason-c2 {
+    color: grey;
+}
+.ticket-box .payment-code-c2 {
+    font-size: 20px;
+    line-height: 42px;
+    color: #333;
+    margin: 0 5px;
+    padding: 3px 0;
+    margin-top: -10px;
+}
+.ticket-box .payment-code-c2 span {
+    background-color: #f7f7f7;
+    padding: 3px 14px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    line-height: 42px;
+    margin: 6px 5px;
+    display: inline-block;
+}
+.ticket-box .payment-secondary-info {
+    display: inline-block;
+    color: #666;
+    margin: 10px 0;
+}
+.payment-info-container-c2 .ticket-header {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+.payment-info-container-c2 h1.payment-info {
+    margin: 0 6px;
+    padding: 20px 6px 20px;
+}
+.payment-detail-widget:checked + div .purchases-expandable-container-c2 {
+    display: block;
+    margin-bottom: 10px;
+    -webkit-border-image: none;
+    -o-border-image: none;
+    border-image: none;
+    -webkit-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    border-top: none;
+}
+.ch-expandable-container.purchases-expandable-container-c2 {
+    border: 1px solid #dedede;
+    -webkit-border-image: none;
+    -o-border-image: none;
+    border-image: none;
+    -webkit-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    padding: 0 0 0;
+    border-top: none;
+}
+.buyed {
+    text-align: left;
+    margin-left: 40px;
+    margin-bottom: 15px;
+}
+.buyed span {
+    content: "";
+    background: url(https://secure.mlstatic.com/org-img/emails/icons/ico-check.png)
+        no-repeat;
+    display: block;
+    height: 18px;
+    width: 14px;
+    position: absolute;
+    margin-left: -20px;
+}
+.ch-icon-time:before {
+    font-size: 15px;
+    height: 0;
+    width: 0;
+    vertical-align: top;
+    margin-top: -1px;
+}
+/*! CSS Used from: https://www.mercadopago.com/mlm/offlinepayments/dist/styles/pay-tickets-mobile.97ad69dbfcdd.css */
+a,
+body,
+div,
+footer,
+h1,
+header,
+html,
+i,
+iframe,
+img,
+label,
+nav,
+p,
+small,
+span,
+strong {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+}
+footer,
+header,
+nav {
+    display: block;
+}
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 0 10px;
+    background-color: #fff;
+    color: #333;
+    margin: 0 auto;
+}
+p + p {
+    margin: 1em 0 0 0;
+}
+img {
+    max-width: 100%;
+}
+[class*="ch-icon-"] {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0.9em;
+    height: 16px;
+    width: 16px;
+    font-size: 19px;
+    margin: 5px;
+}
+[class*="ch-icon-"]:before {
+    font-family: icons;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    display: inline-block;
+}
+[class*="ch-icon-"] {
+    color: #666;
+}
+[class^="ch-icon-"]:before {
+    left: 0;
+}
+.ch-icon-time:before {
+    content: "\f017";
+}
+h1 {
+    font-weight: 400;
+    margin: 10px 0;
+}
+h1 {
+    font-size: 22px;
+}
+a,
+a:active,
+a:link {
+    color: #03b;
+    text-decoration: none;
+}
+a:visited {
+    color: #809;
+}
+a:focus,
+a:hover {
+    text-decoration: underline;
+}
+.ch-price {
+    color: #900;
+    font-size: 16px;
+    font-weight: 700;
+}
+[class*="ch-btn"],
+[class*="ch-btn"]:focus {
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    height: auto;
+    text-decoration: none;
+    font-size: 18px;
+}
+[class*="ch-btn"]:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.ch-btn,
+.ch-btn:focus,
+.ch-btn:visited,
+a.ch-btn {
+    background-color: #3e52a1;
+    background-image: -webkit-linear-gradient(#3e52a1, #2d3277);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(#3e52a1),
+        to(#2d3277)
+        );
+    background-image: linear-gradient(#3e52a1, #2d3277);
+    -webkit-box-shadow: 0 1px 0 #7a89e8 inset;
+    box-shadow: 0 1px 0 #7a89e8 inset;
+    border: 1px solid #2d3277;
+    color: #fff;
+}
+.ch-btn:hover {
+    text-decoration: none;
+}
+.ch-btn:hover {
+    background-color: #4355d2;
+    background-image: -webkit-linear-gradient(#4355d2, #2f33ae);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(#4355d2),
+        to(#2f33ae)
+        );
+    background-image: linear-gradient(#4355d2, #2f33ae);
+    -webkit-box-shadow: 0 1px 0 #7a89e8 inset;
+    box-shadow: 0 1px 0 #7a89e8 inset;
+}
+.ch-btn:active {
+    background-color: #292f66;
+    background-image: -webkit-linear-gradient(#292f66, #202388);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(#292f66),
+        to(#202388)
+        );
+    background-image: linear-gradient(#292f66, #202388);
+    -webkit-box-shadow: 0 1px 6px #141452 inset;
+    box-shadow: 0 1px 6px #141452 inset;
+    border-color: #181e39;
+}
+.ch-btn,
+.ch-btn:focus {
+    line-height: 1.4em;
+    outline: 0;
+    padding: 7px 14px;
+}
+.ch-expandable-container {
+    background-color: #fff;
+    margin: 0;
+    padding: 14px 20px;
+    overflow: hidden;
+    border: 1px solid #e8e8e8;
+    border-top: none;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+input {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+input {
+    line-height: normal;
+}
+input[type="checkbox"]:focus {
+    outline: 1px dotted #999;
+}
+input,
+input:focus {
+    padding: 6px;
+}
+input[type="checkbox"],
+input[type="checkbox"]:focus {
+    padding: 0;
+}
+[class^="nav-icon-"] {
+    font-style: normal;
+}
+[class^="nav-icon-"]:before {
+    display: inline-block;
+    font-variant: normal;
+    margin: 0;
+    speak: none;
+    text-align: center;
+    width: 1em;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: none;
+    font-family: navigation;
+}
+.nav-icon-help:before {
+    content: "\e800";
+}
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+body {
+    border-collapse: collapse;
+    display: table;
+    background-color: #fff;
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    font-size: 14px;
+    table-layout: fixed;
+}
+.nav-footer,
+.nav-header {
+    display: table-row;
+    width: 100%;
+}
+.nav-bounds {
+    display: block;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+.nav-footer-navigation {
+    display: none;
+}
+.nav-header {
+    background-color: #fff059;
+    color: #5b562f;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    cursor: default;
+    border-bottom: 1px solid #d9d9d9;
+}
+.nav-header .nav-bounds {
+    position: relative;
+    padding: 44px 0 0;
+}
+.nav-header,
+.nav-header *,
+.nav-header :after,
+.nav-header :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+[for="nav-header-menu-switch"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 44px;
+    width: 54px;
+    cursor: pointer;
+}
+#nav-header-menu-switch {
+    display: none;
+}
+#nav-header-menu-switch:checked
++ .nav-header-menu-wrapper
+.hamburger-top-bread {
+    -webkit-transform: translate(0, 8px) rotate(40deg);
+    -ms-transform: translate(0, 8px) rotate(40deg);
+    transform: translate(0, 8px) rotate(40deg);
+}
+#nav-header-menu-switch:checked + .nav-header-menu-wrapper .hamburger-patty {
+    -webkit-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+#nav-header-menu-switch:checked
++ .nav-header-menu-wrapper
+.hamburger-bottom-bread {
+    -webkit-transform: translate(0, -8px) rotate(-40deg);
+    -ms-transform: translate(0, -8px) rotate(-40deg);
+    transform: translate(0, -8px) rotate(-40deg);
+}
+#nav-header-menu-switch:checked + .nav-header-menu-wrapper #nav-header-menu {
+    display: block;
+}
+.hamburger-bottom-bread,
+.hamburger-patty,
+.hamburger-top-bread {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 4px;
+    background-color: #716c37;
+    top: 50%;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+    left: 14px;
+}
+.hamburger-top-bread {
+    margin-top: -10px;
+}
+.hamburger-patty {
+    margin-top: -2px;
+}
+.hamburger-bottom-bread {
+    margin-top: 6px;
+}
+#nav-header-menu:after,
+#nav-header-menu:before {
+    border-style: solid;
+    border-color: transparent;
+    position: absolute;
+    bottom: 100%;
+    -webkit-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    transform: translateY(1px);
+    content: "";
+}
+#nav-header-menu {
+    background-color: #fff;
+    display: none;
+    position: relative;
+}
+#nav-header-menu a {
+    display: block;
+    height: 44px;
+    padding: 0 10px;
+    font-size: 13px;
+    line-height: 44px;
+    color: #999;
+    border-top: 1px solid #eaeaea;
+    position: relative;
+}
+#nav-header-menu a:first-child {
+    border-top-color: #d9d9d9;
+}
+#nav-header-menu a:after {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    display: block;
+    content: "\e806";
+    font-family: navigation;
+    color: #a6a6a6;
+}
+#nav-header-menu:before {
+    border-bottom-color: #d9d9d9;
+    border-width: 8px;
+    right: 19px;
+    pointer-events: none;
+}
+#nav-header-menu:after {
+    border-width: 7px;
+    border-bottom-color: #fff;
+    right: 20px;
+    pointer-events: none;
+}
+.nav-logo {
+    background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/styles/logo__small.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 32px;
+    overflow: hidden;
+    text-indent: -999px;
+    width: 47px;
+    top: 6px;
+    position: absolute;
+    left: 10px;
+}
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .nav-logo {
+        background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/styles/logo__small@2x.png);
+        -webkit-background-size: 47px 32px;
+        background-size: 47px 32px;
+    }
+}
+.nav-footer {
+    color: #999;
+    font-size: 13px;
+    overflow: hidden;
+}
+.nav-footer,
+.nav-footer *,
+.nav-footer :after,
+.nav-footer :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.nav-footer-primaryinfo {
+    margin: 15px 0;
+    overflow: hidden;
+}
+.nav-footer-copyright {
+    font-size: inherit;
+    display: inline-block;
+}
+@media (min-width: 768px) {
+    [class^="nav-icon-"]:before {
+        display: inline-block;
+    }
+    [class^="nav-icon-"] span {
+        display: none;
+    }
+    body,
+    html {
+        font-size: 13px;
+        background-color: #fff;
+    }
+    .nav-bounds {
+        max-width: 1220px;
+    }
+    .nav-header {
+        background-image: none;
+        height: 54px;
+    }
+    .nav-header .nav-bounds {
+        padding: 0 0 0 220px;
+        height: 54px;
+    }
+    [for="nav-header-menu-switch"] {
+        display: none;
+    }
+    #nav-header-menu {
+        display: block;
+        font-size: 0;
+        margin: 0 0 0 51px;
+        background-color: transparent;
+        float: right;
+        height: 54px;
+    }
+    #nav-header-menu a {
+        display: inline;
+        height: auto;
+        line-height: 1em;
+        border-top: none;
+        color: #918b3f;
+        text-decoration: none;
+        border-left: 1px solid #dccf50;
+        padding: 6px 13px;
+        line-height: 54px;
+        font-size: 13px;
+    }
+    #nav-header-menu a:first-child {
+        border-left: none;
+    }
+    #nav-header-menu a:after {
+        display: none;
+    }
+    #nav-header-menu a:hover {
+        color: #716d39;
+    }
+    #nav-header-menu a:hover i:before {
+        color: #4e4c2f;
+    }
+    #nav-header-menu i:before {
+        color: #716c37;
+        vertical-align: middle;
+        font-size: 18px;
+        text-shadow: 0 1px rgba(255, 255, 255, 0.75);
+    }
+    #nav-header-menu i.nav-icon-help:before {
+        font-size: 19px;
+    }
+    #nav-header-menu i span {
+        font-size: 13px;
+    }
+    #nav-header-menu:after,
+    #nav-header-menu:before {
+        display: none;
+    }
+    .nav-logo {
+        background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/styles/logo__large.png);
+        height: 40px;
+        top: 7px;
+        width: 159px;
+    }
+}
+@media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+(min-width: 768px) and (min-resolution: 192dpi),
+(min-width: 768px) and (min-resolution: 2dppx) {
+    .nav-logo {
+        background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/styles/logo__large@2x.png);
+        -webkit-background-size: 159px 40px;
+        background-size: 159px 40px;
+    }
+}
+@media (min-width: 768px) {
+    .nav-footer {
+        background-color: #f7f7f7;
+        border-top: 1px solid #eee;
+        line-height: 1;
+    }
+    .nav-footer .nav-bounds {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .nav-footer-copyright {
+        margin: 0;
+    }
+    .nav-footer-navigation {
+        display: inline-block;
+        font-size: 0;
+    }
+    .nav-footer-navigation a {
+        border-right: 1px solid #ddd;
+        font-size: 13px;
+        padding: 0 10px;
+    }
+    .nav-footer-navigation a:last-of-type {
+        border-right: none;
+    }
+    .nav-footer-primaryinfo {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+[class^="nav-icon-"] {
+    font-style: normal;
+}
+[class^="nav-icon-"]:before {
+    display: inline-block;
+    font-variant: normal;
+    margin: 0;
+    speak: none;
+    text-align: center;
+    width: 1em;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: none;
+    font-family: navigation;
+}
+.nav-icon-help:before {
+    content: "\e800";
+}
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+body {
+    border-collapse: collapse;
+    display: table;
+    background-color: #f1f1f1;
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    font-size: 14px;
+    table-layout: fixed;
+}
+.nav-footer,
+.nav-header {
+    display: table-row;
+    width: 100%;
+}
+.nav-bounds {
+    display: block;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+.nav-footer-navigation {
+    display: none;
+}
+.nav-header {
+    background-color: #fff;
+    color: #333;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    cursor: default;
+    border-bottom: 1px solid #d9d9d9;
+}
+.nav-header .nav-bounds {
+    position: relative;
+    padding: 44px 0 0;
+}
+.nav-header,
+.nav-header *,
+.nav-header :after,
+.nav-header :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+[for="nav-header-menu-switch"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 44px;
+    width: 54px;
+    cursor: pointer;
+}
+#nav-header-menu-switch {
+    display: none;
+}
+#nav-header-menu-switch:checked
++ .nav-header-menu-wrapper
+.hamburger-top-bread {
+    -webkit-transform: translate(0, 8px) rotate(40deg);
+    -ms-transform: translate(0, 8px) rotate(40deg);
+    transform: translate(0, 8px) rotate(40deg);
+}
+#nav-header-menu-switch:checked + .nav-header-menu-wrapper .hamburger-patty {
+    -webkit-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+#nav-header-menu-switch:checked
++ .nav-header-menu-wrapper
+.hamburger-bottom-bread {
+    -webkit-transform: translate(0, -8px) rotate(-40deg);
+    -ms-transform: translate(0, -8px) rotate(-40deg);
+    transform: translate(0, -8px) rotate(-40deg);
+}
+#nav-header-menu-switch:checked + .nav-header-menu-wrapper #nav-header-menu {
+    display: block;
+}
+.hamburger-bottom-bread,
+.hamburger-patty,
+.hamburger-top-bread {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 50%;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+    left: 14px;
+}
+.hamburger-top-bread {
+    margin-top: -10px;
+}
+.hamburger-patty {
+    margin-top: -2px;
+}
+.hamburger-bottom-bread {
+    margin-top: 6px;
+}
+#nav-header-menu:after,
+#nav-header-menu:before {
+    border-style: solid;
+    border-color: transparent;
+    position: absolute;
+    bottom: 100%;
+    -webkit-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    transform: translateY(1px);
+    content: "";
+}
+#nav-header-menu {
+    background-color: #fff;
+    display: none;
+    position: relative;
+}
+#nav-header-menu a {
+    display: block;
+    height: 44px;
+    padding: 0 10px;
+    font-size: 13px;
+    line-height: 44px;
+    color: #999;
+    border-top: 1px solid #eaeaea;
+    position: relative;
+}
+#nav-header-menu a:first-child {
+    border-top-color: #d9d9d9;
+}
+#nav-header-menu a:after {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    display: block;
+    content: "\e806";
+    font-family: navigation;
+    color: #a6a6a6;
+}
+#nav-header-menu:before {
+    border-bottom-color: #d9d9d9;
+    border-width: 8px;
+    right: 19px;
+    pointer-events: none;
+}
+#nav-header-menu:after {
+    border-width: 7px;
+    border-bottom-color: #fff;
+    right: 20px;
+    pointer-events: none;
+}
+.nav-logo {
+    background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/styles/logo__small.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 28px;
+    overflow: hidden;
+    text-indent: -999px;
+    width: 40px;
+    top: 8px;
+    position: absolute;
+    left: 10px;
+}
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .nav-logo {
+        background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/styles/logo__small@2x.png);
+        -webkit-background-size: 40px 28px;
+        background-size: 40px 28px;
+    }
+}
+.nav-footer {
+    color: #999;
+    font-size: 13px;
+    overflow: hidden;
+}
+.nav-footer,
+.nav-footer *,
+.nav-footer :after,
+.nav-footer :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.nav-footer-primaryinfo {
+    margin: 15px 0;
+    overflow: hidden;
+}
+.nav-footer-copyright {
+    font-size: inherit;
+    display: inline-block;
+}
+@media (min-width: 768px) {
+    [class^="nav-icon-"]:before {
+        display: inline-block;
+    }
+    [class^="nav-icon-"] span {
+        display: none;
+    }
+    body,
+    html {
+        font-size: 13px;
+        background-color: #f1f1f1;
+    }
+    .nav-bounds {
+        max-width: 1220px;
+    }
+    .nav-header {
+        background-image: none;
+        height: 54px;
+    }
+    .nav-header .nav-bounds {
+        padding: 0 0 0 221px;
+        height: 54px;
+    }
+    [for="nav-header-menu-switch"] {
+        display: none;
+    }
+    #nav-header-menu {
+        display: block;
+        font-size: 0;
+        margin: 0 0 0 51px;
+        background-color: transparent;
+        float: right;
+        height: 54px;
+    }
+    #nav-header-menu a {
+        display: inline;
+        height: auto;
+        line-height: 1em;
+        border-top: none;
+        color: #999;
+        text-decoration: none;
+        border-left: 1px solid #ddd;
+        padding: 6px 13px;
+        line-height: 54px;
+        font-size: 13px;
+    }
+    #nav-header-menu a:first-child {
+        border-left: none;
+    }
+    #nav-header-menu a:after {
+        display: none;
+    }
+    #nav-header-menu a:hover {
+        color: #999;
+    }
+    #nav-header-menu a:hover i:before {
+        color: rgba(0, 0, 0, 0.6);
+    }
+    #nav-header-menu i:before {
+        color: rgba(0, 0, 0, 0.6);
+        vertical-align: middle;
+        font-size: 18px;
+        text-shadow: 0 1px rgba(255, 255, 255, 0.75);
+    }
+    #nav-header-menu i.nav-icon-help:before {
+        font-size: 19px;
+    }
+    #nav-header-menu i span {
+        font-size: 13px;
+    }
+    #nav-header-menu:after,
+    #nav-header-menu:before {
+        display: none;
+    }
+    .nav-logo {
+        background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/styles/logo__large.png);
+        height: 41px;
+        top: 6.5px;
+        width: 160px;
+    }
+}
+@media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+(min-width: 768px) and (min-resolution: 192dpi),
+(min-width: 768px) and (min-resolution: 2dppx) {
+    .nav-logo {
+        background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/styles/logo__large@2x.png);
+        -webkit-background-size: 160px 41px;
+        background-size: 160px 41px;
+    }
+}
+@media (min-width: 768px) {
+    .nav-footer {
+        background-color: #f7f7f7;
+        border-top: 1px solid #eee;
+        line-height: 1;
+    }
+    .nav-footer .nav-bounds {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .nav-footer-copyright {
+        margin: 0;
+    }
+    .nav-footer-navigation {
+        display: inline-block;
+        font-size: 0;
+    }
+    .nav-footer-navigation a {
+        border-right: 1px solid #ddd;
+        font-size: 13px;
+        padding: 0 10px;
+    }
+    .nav-footer-navigation a:last-of-type {
+        border-right: none;
+    }
+    .nav-footer-primaryinfo {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+.payment-info-container-c2 .ticket-header {
+    text-align: center;
+}
+.ch-btn,
+.ch-btn:focus {
+    line-height: 20px;
+    padding: 5px 10px;
+}
+/*! CSS Used from: https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/mercadolibre/navigation.637c69dbfcdd.css */
+[class^="nav-icon-"] {
+    font-style: normal;
+}
+[class^="nav-icon-"]:before {
+    font-variant: normal;
+    margin: 0;
+    speak: none;
+    text-align: center;
+    width: 1em;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: none;
+    font-family: navigation;
+}
+.nav-icon-help:before {
+    content: "\e800";
+}
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+body {
+    border-collapse: collapse;
+    display: table;
+    background-color: #fff;
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    font-size: 14px;
+    table-layout: fixed;
+}
+.nav-footer,
+.nav-header {
+    display: table-row;
+    width: 100%;
+}
+.nav-bounds {
+    display: block;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+.nav-footer-navigation {
+    display: none;
+}
+.nav-header {
+    background-color: #fff059;
+    color: #5b562f;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: default;
+    border-bottom: 1px solid #d9d9d9;
+}
+.nav-header .nav-bounds {
+    position: relative;
+    padding: 44px 0 0;
+}
+.nav-header,
+.nav-header *,
+.nav-header :after,
+.nav-header :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+[for="nav-header-menu-switch"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 44px;
+    width: 54px;
+    cursor: pointer;
+}
+#nav-header-menu-switch {
+    display: none;
+}
+#nav-header-menu-switch:checked
++ .nav-header-menu-wrapper
+.hamburger-top-bread {
+    -webkit-transform: translate(0, 8px) rotate(40deg);
+    -ms-transform: translate(0, 8px) rotate(40deg);
+    transform: translate(0, 8px) rotate(40deg);
+}
+#nav-header-menu-switch:checked + .nav-header-menu-wrapper .hamburger-patty {
+    -webkit-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+#nav-header-menu-switch:checked
++ .nav-header-menu-wrapper
+.hamburger-bottom-bread {
+    -webkit-transform: translate(0, -8px) rotate(-40deg);
+    -ms-transform: translate(0, -8px) rotate(-40deg);
+    transform: translate(0, -8px) rotate(-40deg);
+}
+#nav-header-menu-switch:checked + .nav-header-menu-wrapper #nav-header-menu {
+    display: block;
+}
+.hamburger-bottom-bread,
+.hamburger-patty,
+.hamburger-top-bread {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 4px;
+    background-color: #716c37;
+    top: 50%;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+    left: 14px;
+}
+.hamburger-top-bread {
+    margin-top: -10px;
+}
+.hamburger-patty {
+    margin-top: -2px;
+}
+.hamburger-bottom-bread {
+    margin-top: 6px;
+}
+#nav-header-menu:after,
+#nav-header-menu:before {
+    border-style: solid;
+    border-color: transparent;
+    position: absolute;
+    bottom: 100%;
+    -webkit-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    transform: translateY(1px);
+    content: "";
+}
+#nav-header-menu {
+    background-color: #fff;
+    display: none;
+    position: relative;
+}
+#nav-header-menu a {
+    display: block;
+    height: 44px;
+    padding: 0 10px;
+    font-size: 13px;
+    line-height: 44px;
+    color: #999;
+    border-top: 1px solid #eaeaea;
+    position: relative;
+}
+#nav-header-menu a:first-child {
+    border-top-color: #d9d9d9;
+}
+#nav-header-menu a:after {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    display: block;
+    content: "\e806";
+    font-family: navigation;
+    color: #a6a6a6;
+}
+#nav-header-menu:before {
+    border-bottom-color: #d9d9d9;
+    border-width: 8px;
+    right: 19px;
+    pointer-events: none;
+}
+#nav-header-menu:after {
+    border-width: 7px;
+    border-bottom-color: #fff;
+    right: 20px;
+    pointer-events: none;
+}
+.nav-logo {
+    background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/mercadolibre/logo__small.dc3d69dbfcdd.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 32px;
+    overflow: hidden;
+    text-indent: -999px;
+    width: 47px;
+    top: 6px;
+    position: absolute;
+    left: 10px;
+}
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .nav-logo {
+        background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/mercadolibre/logo__small@2x.c62669dbfcdd.png);
+        -webkit-background-size: 47px 32px;
+        background-size: 47px 32px;
+    }
+}
+.nav-footer {
+    color: #999;
+    font-size: 13px;
+    overflow: hidden;
+}
+.nav-footer,
+.nav-footer *,
+.nav-footer :after,
+.nav-footer :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.nav-footer-primaryinfo {
+    margin: 15px 0;
+    overflow: hidden;
+}
+.nav-footer-copyright {
+    font-size: inherit;
+    display: inline-block;
+}
+@media (min-width: 768px) {
+    [class^="nav-icon-"]:before {
+        display: inline-block;
+    }
+    [class^="nav-icon-"] span {
+        display: none;
+    }
+    body,
+    html {
+        font-size: 13px;
+        background-color: #fff;
+    }
+    .nav-bounds {
+        max-width: 1220px;
+    }
+    .nav-header {
+        background-image: none;
+        height: 54px;
+    }
+    .nav-header .nav-bounds {
+        padding: 0 0 0 220px;
+        height: 54px;
+    }
+    [for="nav-header-menu-switch"] {
+        display: none;
+    }
+    #nav-header-menu {
+        display: block;
+        font-size: 0;
+        margin: 0 0 0 51px;
+        background-color: transparent;
+        float: right;
+        height: 54px;
+    }
+    #nav-header-menu a {
+        display: inline;
+        height: auto;
+        border-top: none;
+        color: #918b3f;
+        text-decoration: none;
+        border-left: 1px solid #dccf50;
+        padding: 6px 13px;
+        line-height: 54px;
+        font-size: 13px;
+    }
+    #nav-header-menu a:first-child {
+        border-left: none;
+    }
+    #nav-header-menu a:after {
+        display: none;
+    }
+    #nav-header-menu a:hover {
+        color: #716d39;
+    }
+    #nav-header-menu a:hover i:before {
+        color: #4e4c2f;
+    }
+    #nav-header-menu i:before {
+        color: #716c37;
+        vertical-align: middle;
+        font-size: 18px;
+        text-shadow: 0 1px rgba(255, 255, 255, 0.75);
+    }
+    #nav-header-menu i.nav-icon-help:before {
+        font-size: 19px;
+    }
+    #nav-header-menu i span {
+        font-size: 13px;
+    }
+    #nav-header-menu:after,
+    #nav-header-menu:before {
+        display: none;
+    }
+    .nav-logo {
+        background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/mercadolibre/logo__large.ca8369dbfcdd.png);
+        height: 40px;
+        top: 7px;
+        width: 159px;
+    }
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        .nav-logo {
+            background-image: url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/mercadolibre/logo__large@2x.106469dbfcdd.png);
+            -webkit-background-size: 159px 40px;
+            background-size: 159px 40px;
+        }
+    }
+    .nav-footer {
+        background-color: #f7f7f7;
+        border-top: 1px solid #eee;
+        line-height: 1;
+    }
+    .nav-footer .nav-bounds {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .nav-footer-copyright {
+        margin: 0;
+    }
+    .nav-footer-navigation {
+        display: inline-block;
+        font-size: 0;
+    }
+    .nav-footer-navigation a {
+        border-right: 1px solid #ddd;
+        font-size: 13px;
+        padding: 0 10px;
+    }
+    .nav-footer-navigation a:last-of-type {
+        border-right: none;
+    }
+    .nav-footer-primaryinfo {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+/*! CSS Used from: https://www.mercadopago.com/mlm/offlinepayments/dist/styles/mlm/oxxo.37d869dbfcdd.css */
+.payment-container-c2 {
+    -webkit-border-image: none;
+    -o-border-image: none;
+    border-image: none;
+    -webkit-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    padding: 20px 0 10px;
+    border-top: none;
+}
+.payment-detail-widget {
+    display: none;
+}
+.payment-detail-widget + div label {
+    border: 1px solid #dedede;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #666;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 10px 0;
+    padding: 14px 40px 14px 20px;
+    position: relative;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    width: auto;
+    text-align: left;
+    background: url(https://static.mlstatic.com/org-img/emails/icons/icon_expandable_sprite.png)
+        no-repeat;
+    background-position: 95% 18px;
+}
+.payment-detail-widget:checked + div label {
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+    background-position: 95% -32px;
+}
+.payment-detail-widget + div .purchases-expandable-container-c2 {
+    display: none;
+}
+.payment-detail-widget:checked + div .purchases-expandable-container-c2 {
+    display: block;
+    margin-bottom: 10px;
+}
+.payment-secondary-info {
+    display: inline-block;
+    color: #666;
+    margin: 10px 10px 0 10px;
+}
+.ch-expandable-container {
+    margin: 0;
+}
+body,
+html {
+    height: 100%;
+    background-color: #f7f7f7;
+    margin: 0;
+}
+.ticket-box .payment-code-c2 {
+    margin: auto;
+}
+/*! CSS Used from: Embedded */
+iframe#_hjRemoteVarsFrame {
+    display: none !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+/*! CSS Used fontfaces */
+@font-face {
+    font-family: icons;
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/assets/icons.8ed469dbfcdd.eot);
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/assets/icons.8ed469dbfcdd.eot#iefix)
+        format("embedded-opentype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/assets/icons.54df69dbfcdd.woff)
+        format("woff"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/assets/icons.d3bf69dbfcdd.ttf)
+        format("truetype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/assets/icons.069d69dbfcdd.svg#icons)
+        format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: icons;
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.ab4769dbfcdd.eot);
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.ab4769dbfcdd.eot#iefix)
+        format("embedded-opentype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.16db69dbfcdd.woff)
+        format("woff"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.f5e169dbfcdd.ttf)
+        format("truetype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.742169dbfcdd.svg#icons)
+        format("svg");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: navigation;
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.eot);
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.eot#iefix)
+        format("embedded-opentype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.woff)
+        format("woff"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.ttf)
+        format("truetype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.svg#navigation)
+        format("svg");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: navigation;
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.eot);
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.eot#iefix)
+        format("embedded-opentype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.woff)
+        format("woff"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.ttf)
+        format("truetype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/icons.svg#navigation)
+        format("svg");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: navigation;
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.ab4769dbfcdd.eot);
+    src: url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.ab4769dbfcdd.eot#iefix)
+        format("embedded-opentype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.16db69dbfcdd.woff)
+        format("woff"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.f5e169dbfcdd.ttf)
+        format("truetype"),
+        url(https://www.mercadopago.com/mlm/offlinepayments/dist/navigation/icons.742169dbfcdd.svg#navigation)
+        format("svg");
+    font-style: normal;
+    font-weight: 400;
+}
