@@ -22,14 +22,14 @@ $this->title = 'Omnilife Castellanos';
         foreach ($shoppingcards as $shoppingcard):
         $products = app\models\Product::find()->where(['idproduct' => $shoppingcard->fkproduct])->all();
         
-        foreach ($products as $product):
+        foreach ($products as $product): 
         //$shoping = app\models\Profile::find()->where(['idprofile' => $binnacle->idshoping])->all();
          
         ?>
 
         <tr>
             <th scope="row">1</th>
-            <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"></a></td>
+            <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter">Yesenia Díaz Hernández</a></td>
             <td>
                 <?php
                 foreach ($products as $product):

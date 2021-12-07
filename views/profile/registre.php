@@ -11,7 +11,7 @@
                         <a href="https://portal.omnilife.com/uploads/images/portal/logos/omnilife/Omnilife_BCO_ESP.svg"><img src="https://portal.omnilife.com/uploads/images/portal/logos/omnilife/Omnilife_BCO_ESP.svg"></a>
                     </div>
                 </div>
-                <?php foreach ($profiles as $profile): ?>
+               
                 <header>
                     <h1><center>Registrarse</center></h1>
                    <!-- <p id="already-a-member">¿Ya eres miembro?<a href="/es/sign-in?returnurl=%2Fes%2Fvector%2Fdise%25C3%25B1o-de-interfaz-de-usuario-autorizaci%25C3%25B3n-de-cuenta-o-registro-interfaz-para-gm930869382-255180762" id="sign-in"> Iniciar sesión</a></p>-->
@@ -20,21 +20,21 @@
                     <fieldset ng-controller="BasicRegistrationController" ng-init="init('MEX', 'MwqnVLCB9s6YEOKgaxTPuvDAhob1emkSqMtRErQAOO6ukmMrH4hnHF0XR8u/6rSadAOiW2scsNpAYGzHtupGww==', false)" class="ng-scope">
                         <ol country-code="MEX" disclaimer-copy="disclaimerCopy" display-email-preference-checkbox="displayEmailPreferenceCheckbox" email-opt-in-copy="emailOptInCopy" email-preference="emailPreference" register-email-preference="" class="ng-isolate-scope">
                             <li>
-                             <label for="register_email"><?= $profile->name ?></label>
+                             <label for="register_email"></label>
                                 <input placeholder="Nombre(s)" ng-model="register['email']" required="required" pattern="(^([^@\s\074\076]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$)(?!(\r|\n))" maxlength="40" size="40" type="text" name="register[email]" id="register_email" class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength">
 
                             </li>
                             <li>
-                                <label for="register_email"><?= $profile->lastname ?></label><input placeholder="Apellidos" ng-model="register['email']" required="required" pattern="(^([^@\s\074\076]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$)(?!(\r|\n))" maxlength="40" size="40" type="text" name="register[email]" id="register_email" class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength">
+                                <label for="register_email"></label><input placeholder="Apellidos" ng-model="register['email']" required="required" pattern="(^([^@\s\074\076]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$)(?!(\r|\n))" maxlength="40" size="40" type="text" name="register[email]" id="register_email" class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength">
 
                             </li>
                             <li>
-                                <label for="register_email"><?= $profile->phonenumber ?></label>
+                                <label for="register_email"></label>
                                 <input placeholder="Numero de telefono" ng-model="register['email']" required="required" pattern="(^([^@\s\074\076]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$)(?!(\r|\n))" maxlength="40" size="40" type="text" name="register[email]" id="register_email" class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength">
 
                             </li> 
                             <li>
-                                <label for="register_email"><?= $profile->email ?></label>
+                                <label for="register_email"></label>
                                 <input placeholder="Correo electrónico" ng-model="register['email']" required="required" pattern="(^([^@\s\074\076]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$)(?!(\r|\n))" maxlength="40" size="40" type="text" name="register[email]" id="register_email" class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength">
 
                             </li>
@@ -59,7 +59,7 @@
             </article>
         </div>
     </section>
-    <?php endforeach; ?> 
+ 
 
 
 
