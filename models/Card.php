@@ -33,11 +33,11 @@ class Card extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fkbank', 'cardnumber', 'expirationdate', 'securitycode', 'namelastname', 'type'], 'required'],
-            [['fkbank'], 'integer'],
+            [['fkbank', 'fkprofile', 'cardnumber', 'expirationdate', 'securitycode', 'namelastname', 'type'], 'required'],
+            [['fkbank', 'fkprofile'], 'integer'],
             [['type'], 'string'],
-            [['cardnumber'], 'string', 'max' => 16],
-            [['expirationdate'], 'string', 'max' => 5],
+            [['cardnumber'], 'string', 'max' => 19],
+            [['expirationdate'], 'string', 'max' => 7],
             [['securitycode'], 'string', 'max' => 3],
             [['namelastname'], 'string', 'max' => 100],
             [['fkbank'], 'exist', 'skipOnError' => true, 'targetClass' => Bank::className(), 'targetAttribute' => ['fkbank' => 'idbank']],
@@ -51,6 +51,7 @@ class Card extends \yii\db\ActiveRecord
     {
         return [
             'idcard' => 'Idcard',
+            'fkprofile' => 'Fkprofile',
             'fkbank' => 'Fkbank',
             'cardnumber' => 'Cardnumber',
             'expirationdate' => 'Expirationdate',
@@ -68,5 +69,14 @@ class Card extends \yii\db\ActiveRecord
     public function getFkbank0()
     {
         return $this->hasOne(Bank::className(), ['idbank' => 'fkbank']);
+    }
+    
+    public function getFkprofile0()
+    {
+        return $this->hasOne(Bank::className(), ['idprofile' => 'fkprofile']);
+    }
+    
+    public function getBank() {
+        return $this->fkbank0->bank;
     }
 }

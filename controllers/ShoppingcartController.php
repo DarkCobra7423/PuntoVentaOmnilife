@@ -38,7 +38,7 @@ class ShoppingcartController extends Controller {
                     'dataProvider' => $dataProvider,
         ]);
     }
-    
+
     public function actionAddtocart($id) {
         //INSERT INTO `shoppingcart` (`idshoppingcart`, `fkshopping`, `fkprofile`, `fkproduct`, `quantity`, `price`) VALUES (NULL, NULL, '2', '1', '1', '30');
         
@@ -84,6 +84,16 @@ class ShoppingcartController extends Controller {
                     'count' => $count->shipping,
         ]);
     }
+    
+    public function actionTicket($id) {
+        
+        $carts = Shoppingcart::find()->all();
+        
+        return $this->render('ticket', [
+            'carts' => $carts,
+            'model' => Shoppingcart::findOne($id),
+        ]);
+    }
 
     /**
      * Displays a single Shoppingcart model.
@@ -106,6 +116,7 @@ class ShoppingcartController extends Controller {
         $model = new Shoppingcart();
 
         if ($this->request->isPost) {
+                //$model->load(Yii::$app->request->post()) && $model->save();
             if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'idshoppingcart' => $model->idshoppingcart]);
             }
@@ -157,7 +168,7 @@ class ShoppingcartController extends Controller {
      * @return Shoppingcart the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idshoppingcart) {
+    protected function findModel($id) {
         if (($model = Shoppingcart::findOne($id)) !== null) {
             return $model;
         }

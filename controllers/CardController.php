@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\Card;
 use app\models\CardSearch;
 use yii\web\Controller;
@@ -37,16 +38,111 @@ class CardController extends Controller {
                     'dataProvider' => $dataProvider,
         ]);
     }
-    
-    public function actionPayment(){
+
+    public function actionPayment($id) {
+        //SELECT * FROM `shippingaddress` WHERE `idprofile` = 2 LIMIT 1;
         
-        return $this->render('payment');
+        $cards = Card::find()->all();
+
+        return $this->render('payment', [
+                    'model' => \app\models\Product::findOne($id),
+                    'address' => \app\models\Shippingaddress::find()->where(['idprofile' => Yii::$app->globalprofileid->idprofile])->limit(1)->one(),
+                    'cards' => $cards,
+        ]);
     }
-    
-    public function actionShippingoptions(){
-        
-        return $this->render('shippingoptions');
+
+    public function actionUpdatecard() {
+
+        $cards = Card::find()->all();
+
+        foreach ($cards as $card):
+            echo '<li class="badge-type-selection__list-item ui-list__item">
+                            <div>
+                                <label class="ui-radio__label ">
+                                    <div class="ui-radio-element">
+                                        <input type="radio" data-js="payment-type" name="paymentType" class="ui-radio__input" value="DEBIT_CARD" required="" aria-invalid="false">
+                                        <div class="ui-radio__background">
+                                            <div class="ui-radio__outer-circle"></div>
+                                            <div class="ui-radio__inner-circle"></div>
+                                        </div>
+                                        <input data-js="payment-type-id" type="hidden" name="paymentMethodId" value="debvisa">
+                                        <input data-js="payment-type-card-id" type="hidden" name="cardId" value="' . $card->cardnumber . '">
+                                    </div>
+                                    <div class="ui-radio__text">
+                                        <span class="ui-badge ui-badge--small">
+                                            <span class="ui-badge__icon ui-badge__icon--payment-logo">
+                                                <i class="payment-icon payments-cho_badge _debvisa-cho_badge"></i>
+                                            </span>
+                                        </span>
+                                        <div class="badge-type__metadata">
+                                            <h2 class="badge-type-selection__list-title" aria-label="Bancomer terminada en 1382">' . $card->getBank() . ' Débito <span id="idCardnumber' . $card->idcard
+            ?>"><?=
+            $card->cardnumber . '</span><span id="idCardnumber1' . $card->idcard . '"></span></h2>                                        
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </li>';
+        endforeach;
+        exit();
     }
+
+    public function actionNewcard() {
+        if (!isset($_POST["cardNumber"]) || !isset($_POST["cardName"]) || !isset($_POST["cardMonth"]) || !isset($_POST["cardCvv"]) || !isset($_POST["cardBank"]))
+            exit();
+        if ($_POST) {
+            $cardNumber = $_POST['cardNumber'];
+            $cardName = $_POST['cardName'];
+            $cardMonth = $_POST['cardMonth'];
+            $cardCvv = $_POST['cardCvv'];
+            $cardBank = $_POST['cardBank'];
+
+            $model = new Card();
+
+            $model->fkprofile = Yii::$app->globalprofileid->idprofile;
+            $model->fkbank = $cardBank;
+            $model->cardnumber = $cardNumber;
+            $model->expirationdate = $cardMonth;
+            $model->securitycode = $cardCvv;
+            $model->namelastname = $cardName;
+            $model->type = "Debito";
+            $model->save();
+        }
+    }
+
+    /*
+      public function actionNewcard() {
+      $model = new Card();
+
+      if (Yii::$app->request->post()) {
+
+      $model->fkprofile = Yii::$app->globalprofileid->idprofile;
+      $model->fkbank = Yii::$app->request->post('cardBank');
+      $model->cardnumber = Yii::$app->request->post('cardnumber');
+      $model->expirationdate = Yii::$app->request->post('cardMonth') . "/" . Yii::$app->request->post('cardYear');
+      $model->securitycode = Yii::$app->request->post('cardCVV');
+      $model->namelastname = Yii::$app->request->post('cardName');
+      $model->type = "Debito";
+      $model->save();
+      /*
+      print_r($model);
+      echo '<br><br>';
+
+      if ($model->save()) {
+      echo '<br><br>se guardo';
+      } else {
+      echo "<br><br>MODEL NOT SAVED";
+      print_r($model->getAttributes());
+      print_r($model->getErrors());
+      exit;
+      } *
+
+      //return $this->redirect(['view', 'id' => $model->pag_id]);
+
+
+      //return false;
+      }
+     */
 
     /**
      * Displays a single Card model.
@@ -54,7 +150,7 @@ class CardController extends Controller {
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($idcard) {
+    public function actionView($id) {
         return $this->render('view', [
                     'model' => $this->findModel($idcard),
         ]);
@@ -129,3 +225,30 @@ class CardController extends Controller {
     }
 
 }
+
+/*
+////////////////////////////////////////////////////////////////
+if (!isset($_POST["cardNumber"]) || !isset($_POST["cardName"]) || !isset($_POST["cardMonth"]) || !isset($_POST["cardCvv"]) || !isset($_POST["cardBank"])) {
+    exit();
+}
+if ($_POST) {
+    $cardNumber = $_POST['cardNumber'];
+    $cardName = $_POST['cardName'];
+    $cardMonth = $_POST['cardMonth'];
+    $cardCvv = $_POST['cardCvv'];
+    $cardBank = $_POST['cardBank'];
+
+    $model = new Card();
+
+    $model->fkprofile = Yii::$app->globalprofileid->idprofile;
+    $model->fkbank = $cardBank;
+    $model->cardnumber = $cardNumber;
+    $model->expirationdate = $cardMonth;
+    $model->securitycode = $cardCvv;
+    $model->namelastname = $cardName;
+    $model->type = "Debito";
+    $model->save();
+}
+
+///////////////////////////////////////////////////////////////
+*/

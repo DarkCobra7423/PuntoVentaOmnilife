@@ -64,7 +64,7 @@ $this->title = $model->product;
                 <?php
                 $form = ActiveForm::begin([
                             'method' => 'post',
-                            'action' => ['controller/Addtocart'],
+                            'action' => ['card/payment/' . $model->idproduct],
                 ]);
                 ?>
                 <h4><?= $model->product ?></h4>
@@ -94,7 +94,6 @@ $this->title = $model->product;
                 <br>
                 <br>
                 
-                <!--<a href="#" class="btn btn-primary btn-lg btn-block" style="bottom: 5px;">Comprar ahora</a>-->
                 <?= Html::submitButton('Comprar ahora', ['class' => 'btn btn-primary btn-lg btn-block', 'style' => 'margin-bottom: 5px;']) ?>
                 <?php ActiveForm::end(); ?>
                 <a href="<?= Yii::$app->homeUrl ?>shoppingcart/addtocart/<?= $model->idproduct ?>" class="btn btn-link btn-lg btn-block" style="background-color: rgba(65,137,230,.15); border-color: transparent; color: #3483fa;">Agregar al carrito</a>
