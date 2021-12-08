@@ -57,6 +57,11 @@ class ProfileController extends Controller {
                     'profiles'  => $profiles
         ]);
     }
+    
+    public function actionContacto(){
+        
+        return ;
+    }
 
     /*
      * Displays a single Profile model.

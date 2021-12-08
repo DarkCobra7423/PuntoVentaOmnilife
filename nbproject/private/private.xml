@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/product/seeproduct.php</file>
-            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/shoppingcart/ticket.php</file>
-            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/controllers/ShoppingcartController.php</file>
-            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/card/payment.php</file>
-            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/product/products.php</file>
-            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/models/Shoppingcart.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/profile/registre.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/site/index.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/profile/binnacle.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/controllers/ProfileController.php</file>
+            <file>file:/C:/xampp/htdocs/PuntoVentaOmnilife/views/product/_form.php</file>
         </group>
     </open-files>
 </project-private>

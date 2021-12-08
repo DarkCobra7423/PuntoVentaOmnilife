@@ -85,7 +85,7 @@ class ShoppingcartController extends Controller {
         ]);
     }
     
-    public function actionTicket($id) {
+    public function actionTicket($id = 2) {
         
         $carts = Shoppingcart::find()->all();
         

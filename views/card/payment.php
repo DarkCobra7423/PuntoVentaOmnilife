@@ -471,7 +471,7 @@ $this->title = "Opciones de pago";
     </div>
 </div>
 
-
+<script src="<?= Yii::$app->homeUrl ?>assets/b90885cc/jquery.js"></script>
 <script src="<?= Yii::$app->homeUrl ?>js/vue.min.js" type="text/javascript"></script>
 <script src="<?= Yii::$app->homeUrl ?>js/vue-the-mask.js" type="text/javascript"></script>
 
@@ -566,7 +566,6 @@ new Vue({
     }
 });
 </script>
-<script src="<?= Yii::$app->homeUrl ?>assets/49cc783d/jquery.js"></script>
 <script>
 
 $(document).ready(function () {

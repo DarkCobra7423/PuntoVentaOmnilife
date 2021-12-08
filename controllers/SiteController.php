@@ -114,7 +114,12 @@ class SiteController extends Controller {
         }
         return $this->render('contact', [
                     'model' => $model,
+            
         ]);
+    }
+    
+    public function actionContacto(){
+        return $this->render('contacto');
     }
 
     /**
