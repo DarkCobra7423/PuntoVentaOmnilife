@@ -89,6 +89,7 @@ $this->title = 'Omnilife Castellanos';
     </div>
     <br>
     <div class="row">
+        
         <h4>Productos <a href="<?= Yii::$app->homeUrl ?>product/products?id=generaly" style="font-size: 14px; color: #3483fa;">Ver mas...</a></h4>
 
         <?php
