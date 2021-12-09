@@ -87,12 +87,21 @@ class ShoppingcartController extends Controller {
     
     public function actionTicket($id = 2) {
         
-        $carts = Shoppingcart::find()->all();
+        $model = \app\models\Shoppingcart::find()->select('SUM(price) AS price')->where(['AND', 'fkprofile = ' . Yii::$app->globalprofileid->idprofile, 'fkshopping IS NULL'])->one();
+        
+        $carts = Shoppingcart::find()->where(['AND', 'fkprofile = ' . Yii::$app->globalprofileid->idprofile, 'fkshopping IS NULL'])->all();
         
         return $this->render('ticket', [
             'carts' => $carts,
-            'model' => Shoppingcart::findOne($id),
+            'model' => $model,
+            'banco' => $_POST['idBank'],
+            'cardnumber' => $_POST['cardId'],
         ]);
+    }
+    
+    public function actionPaid($id) {
+        
+        return $this->redirect(Yii::$app->homeUrl."shoppingcart/myshopping");
     }
 
     /**

@@ -103,7 +103,7 @@ $this->title = 'Omnilife Castellanos';
                     <?php
                     $form = ActiveForm::begin([
                                 'method' => 'post',
-                                'action' => ['pago/pago'],
+                                'action' => ['card/payment'],
                     ]);
                     ?>
                     <input id="totalpost" name="totalpost" value="0" hidden=""/>

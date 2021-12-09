@@ -18,6 +18,7 @@ use yii\web\UploadedFile;
  */
 class ProductController extends Controller {
 
+    public $freeAccessActions = ['seeproduct'];
     /**
      * @inheritDoc
      */
@@ -62,7 +63,7 @@ class ProductController extends Controller {
     
     public function actionSeeproduct($id) {
         
-        $addresss = \app\models\Shippingaddress::find()->all();
+        $addresss = \app\models\Shippingaddress::find()->where(['idprofile' => Yii::$app->globalprofileid->idprofile])->all();
         
         return $this->render('seeproduct', [
                     'model' => $this->findModel($id),

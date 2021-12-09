@@ -39,12 +39,25 @@ class CardController extends Controller {
         ]);
     }
 
-    public function actionPayment($id) {
+    public function actionPayment($id = 1) {
+        //SELECT * FROM `shippingaddress` WHERE `idprofile` = 2 LIMIT 1;
+        //SELECT SUM(price) AS price FROM `shoppingcart` WHERE (fkprofile = 2) AND (fkshopping IS NULL) 
+        $model = \app\models\Shoppingcart::find()->select('SUM(price) AS price')->where(['AND', 'fkprofile = ' . Yii::$app->globalprofileid->idprofile, 'fkshopping IS NULL'])->one();
+        $cards = Card::find()->all();
+
+        return $this->render('payment', [
+                    'model' => $model,
+                    'address' => \app\models\Shippingaddress::find()->where(['idprofile' => Yii::$app->globalprofileid->idprofile])->limit(1)->one(),
+                    'cards' => $cards,
+        ]);
+    }
+    
+    public function actionPayment1($id) {
         //SELECT * FROM `shippingaddress` WHERE `idprofile` = 2 LIMIT 1;
 
         $cards = Card::find()->all();
 
-        return $this->render('payment', [
+        return $this->render('payment1', [
                     'model' => \app\models\Product::findOne($id),
                     'address' => \app\models\Shippingaddress::find()->where(['idprofile' => Yii::$app->globalprofileid->idprofile])->limit(1)->one(),
                     'cards' => $cards,
@@ -79,6 +92,8 @@ class CardController extends Controller {
             ?>"><?=
             $card->cardnumber . '</span><span id="idCardnumber1' . $card->idcard . '"></span></h2>                                        
                                         </div>
+                                        <input value="'. $card->idcard .'" name="idCard" hidden=""/>
+                                            <input value="'. $card->getBank() .'" name="idBank" hidden=""/>
                                     </div>
                                 </label>
                             </div>

@@ -64,7 +64,7 @@ $this->title = $model->product;
                 <?php
                 $form = ActiveForm::begin([
                             'method' => 'post',
-                            'action' => ['card/payment/' . $model->idproduct],
+                            'action' => ['card/payment1/' . $model->idproduct],
                 ]);
                 ?>
                 <h4><?= $model->product ?></h4>
