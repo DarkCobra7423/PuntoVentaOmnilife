@@ -124,9 +124,17 @@ AppAsset::register($this);
         </main>
 
         <footer class="footer mt-auto py-3 text-muted">
-            <div class="container">
+            <!--<div class="container">
                 <p class="float-left">&copy; My Company <?= date('Y') ?></p>
                 <p class="float-right"><?= Yii::powered() ?></p>
+            </div>-->
+            <div class="container">
+                <p class="float-left">&REG; Instituto Tecnologico De Villahermosa <?= date('Y') ?></p>
+
+                <p class="float-right">Desarrollado por: 
+                    <a href="//www.facebook.com/carlosdaniel.angelpadilla.3" target="_blank"><i class="fab fa-facebook-f"></i> Carlos Angel, </a>
+                    <a href="//www.facebook.com/yesenia.diazhernandez.75" target="_blank"><i class="fab fa-facebook-f"></i> Yesenia Diaz, </a>                    
+                </p>                
             </div>
         </footer>
 

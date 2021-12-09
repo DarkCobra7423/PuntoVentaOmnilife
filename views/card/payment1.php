@@ -471,7 +471,7 @@ $this->title = "Opciones de pago";
     </div>
 </div>
 
-<script src="<?= Yii::$app->homeUrl ?>assets/b90885cc/jquery.js"></script>
+<script src="<?= Yii::$app->homeUrl ?>js/jquery.js" type="text/javascript"></script>
 <script src="<?= Yii::$app->homeUrl ?>js/vue.min.js" type="text/javascript"></script>
 <script src="<?= Yii::$app->homeUrl ?>js/vue-the-mask.js" type="text/javascript"></script>
 
@@ -566,8 +566,8 @@ new Vue({
     }
 });
 </script>
-<script>
 
+<script>
 $(document).ready(function () {
 
 <?php foreach ($cards as $card): ?>
