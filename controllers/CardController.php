@@ -104,11 +104,10 @@ class CardController extends Controller {
 
     public function actionNewcard() {
         
-        //if (!isset($_POST["cardNumber"]) || !isset($_POST["cardName"]) || !isset($_POST["cardMonth"]) || !isset($_POST["cardCvv"]) || !isset($_POST["cardBank"]))
-            //exit();
+        if (!isset($_POST["cardNumber"]) || !isset($_POST["cardName"]) || !isset($_POST["cardMonth"]) || !isset($_POST["cardCvv"]) || !isset($_POST["cardBank"])) exit();
             print_r($_POST); 
             echo 'aqui es';
-            die();
+            //die();
         if ($_POST) {
             echo 'valor en true';
             $cardNumber = $_POST['cardNumber'];
@@ -126,7 +125,7 @@ class CardController extends Controller {
             $model->securitycode = $cardCvv;
             $model->namelastname = $cardName;
             $model->type = "Debito";
-            //$model->save(false);
+            $model->save(false);
 
             /*
             if ($model->save()) {

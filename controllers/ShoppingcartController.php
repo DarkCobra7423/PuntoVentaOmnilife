@@ -85,11 +85,32 @@ class ShoppingcartController extends Controller {
         ]);
     }
     
-    public function actionTicket($id = 2) {
+    public function actionTicket() {
+        
+        $shopping = new \app\models\Shopping();
+        //$shoppingcart = new Shoppingcart();
         
         $model = \app\models\Shoppingcart::find()->select('SUM(price) AS price')->where(['AND', 'fkprofile = ' . Yii::$app->globalprofileid->idprofile, 'fkshopping IS NULL'])->one();
         
         $carts = Shoppingcart::find()->where(['AND', 'fkprofile = ' . Yii::$app->globalprofileid->idprofile, 'fkshopping IS NULL'])->all();
+        
+        //aqui va la tabla compras
+        foreach ($carts as $cart) {            
+            
+            $shopping->datetime = date('Y-m-d H:i:s');
+            $shopping->fkshoppingaddress = $_POST['idAddress'];
+            $shopping->ticket = "0";
+            $shopping->shipping = "No Enviado";
+            
+            if($shopping->save()){
+                $shoppingcart = $this->findModel($cart->idshoppingcart);
+                $shoppingcart->fkshopping = $shopping->idshopping;
+                
+                if($shoppingcart->save()){
+                    //echo 'Guardado';
+                }
+            }            
+        }
         
         return $this->render('ticket', [
             'carts' => $carts,
@@ -100,6 +121,30 @@ class ShoppingcartController extends Controller {
     }
     
     public function actionPaid($id) {
+        
+        $shopping = new \app\models\Shopping();
+        $product = \app\models\Product::findOne($id);
+        
+        //aqui va la tabla compras   
+        
+            $shopping->datetime = date('Y-m-d H:i:s');
+            $shopping->fkshoppingaddress = $_POST['idAddress'];
+            $shopping->ticket = "0";
+            $shopping->shipping = "No Enviado";
+            
+            if($shopping->save()){
+                
+                $shoppingcart = new Shoppingcart();
+                $shoppingcart->fkshopping = $shopping->idshopping;
+                $shoppingcart->fkprofile = Yii::$app->globalprofileid->idprofile;
+                $shoppingcart->fkproduct = $id;
+                $shoppingcart->quantity = "1";
+                $shoppingcart->price = $product->price;
+                
+                if($shoppingcart->save()){
+                    echo 'Guardado';
+                }
+            }            
         
         return $this->redirect(Yii::$app->homeUrl."shoppingcart/myshopping");
     }
