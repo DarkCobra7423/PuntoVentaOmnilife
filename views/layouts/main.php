@@ -53,25 +53,38 @@ AppAsset::register($this);
                 'encodeLabels' => false,
                 'items' => [
                         ['label' => 'Inicio', 'url' => ['/site/index']],
-                        ['label' => 'Mis compras', 'url' => ['/shoppingcart/myshopping']],
-                        ['label' => '<i class="fas fa-shopping-cart"></i>', 'url' => ['/shoppingcart/shoppingcart']],
-                        ['label' => 'About', 'url' => ['/site/about']],
-                        ['label' => 'Contact', 'url' => ['/site/contact']],
+                    Yii::$app->user->isGuest ? ('') : (
+                                ['label' => 'Mis compras', 'url' => ['/shoppingcart/myshopping']]
+                            ),
+                    Yii::$app->user->isGuest ? ('') : (
+                                ['label' => '<i class="fas fa-shopping-cart"></i>', 'url' => ['/shoppingcart/shoppingcart']]
+                            ),
+                    Yii::$app->user->isGuest ? (
+                                ['label' => 'About', 'url' => ['/site/about']]
+                            ) : (''),
+                    Yii::$app->user->isGuest ? (
+                                ['label' => 'Contact', 'url' => ['/site/contact']]
+                            ) : (''),
                     /* [
                       'label' => 'Backend routes',
                       'items' => UserManagementModule::menuItems()
                       ], */
-                        [
-                        'label' => 'Frontend routes',
-                        'items' => [
-                                ['label' => 'Login', 'url' => ['/user-management/auth/login']],
-                                ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
-                                ['label' => 'Registration', 'url' => ['/user-management/auth/registration']],
-                                ['label' => 'Change own password', 'url' => ['/user-management/auth/change-own-password']],
-                                ['label' => 'Password recovery', 'url' => ['/user-management/auth/password-recovery']],
-                                ['label' => 'E-mail confirmation', 'url' => ['/user-management/auth/confirm-email']],
-                        ],
-                    ],
+                    /*
+                      Yii::$app->user->isGuest ? ('') : (
+                      [
+                      'label' => '',
+                      'items' => [
+
+                      ['label' => 'Login', 'url' => ['/user-management/auth/login']],
+                      ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
+                      ['label' => 'Registration', 'url' => ['/user-management/auth/registration']],
+
+                      ['label' => 'Change own password', 'url' => ['/user-management/auth/change-own-password']],
+                      ['label' => 'Password recovery', 'url' => ['/user-management/auth/password-recovery']],
+                      ['label' => 'E-mail confirmation', 'url' => ['/user-management/auth/confirm-email']],
+                      ],
+                      ]
+                      ), */
                     Yii::$app->user->isGuest ? (
 
                                 ['label' => '<i class="far fa-user"></i> Iniciar Sesion', 'url' => ['/user-management/auth/login']]
@@ -81,7 +94,10 @@ AppAsset::register($this);
                                 'label' => '<i class="far fa-user-circle"></i> ' . Yii::$app->globalprofileid->name,
                                 'items' => [
                                         ['label' => 'Mi perfil', 'url' => ['#']],
-                                        ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
+                                        ['label' => 'Cambiar contraseña', 'url' => ['/user-management/auth/change-own-password']],
+                                        ['label' => 'Recuperar contraseña', 'url' => ['/user-management/auth/password-recovery']],
+                                        ['label' => 'Confirmar E-mail', 'url' => ['/user-management/auth/confirm-email']],
+                                        ['label' => 'Salir ('.Yii::$app->user->identity->username.')', 'url' => ['/user-management/auth/logout']],
                                 ],
                             ]
                             ),

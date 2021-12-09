@@ -16,7 +16,7 @@ $this->title = "Opciones de pago";
         <?php
         $form = ActiveForm::begin([
                     'method' => 'post',
-                    'action' => ['shoppingcart/ticket'],
+                    'action' => ['shoppingcart/paid/'.$model->idproduct],
         ]);
         ?>
 
@@ -95,8 +95,6 @@ $this->title = "Opciones de pago";
                                         <div class="badge-type__metadata">
                                             <h2 class="badge-type-selection__list-title" aria-label="Bancomer terminada en 1382"><?= $card->getBank() ?> Débito <span id="idCardnumber<?= $card->idcard ?>"><?= $card->cardnumber ?></span><span id="idCardnumber1<?= $card->idcard ?>"></span></h2>                                        
                                         </div>
-                                        <input value="<?= $card->idcard ?>" name="idCard" hidden=""/>
-                                        <input value="<?= $card->getBank() ?>" name="idBank" hidden=""/>
                                     </div>
                                 </label>
                             </div>
@@ -195,7 +193,14 @@ $this->title = "Opciones de pago";
         <section class="cart-aside__content" style="background-color: #f5f5f5;">
             <div class="overview-component__item u-block-center">
                 <img src="<?= Yii::$app->homeUrl ?>resources/images/logo2.png" alt="" style="width: 25%;"/>
-                
+                <!--<span class="ui-badge ui-badge--small ui-badge--picture item__image--circular">                    
+                    <img class="badge__product-icon picture-image" src="<?= Yii::$app->homeUrl ?>resources/images/logo2.png" >
+                </span>-->
+                <!--<h3 class="overview-component__item-title">
+                    Reloj Casio F91w Caballero Retro Vintage Clasico 100%orginal
+                </h3>
+                <span class="overview-component__item-subtitle">Color de la correa: Negro</span>
+                <span class="overview-component__item-quantity-text">Cantidad: 1</span>-->
             </div>
 
             <div class="overview__table-container">
@@ -217,7 +222,18 @@ $this->title = "Opciones de pago";
                                 </span>
                             </div>
                         </div>
-                       
+                        <!--<div class="overview-component__row">
+                            <div class="overview-component__column">
+                                Envío
+                            </div>
+                            <div data-id="overview-shipping-amount" class="overview-component__column" aria-label="Gratis">
+                                <span aria-hidden="true">
+                                    <span class="price-free u-text--green">
+                                        Incluido
+                                    </span>
+                                </span>
+                            </div>
+                        </div>-->
                     </div>
                 </div>
                 <div class="overview-component__payments">
@@ -575,6 +591,7 @@ function cardHide(card) {
 }
 
 </script>
+
 <script>
     $(document).ready(function () {
         //fila=$(#nombre).val();

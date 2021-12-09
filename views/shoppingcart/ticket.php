@@ -22,7 +22,7 @@ use kartik\file\FileInput;
         <div class="principal-info">
           <!-- informacion propia del ticket -->
 
-          <h1 class="payment-info">Paga o Transfiere $ <?php // $model->price ?> en la sucursal <?php // $banco ?> más cercana</h1>
+          <h1 class="payment-info">Paga o Transfiere $ <?= $model->price ?> en la sucursal <?= $banco ?> más cercana</h1>
 
           <div class="payment-secondary-info">1. Menciona al empleado que quieres pagar un servicio.</div>
 
@@ -30,7 +30,7 @@ use kartik\file\FileInput;
 
           <div class="payment-code-c2">
             <!--<span>9700</span><span>0097</span><span>5311</span><span>6380</span>-->
-              <span><?php // $numTarjeta ?></span>
+              <span><?= $cardnumber ?></span>
           </div>
 
           <br>
