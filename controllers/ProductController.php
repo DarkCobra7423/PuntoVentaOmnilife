@@ -63,7 +63,13 @@ class ProductController extends Controller {
     
     public function actionSeeproduct($id) {
         
-        $addresss = \app\models\Shippingaddress::find()->where(['idprofile' => Yii::$app->globalprofileid->idprofile])->all();
+        if(Yii::$app->user->isGuest){
+            $addresss = [];
+        }else{
+            $addresss = \app\models\Shippingaddress::find()->where(['idprofile' => Yii::$app->globalprofileid->idprofile])->all();
+        }
+        
+        
         
         return $this->render('seeproduct', [
                     'model' => $this->findModel($id),

@@ -12,45 +12,7 @@ use yii\helpers\Html;
 $this->title = UserManagementModule::t('front', 'Registration');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<!--
-<div class="user-registration">
 
-        <h2 class="text-center"><?= $this->title ?></h2>
-
-<?php
-$form = ActiveForm::begin([
-            'id' => 'user',
-            'layout' => 'horizontal',
-            'validateOnBlur' => false,
-        ]);
-?>
-
-<?= $form->field($model, 'username')->textInput(['maxlength' => 50, 'autocomplete' => 'off', 'autofocus' => true]) ?>
-
-<?= $form->field($model, 'password')->passwordInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
-
-<?= $form->field($model, 'repeat_password')->passwordInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
-
-<?=
-$form->field($model, 'captcha')->widget(Captcha::className(), [
-    'template' => '<div class="row"><div class="col-sm-2">{image}</div><div class="col-sm-3">{input}</div></div>',
-    'captchaAction' => ['/user-management/auth/captcha']
-])
-?>
-
-        <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
-<?=
-Html::submitButton(
-        '<span class="glyphicon glyphicon-ok"></span> ' . UserManagementModule::t('front', 'Register'), ['class' => 'btn btn-primary']
-)
-?>
-                </div>
-        </div>
-
-<?php ActiveForm::end(); ?>
-
-</div>-->
 <style>
     .header1{
         background-color: #2F2F2F;
@@ -622,6 +584,12 @@ $form = ActiveForm::begin([
             'validateOnBlur' => false,
         ]);
 ?>
+<style>
+    .form-input1 {
+        margin-bottom: 0;
+        min-width: 100%;
+    }
+</style>
 
 <div class="col-12 header1" style=""></div>
 <div class="cardcenter">
@@ -641,22 +609,22 @@ $form = ActiveForm::begin([
                 <label class="andes-form-control andes-form-control--textfield andes-form-control--default login-form__input--email">
                     <span class="andes-form-control__label">Teléfono, e-mail o usuario</span>
                     <div class="andes-form-control__control">                        
-                        <?= $form->field($model, 'username')->textInput(['placeholder' => '', 'autocomplete' => 'off', 'class' => 'andes-form-control__field']) ?>
-
+                        <?= $form->field($model, 'username')->textInput(['placeholder' => '', 'autocomplete' => 'off', 'class' => 'andes-form-control__field form-input1'])->label(false) ?>
+                        
                     </div>
                 </label>
 
                 <label class="andes-form-control andes-form-control--textfield andes-form-control--default login-form__input--email">
                     <span class="andes-form-control__label">Contraseña</span>
                     <div class="andes-form-control__control">                                                                
-                        <?= $form->field($model, 'password')->passwordInput(['placeholder' => '', 'autocomplete' => 'off', 'class' => 'andes-form-control__field']) ?>
+                        <?= $form->field($model, 'password')->passwordInput(['placeholder' => '', 'autocomplete' => 'off', 'class' => 'andes-form-control__field form-input1'])->label(false) ?>
                     </div>
                 </label>
 
                 <label class="andes-form-control andes-form-control--textfield andes-form-control--default login-form__input--email">
                     <span class="andes-form-control__label">Contraseña</span>
                     <div class="andes-form-control__control">                                                                
-                        <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder' => '', 'autocomplete' => 'off', 'class' => 'andes-form-control__field']) ?>
+                        <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder' => '', 'autocomplete' => 'off', 'class' => 'andes-form-control__field form-input1'])->label(false) ?>
                     </div>
                 </label>
 
@@ -670,7 +638,7 @@ $form = ActiveForm::begin([
         </div>
         <div class="login-form__actions">                  
             <button type="submit" class="andes-button andes-button--large andes-button--loud andes-button--full-width"><span class="andes-button__content">Continuar</span></button>
-            <a id="registration-link" class="andes-button andes-button--large andes-button--transparent andes-button--full-width" href="/PuntoVentaOmnilife/web/user-management/auth/registration"><span class="andes-button__content">Crear cuenta</span></a>                        </div>                
+            <!--<a id="registration-link" class="andes-button andes-button--large andes-button--transparent andes-button--full-width" href="/PuntoVentaOmnilife/web/user-management/auth/registration"><span class="andes-button__content">Crear cuenta</span></a>  -->                      </div>                
         <a href="#" class="andes-card__footer andes-card__footer--link andes-card__footer--border">Necesito ayuda para ingresar
             <!-- -->
         </a>
