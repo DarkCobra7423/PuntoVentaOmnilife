@@ -58,6 +58,16 @@ class ProfileController extends Controller {
         ]);
     }
     
+    public function actionMyprofile() {
+   
+        /*$registres = \app\models\Profile::find()->all();
+        $profiles = \app\models\Profile::find()->all();*/
+        return $this->render('myprofile', [
+                    /*'registres' => $registres,
+                    'profiles'  => $profiles*/
+        ]);
+    }
+    
     public function actionContacto(){
         
         return ;

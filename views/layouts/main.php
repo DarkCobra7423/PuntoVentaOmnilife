@@ -91,9 +91,9 @@ AppAsset::register($this);
                             ) : (
                                 [
                                 //'label' => '<i class="far fa-user-circle"></i> ' . Yii::$app->user->identity->username,
-                                'label' => '<i class="far fa-user-circle"></i> ' . Yii::$app->globalprofileid->name,
+                                'label' => '<i class="far fa-user-circle"></i> ' . Yii::$app->user->identity->username, //Yii::$app->globalprofileid->name,
                                 'items' => [
-                                        ['label' => 'Mi perfil', 'url' => ['#']],
+                                        ['label' => 'Mi perfil', 'url' => ['/profile/myprofile']],
                                         ['label' => 'Cambiar contraseña', 'url' => ['/user-management/auth/change-own-password']],
                                         ['label' => 'Recuperar contraseña', 'url' => ['/user-management/auth/password-recovery']],
                                         ['label' => 'Confirmar E-mail', 'url' => ['/user-management/auth/confirm-email']],

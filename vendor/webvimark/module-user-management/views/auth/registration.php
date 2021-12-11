@@ -607,10 +607,10 @@ $form = ActiveForm::begin([
             <div class="login-form__input">
 
                 <label class="andes-form-control andes-form-control--textfield andes-form-control--default login-form__input--email">
-                    <span class="andes-form-control__label">Teléfono, e-mail o usuario</span>
+                    <span class="andes-form-control__label">Usuario</span>
                     <div class="andes-form-control__control">                        
                         <?= $form->field($model, 'username')->textInput(['placeholder' => '', 'autocomplete' => 'off', 'class' => 'andes-form-control__field form-input1'])->label(false) ?>
-                        
+
                     </div>
                 </label>
 
@@ -622,22 +622,38 @@ $form = ActiveForm::begin([
                 </label>
 
                 <label class="andes-form-control andes-form-control--textfield andes-form-control--default login-form__input--email">
-                    <span class="andes-form-control__label">Contraseña</span>
+                    <span class="andes-form-control__label">Repetir Contraseña</span>
                     <div class="andes-form-control__control">                                                                
                         <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder' => '', 'autocomplete' => 'off', 'class' => 'andes-form-control__field form-input1'])->label(false) ?>
                     </div>
                 </label>
 
             </div>
-            <div class="recaptcha-container">
-                <div>
-                    <div id="g-recaptcha" class="g-recaptcha" style="transform:scale(0.89);transform-origin:0 0"></div>
-                </div>
-                <div class="input-error"></div>
-            </div>
+
+            <style>
+                .offset-sm-2{
+                    margin-left: 0px;
+                }   
+                .col-sm-10{
+                    flex: 0 0 100%;
+                    max-width: 100%;                    
+                }
+                
+                #registrationform-captcha{
+                    box-shadow: 0 0 0 1px rgb(0 0 0 / 25%);
+                    margin-top: 4px;
+                }
+            </style>
+
+            <?=
+            $form->field($model, 'captcha')->widget(Captcha::className(), [
+                'template' => '<div id="prueba" class="andes-form-control andes-form-control--textfield andes-form-control--default login-form__input--email"><span class="andes-form-control__label">Código Captcha</span><div id="prueba1" class="recaptcha-container">{image}</div><div id="g-recaptcha" class="g-recaptcha">{input}</div></div>',
+                'captchaAction' => ['/user-management/auth/captcha']])->label(false)
+            ?>
         </div>
         <div class="login-form__actions">                  
-            <button type="submit" class="andes-button andes-button--large andes-button--loud andes-button--full-width"><span class="andes-button__content">Continuar</span></button>
+            <!--<button type="submit" class="andes-button andes-button--large andes-button--loud andes-button--full-width"><span class="andes-button__content">Continuar</span></button>-->
+            <?= Html::submitButton('<span class="glyphicon glyphicon-ok"></span> ' . UserManagementModule::t('front', '<span class="andes-button__content">Continuar</span>'), ['class' => 'andes-button andes-button--large andes-button--loud andes-button--full-width']) ?>
             <!--<a id="registration-link" class="andes-button andes-button--large andes-button--transparent andes-button--full-width" href="/PuntoVentaOmnilife/web/user-management/auth/registration"><span class="andes-button__content">Crear cuenta</span></a>  -->                      </div>                
         <a href="#" class="andes-card__footer andes-card__footer--link andes-card__footer--border">Necesito ayuda para ingresar
             <!-- -->
