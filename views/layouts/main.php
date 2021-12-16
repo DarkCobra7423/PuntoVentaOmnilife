@@ -65,26 +65,7 @@ AppAsset::register($this);
                     Yii::$app->user->isGuest ? (
                                 ['label' => 'Contact', 'url' => ['/site/contact']]
                             ) : (''),
-                    /* [
-                      'label' => 'Backend routes',
-                      'items' => UserManagementModule::menuItems()
-                      ], */
-                    /*
-                      Yii::$app->user->isGuest ? ('') : (
-                      [
-                      'label' => '',
-                      'items' => [
-
-                      ['label' => 'Login', 'url' => ['/user-management/auth/login']],
-                      ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
-                      ['label' => 'Registration', 'url' => ['/user-management/auth/registration']],
-
-                      ['label' => 'Change own password', 'url' => ['/user-management/auth/change-own-password']],
-                      ['label' => 'Password recovery', 'url' => ['/user-management/auth/password-recovery']],
-                      ['label' => 'E-mail confirmation', 'url' => ['/user-management/auth/confirm-email']],
-                      ],
-                      ]
-                      ), */
+    
                     Yii::$app->user->isGuest ? (
 
                                 ['label' => '<i class="far fa-user"></i> Iniciar Sesion', 'url' => ['/user-management/auth/login']]
@@ -93,7 +74,8 @@ AppAsset::register($this);
                                 //'label' => '<i class="far fa-user-circle"></i> ' . Yii::$app->user->identity->username,
                                 'label' => '<i class="far fa-user-circle"></i> ' . Yii::$app->user->identity->username, //Yii::$app->globalprofileid->name,
                                 'items' => [
-                                        ['label' => 'Mi perfil', 'url' => ['/profile/myprofile']],
+                                        ['label' => 'Mi perfil', 'url' => ['/profile/myprofile/'.Yii::$app->user->identity->id]],
+                                        ['label' => 'Envios', 'url' => ['/profile/binnacle/']],
                                         ['label' => 'Cambiar contraseña', 'url' => ['/user-management/auth/change-own-password']],
                                         ['label' => 'Recuperar contraseña', 'url' => ['/user-management/auth/password-recovery']],
                                         ['label' => 'Confirmar E-mail', 'url' => ['/user-management/auth/confirm-email']],

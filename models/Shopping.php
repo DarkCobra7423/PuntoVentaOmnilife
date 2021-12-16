@@ -75,6 +75,11 @@ class Shopping extends \yii\db\ActiveRecord
         return $this->hasMany(Shoppingcart::className(), ['fkshopping' => 'idshopping']);
     }
     
+    public function getAddress(){
+        return $this->getFkshoppingaddress0();
+    }
+
+
     public function formatDatetime() {
         //$date = '2021-11-19 11:09:38';
         $value = strtotime($this->datetime);

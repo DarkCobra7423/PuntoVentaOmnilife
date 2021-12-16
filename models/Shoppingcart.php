@@ -95,4 +95,8 @@ class Shoppingcart extends \yii\db\ActiveRecord
     public function getProduct(){
         return $this->getFkproduct0();
     }
+    
+    public function getProfile(){
+        return $this->getFkprofile0();
+    }
 }

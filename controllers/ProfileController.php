@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\Profile;
 use app\models\ProfileSearch;
 use yii\web\Controller;
@@ -44,7 +45,8 @@ class ProfileController extends Controller {
         $profiles = \app\models\Profile::find()->all();
         return $this->render('binnacle', [
                     'binnacles' => $binnacles,
-                    'profiles' => $profiles
+                    'profiles' => $profiles,
+                    'model' => new \app\models\Shopping(),
         ]);
     }
 
@@ -58,19 +60,36 @@ class ProfileController extends Controller {
         ]);
     }
     
-    public function actionMyprofile() {
-   
-        /*$registres = \app\models\Profile::find()->all();
-        $profiles = \app\models\Profile::find()->all();*/
+    public function actionMyprofile($id) {
+        //SELECT * FROM `profile` WHERE `fkuser` = 5
+        
         return $this->render('myprofile', [
-                    /*'registres' => $registres,
-                    'profiles'  => $profiles*/
+            'model' => Profile::find()->where(['fkuser' => $id])->one(),
         ]);
     }
     
-    public function actionContacto(){
+    public function actionPersonaldata($id){
         
-        return ;
+        $model = $this->findModel($id);
+
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->idprofile]);
+        }
+  /*      
+        $model = new Profile();
+        //print_r($this->request->isPost);
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->save()) {
+                //return $this->redirect(['view', 'id' => $model->idprofile]);
+                return $this->redirect(Yii::$app->homeUrl);
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+*/
+        
+        
+        return $this->redirect(Yii::$app->homeUrl);
     }
 
     /*

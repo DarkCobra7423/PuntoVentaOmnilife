@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-
+<br><br><br>
 <style>
 
     /*======================
@@ -63,7 +63,7 @@ $this->title = $name;
 
 <!--https://fonts.googleapis.com/css?family=Arvo-->
 <!--https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css-->
-<div class="container">
+<div class="container" style="margin-top: 30px;">
     <section class="page_404">
         <div class="container">
             <div class="row">	

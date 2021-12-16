@@ -1,4 +1,7 @@
 <?php
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
 $this->title = 'Omnilife Castellanos';
 ?>
 <br>
@@ -9,6 +12,7 @@ $this->title = 'Omnilife Castellanos';
         <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
+            <!--<th scope="col">Producto</th>-->
             <th scope="col">Envio</th>
             <th scope="col">Dirreción</th>
             <th scope="col">Estatus</th>
@@ -22,33 +26,26 @@ $this->title = 'Omnilife Castellanos';
         foreach ($shoppingcards as $shoppingcard):
         $products = app\models\Product::find()->where(['idproduct' => $shoppingcard->fkproduct])->all();
         
-        foreach ($products as $product): 
-        //$shoping = app\models\Profile::find()->where(['idprofile' => $binnacle->idshoping])->all();
+        foreach ($products as $product):       
          
         ?>
 
         <tr>
             <th scope="row">1</th>
-            <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter">Yesenia Díaz Hernández</a></td>
+            <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><?= $shoppingcard->profile->name." ".$shoppingcard->profile->lastname ?></a></td>
             <td>
                 <?php
-                foreach ($products as $product):
-
-                echo $product->product;
-
-                endforeach;
+                echo $product->product;                
                 ?>
-
             </td>
-            <td>La casa azul con rojo frente a la cancha a lado del arbol color verde con tronco color cafe</td>
             <td>
-                <?= $binnacle->shipping ?>
-
-        <!--<select class="form-control form-control-sm">
-            <option>Enviado</option>
-            <option>No Enviado</option>
-        </select>-->
+                <?= $binnacle->address->street ?> <?= $binnacle->address->outdoornumber ?> C.P. <?= $binnacle->address->postalcode ?> - <?= $binnacle->address->municipalitymayoralty ?>, <?= $binnacle->address->state ?> |  <?= $binnacle->address->namelastname ?> - <?= $binnacle->address->telephonecontact ?>
             </td>
+            <?php $form = ActiveForm::begin(); ?>
+            <td>
+               <?= $form->field($model, 'shipping')->dropDownList([ 'No Enviado' => 'No Enviado', 'Enviado' => 'Enviado', ], ['prompt' => $binnacle->shipping ,'onchange' => '$.post("'.Yii::$app->homeUrl.'shopping/state?id="+'.$binnacle->idshopping.'+"&state="+$(this).val(), function(data){})'])->label(false) ?>                        
+            </td>
+            <?php ActiveForm::end(); ?>
         </tr>
         <?php
         endforeach;
